@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.VnfdRelevanceDao">
+    <select id="findSpecifyVnf" parameterType="java.lang.String" resultType="zjr.assm.demo.po.VnfdRelevance">
+        SELECT * FROM vnfd_relevance WHERE vnfd = #{vnfd}
+    </select>
+    <update id="updateVnfNum" parameterType="zjr.assm.demo.po.VnfdRelevance">
+        UPDATE vnfd_relevance
+        <set>
+            <if test="num != -1 ">
+                vnfd_relevance.num = #{num} AND
+            </if>
+            <if test="status != null and status != ''">
+                vnfd_relevance.status = #{status}
+            </if>
+        </set>
+        WHERE vnfd = #{vnfd}
+    </update>
+
+    <delete id="deleteVnfByVnfd" parameterType="java.lang.String">
+        DELETE FROM vnfd_relevance WHERE vnfd = #{vnfd}
+    </delete>
+
+    <select id="hasMatchRecord" parameterType="java.lang.String" resultType="int">
+        SELECT COUNT(*) FROM vnfd_relevance WHERE vnfd = #{vnfd}
+    </select>
+
+    <insert id="insertVnfdRelevance" parameterType="zjr.assm.demo.po.VnfdRelevance">
+        INSERT INTO vnfd_relevance(vnfd, num, status) VALUES (#{vnfd}, #{num}, #{status})
+    </insert>
+</mapper>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/sfcCheckCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/dynamicMenu.css">
+    <style>
+        .sfc_scale tr:last-child>td {
+            padding-top: 100px;
+        }
+        .sfc_scale tr>td:first-child{
+            font-size: 14px;
+            line-height: 14px;
+        }
+    </style>
+</head>
+<body  ng-app="uiAccordion">
+<div class="header">
+    <div class="header_logo"></div>
+</div>
+<div class="header_nav">
+    <a href="sfcMonitor.html">资源管理</a>
+    <a href="orcStrategy.html">策略管理</a>
+    <a href="vnfManager.html">服务管理</a>
+    <a href="vnfdManager.html">VNFD管理</a>
+    <a href="index.html">首页</a>
+</div>
+<div class="body" ng-controller="aCtrl">
+    <div class="container_">
+        <div class="table_container">
+            <div class="table_widgets">
+                <div class="table_widgets_head"></div>
+                <div class="sfc_floor">
+                    <figure>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="switch_floor">
+                    <figure>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="server_floor">
+                    <figure>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="content" id="content">
+                    <canvas class="canvas" id="canvas" width="1295" height="520">
+
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left_nav">
+        <table class="sfc_table sfc_scale" id="sfc_table">
+            <tr>
+                <td>SFC编号</td>
+                <td>{{selectedSfc.sfcId}}</td>
+            </tr>
+            <tr>
+                <td>SFC名称</td>
+                <td>{{selectedSfc.sfcName}}</td>
+            </tr>
+            <tr>
+                <td>用户名</td>
+                <td>{{selectedSfc.userName}}</td>
+            </tr>
+            <tr>
+                <td>状态</td>
+                <td>{{selectedSfc.status}}</td>
+            </tr>
+            <tr>
+                <td>接收到的数据包</td>
+                <td>{{selectedSfc.packageReceive}}</td>
+            </tr>
+            <tr>
+                <td>已处理的数据包</td>
+                <td>{{selectedSfc.packageDeal}}</td>
+            </tr>
+            <tr>
+                <td>吞吐量</td>
+                <td>{{selectedSfc.throughput}}</td>
+            </tr>
+            <tr>
+                <td>告警级别</td>
+                <td>{{selectedSfc.alarmLevel}}</td>
+            </tr>
+            <tr>
+                <td>当前时间</td>
+                <td>{{selectedSfc.currentTime}}</td>
+            </tr>
+            <tr>
+                <td><button type="submit" ng-click="getSfcInfo()" class="btn btn-success">扩容</button></td>
+                <td><button type="submit" ng-click="goToPreHtml()" class="btn btn-warning">缩容</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="../js/prefixfree.min.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/angular.js"></script>
+<script src="../js/angular-animate.js"></script>
+<script src="../js/angular-sanitize.js"></script>
+<script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="../js/jtopo-0.4.8-min.js"></script>
+<script src="../js/sfcScaleJs.js"></script>
+</body>
+</html>

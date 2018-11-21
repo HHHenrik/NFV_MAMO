@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.SfcLinkDeployDao">
+    <select id="selectLinkById" parameterType="int" resultType="zjr.assm.demo.po.SfcLinkDeploy">
+        SELECT * FROM sfc_link_deploy WHERE sfcId = #{sfcId}
+    </select>
+
+    <delete id="deleteDataById" parameterType="int">
+        DELETE FROM sfc_link_deploy WHERE sfcId = #{sfcId}
+    </delete>
+
+    <insert id="insertLinkResBatch" parameterType="zjr.assm.demo.po.SfcLinkDeployCustom">
+        INSERT INTO sfc_link_deploy
+        VALUES
+        <foreach collection="sfcLinkDeploys" item="sfcLinkDeploy" index="index" separator=",">
+            (#{sfcLinkDeploy.sfcId}, #{sfcLinkDeploy.results})
+        </foreach>
+    </insert>
+</mapper>

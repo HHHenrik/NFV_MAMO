@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.VnfDeployDao">
+    <insert id="insertBactch" parameterType="zjr.assm.demo.po.VnfDeployCustom">
+        INSERT INTO vnf_deploy (vnfId, sfcId, vnfd, nodeId)
+        VALUES
+        <foreach collection="vnfResList" item="vnfRes" index="index" separator=",">
+            (#{vnfRes.vnfId}, #{vnfRes.sfcId}, #{vnfRes.vnfd}, #{vnfRes.nodeId})
+        </foreach>
+    </insert>
+    
+    <select id="selectResBySfcId" parameterType="int" resultType="zjr.assm.demo.po.VnfDeploy">
+        SELECT * FROM vnf_deploy WHERE sfcId = #{sfcId} ORDER BY vnfId
+    </select>
+
+    <delete id="deleteDataById" parameterType="int">
+        DELETE FROM vnf_deploy WHERE sfcId = #{sfcId}
+    </delete>
+</mapper>

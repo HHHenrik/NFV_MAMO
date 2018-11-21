@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/sfcMCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/leftMenuCss.css">
+    <link rel="stylesheet" href="../css/rightCss.css">
+    <link rel="stylesheet" href="../css/tableCss.css">
+    <link rel="stylesheet" href="../css/tree-control.css">
+    <link rel="stylesheet" href="../css/tree-control-attribute.css">
+    <link rel="stylesheet" href="../css/sfcMonitorCss.css">
+    <style>
+        .sfc_monitor_top_menu_first{
+            margin-left: 120px;
+        }
+        .sfc_monitor_top_menu{
+            margin-right: 120px;
+        }
+        .left_nav{
+            height: 600px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div class="header">
+    <div class="header_logo"></div>
+</div>
+<div class="body">
+    <div class="left_nav tree-dark" treecontrol="" tree-model="groupsTreeModel" on-selection="treeLeafClick(node, $parentNode)" options="treeOptions">
+        {{node.name}}
+    </div>
+    <div class="container_">
+        <div class="container_nav">
+            <ul>
+                <li><a href="index.html" class="sfc_monitor_top_menu sfc_monitor_top_menu_first"><span>首页</span></a></li>
+                <li><a href="vnfdManager.html" class="sfc_monitor_top_menu"><span>VNFD管理</span></a></li>
+                <li><a href="sfcManager.html" class="sfc_monitor_top_menu"><span>服务管理</span></a></li>
+                <li><a href="strategyManager.html" class="sfc_monitor_top_menu"><span>策略管理</span></a></li>
+                <li><a href="phyMonitor.html" class="sfc_monitor_top_menu"><span>物理监控管理</span></a></li>
+            </ul>
+        </div>
+        <div class="table_container" ng-hide="allSfc">
+            <div class="table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                <div class="table_widgets_body">
+                    <div class="select_container">
+                        <label>
+                            每页展示条数：
+                            <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                    ng-options="value.recordNum for value in values"></select>
+                        </label>
+                    </div>
+                    <div class="search_container">
+                        <input id="search_key" class="search_text" type="text" placeholder="请输入关键字" value=""
+                               ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                        <input class="search_submit" type="submit" value="" ng-click="search()">
+                    </div>
+                </div>
+            </div>
+            <table class="vnf_table" id="table">
+                <thead>
+                <tr>
+                    <!--<th>选择</th>-->
+                    <!--<th>序号</th>-->
+                    <th>SfcId</th>
+                    <th>Package_Receive</th>
+                    <th>Package_Deal</th>
+                    <th>Package_Loss</th>
+                    <th>Throughput</th>
+                    <th>Alarm_Level</th>
+                    <th>Current_Time</th>
+                    <th>Operation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="data in datas" name="record">
+                    <!--<td class="checkbox"><input type="checkbox" name="checkbox"></td>-->
+                    <!--<td>{{$index + 1}}</td>-->
+                    <td>{{data.sfcId}}</td>
+                    <td>{{data.packageReceive}}</td>
+                    <td>{{data.packageDeal}}</td>
+                    <td>{{data.packageLoss}}</td>
+                    <td>{{data.throughput}}</td>
+                    <td>{{data.alarmLevel}}</td>
+                    <td>{{data.currentTime}}</td>
+                    <td class="action">
+                        <a class="check" ng-click="goToSfcMonitor($index)">
+                            <span class="check_info">查看详情</span>
+                        </a>
+                    </td>
+                    <!--<td class="actions">-->
+                        <!--<a class="check" href="#">-->
+                            <!--<span class="check_icon" ng-click="checkSfc($index)"></span>-->
+                        <!--</a>-->
+                        <!--<a class="delete" href="#" ng-click="delSingle($index)">-->
+                            <!--<span class="delete_icon"></span>-->
+                        <!--</a>-->
+                    <!--</td>-->
+                </tr>
+                </tbody>
+            </table>
+            <ul uib-pagination
+                total-items="page.totalRecord"
+                ng-model="page.pageNo"
+                max-size="5"
+                class="pagination"
+                boundary-links="true"
+                force-ellipses="false"
+                first-text="首页"
+                last-text="末页"
+                previous-text="上一页"
+                next-text="下一页"
+                items-per-page="page.recordNum"
+                ng-change="changePage()"
+                boundary-link-numbers="true">
+            </ul>
+        </div>
+        <div class="table_container" ng-hide="sfcFlag">
+            <div class="table_widgets sfc_table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+            </div>
+            <table class="vnf_table">
+                <thead>
+                <tr>
+                    <th>SFC编号</th>
+                    <th>SFC名称</th>
+                    <th>用户名</th>
+                    <th>Package_Receive</th>
+                    <th>Package_Deal</th>
+                    <th>Package_Loss</th>
+                    <th>Throughput</th>
+                    <th>Alarm_Level</th>
+                    <th>Current_time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{sfcData.sfcId}}</td>
+                    <td>{{sfcData.sfcName}}</td>
+                    <td>{{sfcData.userName}}</td>
+                    <td>{{sfcData.packageReceive}}</td>
+                    <td>{{sfcData.packageDeal}}</td>
+                    <td>{{sfcData.packageLoss}}</td>
+                    <td>{{sfcData.throughput}}</td>
+                    <td>{{sfcData.alarmLevel}}</td>
+                    <td>{{sfcData.currentTime}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="content" id="content">
+                <canvas class="canvas" id="canvas" width="1295" height="445">
+
+                </canvas>
+                <div class="vnf_node_container" ng-hide="vnfFlag">
+                    <table class="vnf_node_table">
+                        <tr>
+                            <td>VNF名称</td>
+                            <td>{{selectedVnf.vnfName}}</td>
+                        </tr>
+                        <tr>
+                            <td>VNF产品名</td>
+                            <td>{{selectedVnf.vnfProductName}}</td>
+                        </tr>
+                        <tr>
+                            <td>用户名</td>
+                            <td>{{selectedVnf.userName}}</td>
+                        </tr>
+                        <tr>
+                            <td>制造商</td>
+                            <td>{{selectedVnf.company}}</td>
+                        </tr>
+                        <tr>
+                            <td>CPU</td>
+                            <td>{{selectedVnf.cpu}}</td>
+                        </tr>
+                        <tr>
+                            <td>内存</td>
+                            <td>{{selectedVnf.memory}}</td>
+                        </tr>
+                        <tr>
+                            <td>存储</td>
+                            <td>{{selectedVnf.storage}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="vnf_node_container" ng-hide="linkFlag">
+                    <table class="vnf_node_table">
+                        <tr>
+                            <td>链路编号</td>
+                            <td>{{selectedLink.linkId}}</td>
+                        </tr>
+                        <tr>
+                            <td>起始VNF编号</td>
+                            <td>{{selectedLink.from}}</td>
+                        </tr>
+                        <tr>
+                            <td>终止VNF编号</td>
+                            <td>{{selectedLink.to}}</td>
+                        </tr>
+                        <tr>
+                            <td>带宽</td>
+                            <td>{{selectedLink.bandwidth}}</td>
+                        </tr>
+                        <tr>
+                            <td>时延</td>
+                            <td>{{selectedLink.delay}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="table_container" ng-hide="sfcNodeFlag">
+            <div class="table_widgets sfc_table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                <div class="table_widgets_body">
+                    <div class="select_container">
+                        <label>
+                            每页展示条数：
+                            <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                    ng-options="value.recordNum for value in values"></select>
+                        </label>
+                    </div>
+                    <div class="search_container">
+                        <input class="search_text" type="text" placeholder="请输入关键字" value=""
+                               ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                        <input class="search_submit" type="submit" value="" ng-click="search()">
+                    </div>
+                </div>
+            </div>
+            <div class="vnf_table_container">
+                <table class="vnf_table">
+                    <thead>
+                    <tr>
+                        <th>SfcId</th>
+                        <th>VnfId</th>
+                        <th>Cpu_Util_Rate</th>
+                        <th>Memory_Util_Rate</th>
+                        <!--<th>Storage_Util_Rate</th>-->
+                        <!--<th>Package_Receive</th>-->
+                        <!--<th>Package_Deal</th>-->
+                        <th>Cpu_Threshold_Up/Down</th>
+                        <th>Memory_Threshold_Up/Down</th>
+                        <!--<th>Storage_Threshold_Up/Down</th>-->
+                        <th>Alarm_Level</th>
+                        <th>Current_Time</th>
+                        <th>Operation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in sfcNodeData">
+                        <td>{{data.sfcId}}</td>
+                        <td>{{data.vnfId}}</td>
+                        <td>{{data.cpuUtilRate}}</td>
+                        <td>{{data.memoryUtilRate}}</td>
+                        <td>{{data.cpuThresholdUp}}/{{data.cpuThresholdDown}}</td>
+                        <td>{{data.memoryThresholdUp}}/{{data.memoryThresholdDown}}</td>
+                        <!--<td>{{sfcNodeData.Storage_Threshold_Up}}/{{sfcNodeData.Storage_Threshold_Down}}</td>-->
+                        <td>{{data.alarmLevel}}</td>
+                        <td>{{data.currentTime}}</td>
+                        <td class="action">
+                            <a class="check" ng-click="goToNodeMonitor($index)">
+                                <span class="check_info">查看详情</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul uib-pagination
+                    total-items="page.totalRecord"
+                    ng-model="page.pageNo"
+                    max-size="5"
+                    class="pagination"
+                    boundary-links="true"
+                    force-ellipses="false"
+                    first-text="首页"
+                    last-text="末页"
+                    previous-text="上一页"
+                    next-text="下一页"
+                    items-per-page="page.recordNum"
+                    ng-change="changePage()"
+                    boundary-link-numbers="true">
+                </ul>
+            </div>
+        </div>
+        <div class="table_container" ng-hide="sfcLinkFlag">
+            <div class="table_widgets sfc_table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                <div class="table_widgets_body">
+                    <div class="select_container">
+                        <label>
+                            每页展示条数：
+                            <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                    ng-options="value.recordNum for value in values"></select>
+                        </label>
+                    </div>
+                    <div class="search_container">
+                        <input class="search_text" type="text" placeholder="请输入关键字" value=""
+                               ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                        <input class="search_submit" type="submit" value="" ng-click="search()">
+                    </div>
+                </div>
+            </div>
+            <div class="vnf_table_container">
+                <table class="vnf_table">
+                    <thead>
+                    <tr>
+                        <th>SfcId</th>
+                        <th>LinkId</th>
+                        <th>Bw_Util_Rate</th>
+                        <th>Delay</th>
+                        <!--<th>Storage_Util_Rate</th>-->
+                        <!--<th>Package_Receive</th>-->
+                        <!--<th>Package_Deal</th>-->
+                        <th>Bw_Threshold_Up/Down</th>
+                        <th>Delay_Threshold</th>
+                        <!--<th>Storage_Threshold_Up/Down</th>-->
+                        <th>Alarm_Level</th>
+                        <th>Current_Time</th>
+                        <th>Operation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in sfcLinkData">
+                        <td>{{data.sfcId}}</td>
+                        <td>{{data.linkId}}</td>
+                        <td>{{data.bwUtilRate}}</td>
+                        <td>{{data.delay}}</td>
+                        <td>{{data.bwThresholdUp}}/{{data.bwThresholdDown}}</td>
+                        <td>{{data.delayThreshold}}</td>
+                        <!--<td>{{sfcNodeData.Storage_Threshold_Up}}/{{sfcNodeData.Storage_Threshold_Down}}</td>-->
+                        <td>{{data.alarmLevel}}</td>
+                        <td>{{data.currentTime}}</td>
+                        <td class="action">
+                            <a class="check" ng-click="goToLinkMonitor($index)">
+                                <span class="check_info">查看详情</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul uib-pagination
+                    total-items="page.totalRecord"
+                    ng-model="page.pageNo"
+                    max-size="5"
+                    class="pagination"
+                    boundary-links="true"
+                    force-ellipses="false"
+                    first-text="首页"
+                    last-text="末页"
+                    previous-text="上一页"
+                    next-text="下一页"
+                    items-per-page="page.recordNum"
+                    ng-change="changePage()"
+                    boundary-link-numbers="true">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer_box">
+    <div class="footer"></div>
+</div>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/angular.js"></script>
+<script src="../js/angular-tree-control.js"></script>
+<script src="../js/context-menu.js"></script>
+<script src="../js/angular-animate.js"></script>
+<script src="../js/angular-sanitize.js"></script>
+<script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="../js/jtopo-0.4.8-min.js"></script>
+<script src="../js/sfcMonitor.js"></script>
+</body>
+</html>

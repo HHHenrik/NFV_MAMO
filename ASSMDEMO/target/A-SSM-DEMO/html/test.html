@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <style>
+        .left{
+            width: 18%;
+            border: 1px solid black;
+            border-top: none;
+            margin-left: -15px;
+            margin-top: -15px;
+            /*display: inline-block;*/
+            float: left;
+            height: 632px;
+        }
+        .left_title{
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid black;
+            margin-bottom: 18px;
+        }
+        /*.btn{*/
+            /*width: 50px;*/
+            /*height: 50px;*/
+        /*}*/
+        /*.btn_circle{*/
+            /*background: url("../images/cir.png") no-repeat center;*/
+        /*}*/
+        /*.btn_line{*/
+            /*background: url("../images/line.png") no-repeat center;*/
+        /*}*/
+        /*.btn_dash{*/
+            /*background: url("../images/dash.png") no-repeat center;*/
+        /*}*/
+        /*.btn_mouse{*/
+            /*background: url("../images/shubiao.png") no-repeat center;*/
+        /*}*/
+        .base_elem{
+            width: 96%;
+            border: 1px solid black;
+            border-radius: 10px;
+            /*margin-bottom: 15px;*/
+            padding-bottom: 10px;
+            margin: 0 auto;
+        }
+        .base_elem_title, .military_elem_title{
+            text-align: center;
+            line-height: 18px;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .military_elem{
+            width: 96%;
+            border: 1px solid black;
+            border-radius: 10px;
+            /*margin-bottom: 15px;*/
+            padding-bottom: 10px;
+            margin: 15px auto;
+        }
+        /*.military_elem_title{*/
+            /*text-align: center;*/
+            /*line-height: 18px;*/
+            /*font-size: 18px;*/
+            /*margin-top: 25px;*/
+            /*margin-bottom: 25px;*/
+        /*}*/
+        /*.btn-group{*/
+            /*width: 100%;*/
+            /*margin-bottom: 15px;*/
+            /*margin-left: 30px;*/
+        /*}*/
+        .panel-title{
+            line-height: 36px;
+            font-size: 36px;
+        }
+        .left_menu{
+            padding-top: 25px;
+            padding-bottom: 15px;
+            margin-left: -15px;
+        }
+        .left_menu>li{
+            margin-bottom: 10px;
+        }
+        .left_menu>li>a{
+            line-height: 20px;
+            font-size: 20px;
+            color: black;
+        }
+        .right{
+            width: 82%;
+            /*display: inline-block;*/
+            border: 1px solid black;
+            float: right;
+        }
+        .base_elem_icon>ul li, .military_elem_icon>ul li{
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        .base_elem_icon>ul>li, .military_elem_icon>ul>li{
+            display: inline-block;
+        }
+        .base_elem_icon>ul>li>a, .military_elem_icon>ul>li>a{
+            line-height: 20px;
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body  ng-app="myApp" ng-controller="myCtrl">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="panel-title">东门快运李云龙</h1>
+        </div>
+        <div class="panel-body">
+            <div class="left">
+                <ul class="left_menu">
+                    <li><a href="" ng-click="openJson()">打开</a></li>
+                    <li><a href="" ng-click="clearCanvas()">新建</a></li>
+                    <li><a href="" ng-click="saveJson()">保存</a></li>
+                </ul>
+                <div class="left_title">
+                    <h3>网络拓扑绘制</h3>
+                </div>
+                <div class="base_elem">
+                    <div class="base_elem_title">基本元素</div>
+                    <div class="base_elem_icon">
+                        <ul>
+                            <li><a href="">鼠标</a></li>
+                            <li><a href="">圆点</a></li>
+                            <li><a href="">直线</a></li>
+                            <li><a href="">虚线</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="military_elem">
+                    <div class="military_elem_title">军事节点</div>
+                    <div class="military_elem_icon">
+                        <ul>
+                            <li><a href="">鼠标</a></li>
+                            <li><a href="">圆点</a></li>
+                            <li><a href="">直线</a></li>
+                            <li><a href="">虚线</a></li>
+                        </ul>
+                    </div>
+                    <div class="military_elem_icon">
+                        <ul>
+                            <li><a href="">鼠标</a></li>
+                            <li><a href="">圆点</a></li>
+                            <li><a href="">直线</a></li>
+                            <li><a href="">虚线</a></li>
+                        </ul>
+                    </div>
+                    <div class="military_elem_icon">
+                        <ul>
+                            <li><a href="">鼠标</a></li>
+                            <li><a href="">圆点</a></li>
+                            <li><a href="">直线</a></li>
+                            <li><a href="">虚线</a></li>
+                        </ul>
+                    </div>
+                    <div class="military_elem_icon">
+                        <ul>
+                            <li><a href="">鼠标</a></li>
+                            <li><a href="">圆点</a></li>
+                            <li><a href="">直线</a></li>
+                            <li><a href="">虚线</a></li>
+                        </ul>
+                    </div>
+                    <form enctype="multipart/form-data">
+                        <input type="file">
+                    </form>
+                </div>
+            </div>
+            <div class="right">
+                <canvas width="1000" height="610" id="canvas"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/angular.js"></script>
+<script src="../js/angular-animate.js"></script>
+<script src="../js/angular-sanitize.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/jtopo-0.4.8-min.js"></script>
+<script type="text/javascript">
+    angular.module('myApp', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+    angular.module('myApp').controller('myCtrl', function ($scope, $http) {
+        var canvas = document.getElementById('canvas');
+        var stage = new JTopo.Stage(canvas);
+        var scene = new JTopo.Scene(stage);
+
+        $scope.openJson = function () {
+            $http({
+
+            }).then(function successCallBack(response) {
+
+            }, function errorCallBack(response) {
+
+            });
+        };
+
+        $scope.clearCanvas = function () {
+
+        };
+
+        $scope.saveJson = function () {
+
+        }
+    });
+</script>
+</html>

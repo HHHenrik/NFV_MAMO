@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/sfcMCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/leftMenuCss.css">
+    <link rel="stylesheet" href="../css/rightCss.css">
+    <link rel="stylesheet" href="../css/tableCss.css">
+    <link rel="stylesheet" href="../css/tree-control.css">
+    <link rel="stylesheet" href="../css/tree-control-attribute.css">
+    <link rel="stylesheet" href="../css/sfcMonitorCss.css">
+    <style>
+        .sfc_monitor_top_menu_first{
+            margin-left: 120px;
+        }
+        .sfc_monitor_top_menu{
+            margin-right: 120px;
+        }
+        .left_nav{
+            height: 600px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div class="header">
+    <div class="header_logo"></div>
+</div>
+<div class="body">
+    <div class="left_nav tree-dark" treecontrol="" tree-model="groupsTreeModel" on-selection="treeLeafClick(node)" options="treeOptions">
+        {{node.name}}
+    </div>
+    <div class="container_">
+        <div class="container_nav">
+            <ul>
+                <li><a href="index.html" class="sfc_monitor_top_menu sfc_monitor_top_menu_first"><span>首页</span></a></li>
+                <li><a href="vnfdManager.html" class="sfc_monitor_top_menu"><span>VNFD管理</span></a></li>
+                <li><a href="sfcManager.html" class="sfc_monitor_top_menu"><span>服务管理</span></a></li>
+                <li><a href="strategyManager.html" class="sfc_monitor_top_menu"><span>策略管理</span></a></li>
+                <li><a href="sfcMonitor.html" class="sfc_monitor_top_menu"><span>虚拟监控管理</span></a></li>
+            </ul>
+        </div>
+        <div class="table_container" ng-hide="initFlag">
+            <div class="table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                <div class="table_widgets_body">
+                    <div class="select_container">
+                        <label>
+                            每页展示条数：
+                            <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                    ng-options="value.recordNum for value in values"></select>
+                        </label>
+                    </div>
+                    <div class="search_container">
+                        <input class="search_text" type="text" placeholder="请输入关键字" value="" id="search_key"
+                               ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                        <input class="search_submit" type="submit" value="" ng-click="search()">
+                    </div>
+                </div>
+            </div>
+            <table class="vnf_table">
+                <thead>
+                <tr>
+                    <th>节点名称</th>
+                    <th>制造商</th>
+                    <th>可用CPU(个)</th>
+                    <th>全部CPU(个)</th>
+                    <th>可用内存(MB)</th>
+                    <th>全部内存(MB)</th>
+                    <th>可用存储资源(GB)</th>
+                    <th>全部存储资源(GB)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="data in datas">
+                    <td>{{data.nodeId}}</td>
+                    <td>{{data.manufacturer}}</td>
+                    <td>{{data.avaCpu}}</td>
+                    <td>{{data.totalCpu}}</td>
+                    <td>{{data.avaMemory}}</td>
+                    <td>{{data.totalMemory}}</td>
+                    <td>{{data.avaStorage}}</td>
+                    <td>{{data.totalStorage}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <ul uib-pagination
+                total-items="page.totalRecord"
+                ng-model="page.pageNo"
+                max-size="5"
+                class="pagination"
+                boundary-links="true"
+                force-ellipses="false"
+                first-text="首页"
+                last-text="末页"
+                previous-text="上一页"
+                next-text="下一页"
+                items-per-page="page.recordNum"
+                ng-change="changePage()"
+                boundary-link-numbers="true">
+            </ul>
+        </div>
+        <div class="table_container" ng-hide="nodeFlag">
+            <div class="table_widgets sfc_table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                <div class="table_widgets_body">
+                    <div class="select_container">
+                        <label>
+                            每页展示条数：
+                            <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                    ng-options="value.recordNum for value in values"></select>
+                        </label>
+                    </div>
+                    <div class="search_container">
+                        <input class="search_text" type="text" placeholder="请输入关键字" value="" id="node_search_key"
+                               ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                        <input class="search_submit" type="submit" value="" ng-click="search()">
+                    </div>
+                </div>
+            </div>
+            <table class="vnf_table">
+                <thead>
+                <tr>
+                    <th>节点名称</th>
+                    <th>CPU利用率</th>
+                    <th>CPU阈值</th>
+                    <th>内存利用率</th>
+                    <th>内存阈值</th>
+                    <th>存储利用率</th>
+                    <th>存储阈值</th>
+                    <th>告警级别</th>
+                    <th>当前时刻</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="data in datas">
+                    <td>{{data.nodeId}}</td>
+                    <td>{{data.cpuUtilRate}}</td>
+                    <td>{{data.cpuThreUp}}/{{data.cpuThreDown}}</td>
+                    <td>{{data.memoryUtilRate}}</td>
+                    <td>{{data.memoryThreUp}}/{{data.memoryThreDown}}</td>
+                    <td>{{data.storageUtilRate}}</td>
+                    <td>{{data.storageThreUp}}/{{data.storageThreDown}}</td>
+                    <td>{{data.alarmLevel}}</td>
+                    <td>{{data.currentTime}}</td>
+                    <td class="action">
+                        <a class="check" ng-click="goToNodeMonitor($index)">
+                            <span class="check_info">详情</span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <ul uib-pagination
+                total-items="page.totalRecord"
+                ng-model="page.pageNo"
+                max-size="5"
+                class="pagination"
+                boundary-links="true"
+                force-ellipses="false"
+                first-text="首页"
+                last-text="末页"
+                previous-text="上一页"
+                next-text="下一页"
+                items-per-page="page.recordNum"
+                ng-change="changePage()"
+                boundary-link-numbers="true">
+            </ul>
+        </div>
+        <div class="table_container" ng-hide="linkFlag">
+            <div class="table_widgets sfc_table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                <div class="table_widgets_body">
+                    <div class="select_container">
+                        <label>
+                            每页展示条数：
+                            <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                    ng-options="value.recordNum for value in values"></select>
+                        </label>
+                    </div>
+                    <div class="search_container">
+                        <input class="search_text" type="text" placeholder="请输入关键字" value="" id="link_search_key"
+                               ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                        <input class="search_submit" type="submit" value="" ng-click="search()">
+                    </div>
+                </div>
+            </div>
+            <div class="vnf_table_container">
+                <table class="vnf_table">
+                    <thead>
+                    <tr>
+                        <th>起始点</th>
+                        <th>终止点</th>
+                        <th>带宽利用率</th>
+                        <th>带宽阈值上限/下限</th>
+                        <th>延迟</th>
+                        <th>延迟阈值</th>
+                        <th>告警级别</th>
+                        <th>当前时刻</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in datas">
+                        <td>{{data.from}}</td>
+                        <td>{{data.to}}</td>
+                        <td>{{data.bwUtilRate}}</td>
+                        <td>{{data.bwThreUp}}/{{data.bwThreDown}}</td>
+                        <td>{{data.delay}}</td>
+                        <td>{{data.delayThreshold}}</td>
+                        <td>{{data.alarmLevel}}</td>
+                        <td>{{data.currentTime}}</td>
+                        <td class="action">
+                            <a class="check" ng-click="goToLinkMonitor($index)">
+                                <span class="check_info">查看详情</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul uib-pagination
+                    total-items="page.totalRecord"
+                    ng-model="page.pageNo"
+                    max-size="5"
+                    class="pagination"
+                    boundary-links="true"
+                    force-ellipses="false"
+                    first-text="首页"
+                    last-text="末页"
+                    previous-text="上一页"
+                    next-text="下一页"
+                    items-per-page="page.recordNum"
+                    ng-change="changePage()"
+                    boundary-link-numbers="true">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer_box">
+    <div class="footer"></div>
+</div>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/angular.js"></script>
+<script src="../js/angular-tree-control.js"></script>
+<script src="../js/context-menu.js"></script>
+<script src="../js/angular-animate.js"></script>
+<script src="../js/angular-sanitize.js"></script>
+<script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="../js/jtopo-0.4.8-min.js"></script>
+<script type="text/javascript">
+    angular.module('myApp',['treeControl','ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+    angular.module('myApp').controller('myCtrl', function ($scope) {
+        $scope.treeOptions = {
+            nodeChildren:"children",
+            dirSelectable:true,
+            injectClasses:{
+                ul:"a1",
+                li:"a2",
+                liSelected:"a7",
+                iExpanded:"a3",
+                iCollapsed:"a4",
+                iLeaf:"a5",
+                label:"a6",
+                labelSelected:"a8"
+            }
+        };
+
+        $scope.groupsTreeModel = [
+            {"name":"物理资源监控管理",
+                "children":[
+                    {"name":"物理节点监控","children":[]},
+                    {"name":"物理链路监控","children":[]}
+                ]
+            }
+        ];
+
+        $scope.initFlag = false;
+        $scope.nodeFlag = true;
+        $scope.linkFlag = true;
+
+        $scope.getPhyList = function () {
+            $.ajax({
+                url:"phyNodeData.json",
+                type:"GET",
+                dataType:"json",
+                timeout:10000,
+                success:function (data) {
+                    $scope.total = data.length;
+                    $scope.phyData = data;
+                    $scope.values = [{"recordNum": 5},{"recordNum": 6},{"recordNum": 7}];
+                    $scope.selectedRecNum = $scope.values[0];
+                    $scope.currentPage = 1;
+                    if($scope.phyData.length != 0){
+                        $scope.datas = $scope.phyData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                    }else{alert("No Data!");}
+                    $scope.page={"recordNum":$scope.selectedRecNum.recordNum, "pageSize":5, "pageNo":$scope.currentPage, "totalRecord":$scope.total};
+                    $scope.$apply();
+                },
+                error:function () {
+                    alert("网络连接超时,请重试!");
+                }
+            });
+        };
+
+        $scope.changeData = function (selectedRecNum) {
+            $scope.page.recordNum = selectedRecNum.recordNum;
+            if ($scope.initFlag == false){
+                $scope.datas = $scope.phyData.slice($scope.selectedRecNum.recordNum * ($scope.page.pageNo - 1), $scope.selectedRecNum.recordNum * $scope.page.pageNo);
+                $scope.page.totalRecord = $scope.phyData.length;
+            }else if ($scope.nodeFlag == false){
+                $scope.datas = $scope.nodeData.slice($scope.selectedRecNum.recordNum * ($scope.page.pageNo - 1), $scope.selectedRecNum.recordNum * $scope.page.pageNo);
+                $scope.page.totalRecord = $scope.nodeData.length;
+            }else if ($scope.linkFlag == false){
+                $scope.datas = $scope.linkData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                $scope.page.totalRecord = $scope.linkData.length;
+            }
+        };
+        $scope.changePage = function () {
+            $scope.page.recordNum = $scope.selectedRecNum.recordNum;
+            if ($scope.initFlag == false){
+                $scope.datas = $scope.phyData.slice($scope.selectedRecNum.recordNum * ($scope.page.pageNo - 1), $scope.selectedRecNum.recordNum * $scope.page.pageNo);
+                $scope.page.totalRecord = $scope.phyData.length;
+            }else if ($scope.nodeFlag == false){
+                $scope.datas = $scope.nodeData.slice($scope.selectedRecNum.recordNum * ($scope.page.pageNo - 1), $scope.selectedRecNum.recordNum * $scope.page.pageNo);
+                $scope.page.totalRecord = $scope.nodeData.length;
+            }else if ($scope.linkFlag == false){
+                $scope.datas = $scope.linkData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                $scope.page.totalRecord = $scope.linkData.length;
+            }
+        };
+        $scope.search = function () {
+            searchByKey();
+        };
+        $scope.enterKeyUp = function (e) {
+            var keycode = window.event?e.keyCode:e.which;
+            if(keycode == 13){
+                searchByKey();
+            }
+        };
+        $scope.searChange = function () {
+            var searchKey = $('#search_key').val();
+            var nodeSearchKey = $('#node_search_key').val();
+            var linkSearchKey = $('#link_search_key').val();
+            if(searchKey == "" || nodeSearchKey == "" || linkSearchKey == ""){
+                $scope.page.recordNum = $scope.selectedRecNum.recordNum;
+                if ($scope.initFlag == false){
+                    $scope.datas = $scope.phyData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                    $scope.page.totalRecord = $scope.phyData.length;
+                }else if ($scope.nodeFlag == false){
+                    $scope.datas = $scope.nodeData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                    $scope.page.totalRecord = $scope.nodeData.length;
+                }else if ($scope.linkFlag == false){
+                    $scope.datas = $scope.linkData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                    $scope.page.totalRecord = $scope.linkData.length;
+                }
+            }
+        };
+
+        $scope.getPhyList();
+
+        $scope.treeLeafClick = function (sel) {
+            $scope.selectedNode = sel;
+            $scope.initFlag = true;
+            $scope.nodeFlag = true;
+            $scope.linkFlag = true;
+            if (sel.name == "物理节点监控") {
+                $scope.nodeFlag = false;
+                $.ajax({
+                    url: "phyNodeMonitorData.json",
+                    method: "GET",
+                    dataType: "json",
+                    timeout: 10000,
+                    success: function (data) {
+                        $scope.total = data.length;
+                        $scope.nodeData = data;
+                        $scope.values = [{"recordNum": 5},{"recordNum": 6},{"recordNum": 7}];
+                        $scope.selectedRecNum = $scope.values[0];
+                        $scope.currentPage = 1;
+                        if($scope.nodeData.length != 0){
+                            for(var i = 0; i < $scope.nodeData.length; i++){
+                                var date = new Date($scope.nodeData[i].currentTime);
+                                $scope.nodeData[i].currentTime = getDateTime(date);
+                            }
+                            $scope.datas = $scope.nodeData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                        }else{alert("No Data!");}
+                        $scope.page={"recordNum":$scope.selectedRecNum.recordNum, "pageSize":5, "pageNo":$scope.currentPage, "totalRecord":$scope.total};
+                        $scope.$apply();
+                    },
+                    error: function () {
+                        alert("网络连接超时!");
+                    }
+                });
+            } else if (sel.name == "物理链路监控") {
+                $scope.linkFlag = false;
+                $.ajax({
+                    url: "phyLinkMonitorData.json",
+                    method: "GET",
+                    dataType: "json",
+                    timeout: 10000,
+                    success: function (data) {
+                        $scope.total = data.length;
+                        $scope.linkData = data;
+                        $scope.values = [{"recordNum": 5},{"recordNum": 6},{"recordNum": 7}];
+                        $scope.selectedRecNum = $scope.values[0];
+                        $scope.currentPage = 1;
+                        if($scope.linkData.length != 0){
+                            for(var i = 0; i < $scope.linkData.length; i++){
+                                var date = new Date($scope.linkData[i].currentTime);
+                                $scope.linkData[i].currentTime = getDateTime(date);
+                            }
+                            $scope.datas = $scope.linkData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                        }else{alert("No Data!");}
+                        $scope.page={"recordNum":$scope.selectedRecNum.recordNum, "pageSize":5, "pageNo":$scope.currentPage, "totalRecord":$scope.total};
+                        $scope.$apply();
+                    },
+                    error: function () {
+                        alert("网络连接超时!");
+                    }
+                });
+            } else {
+                $scope.initFlag = false;
+                $scope.page.totalRecord = $scope.phyData.length;
+                $scope.selectedRecNum = $scope.values[0];
+                $scope.currentPage = 1;
+                $scope.datas = $scope.phyData.slice($scope.selectedRecNum.recordNum * ($scope.currentPage - 1), $scope.selectedRecNum.recordNum * $scope.currentPage);
+                $scope.$apply();
+            }
+        };
+
+        $scope.goToNodeMonitor = function ($index) {
+            var nodeId = $scope.datas[$index].nodeId;
+            var url = "phyNodeMonitor.html?nodeId=" + nodeId;
+            window.location.href = url;
+        };
+
+        $scope.goToLinkMonitor = function ($index) {
+            var fromNode = $scope.datas[$index].from;
+            var toNode = $scope.datas[$index].to;
+            var url = "phyLinkMonitor.html?from=" + fromNode + "&to=" + toNode;
+            window.location.href = url;
+        };
+
+        function getDateTime(date) {
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hh = date.getHours();
+            var mm = date.getMinutes();
+            mm = mm > 9 ? mm : "0" + mm;
+            var ss = date.getSeconds();
+            ss = ss > 9 ? ss : "0" + ss;
+            return year + "-" + month + "-" + day + " " + hh + ":" + mm + ":" + ss;
+        }
+
+        function searchByKey() {
+            var searchKey = $('#search_key').val();
+            var nodeSearchKey = $('#node_search_key').val();
+            var linkSearchKey = $('#link_search_key').val();
+            if(searchKey != "" || nodeSearchKey != "" || linkSearchKey != ""){
+                $scope.page.recordNum = $scope.selectedRecNum.recordNum;
+                var j = 0;
+                var array = [];
+                if ($scope.initFlag == false){
+                    for(var i = 0; i < $scope.phyData.length; i++){
+                        if($scope.phyData[i].nodeId == searchKey || $scope.phyData[i].manufacturer == searchKey){
+                            array[j] = $scope.phyData[i];
+                            j++;
+                        }
+                    }
+                }else if ($scope.nodeFlag == false){
+                    for(i = 0; i < $scope.nodeData.length; i++){
+                        if($scope.nodeData[i].nodeId == searchKey || $scope.nodeData[i].alarmLevel == searchKey){
+                            array[j] = $scope.nodeData[i];
+                            j++;
+                        }
+                    }
+                }else if ($scope.linkFlag == false){
+                    for(i = 0; i < $scope.linkData.length; i++){
+                        if($scope.linkData[i].from == searchKey || $scope.linkData[i].to == searchKey){
+                            array[j] = $scope.linkData[i];
+                            j++;
+                        }
+                    }
+                }
+                $scope.datas = array;
+                $scope.page.totalRecord = $scope.datas.length;
+            }else{
+                alert("请输入查找关键字!");
+            }
+        }
+    });
+</script>
+</body>
+</html>

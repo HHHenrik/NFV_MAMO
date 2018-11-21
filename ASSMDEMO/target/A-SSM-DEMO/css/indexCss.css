@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: "Times New Roman", '微软雅黑', sans-serif;
+}
+img{
+    border: none;
+    font-size: 0;
+    display: block;
+}
+.clear{
+    clear: both;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+li{
+    list-style: none;
+}
+.container{
+    width: 96%;
+    margin: 0 auto;
+    position: relative;
+    padding: 0;
+}
+.background_d{
+    width: 100%;
+    height: auto;
+    /*background: url("../images/background.jpg");*/
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    /*overflow属性指定如果内容溢出一个元素的框，会发生什么。*/
+    overflow: hidden;
+}
+.background{
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+.background_01{
+    background: url("../images/01.jpg");
+    background-size: cover;
+}
+.background_02{
+    background: url("../images/02.jpg");
+    background-size: cover;
+}
+.background_03{
+    background: url("../images/03.jpg");
+    background-size: cover;
+}
+.head{
+    height: 108px;
+    border-bottom: #c9c9c9 2px solid;
+    position: relative;
+    z-index: 10;
+    background: url("../images/nav_background.png") repeat;
+}
+.head_logo{
+    width: 300px;
+    height: 65px;
+    position: absolute;
+    top: 24px;
+    left: 2px;
+    background-image: url("../images/index-logo.png");
+}
+.head_nav{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+}
+.head_menu_list{
+    width: auto;
+    height: 68px;
+    margin-left: 450px;
+    margin-bottom: 0;
+}
+.nav_menu_list{
+    width: 20%;
+    height: 68px;
+    float: left;
+    line-height: 68px;
+    text-align: center;
+    font-size: 18px;
+    color: #8e8e8e;
+    position: relative;
+}
+.nav_menu_checked{
+    border-bottom: #00cccc 2px solid;
+}
+.head_menu_list a{
+    height: 68px;
+    width: 100%;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    transition: font-size 0.2s, color 0.5s;
+}
+.nav_menu_checked a{
+    font-size: 18px;
+    color: #00cccc;
+}
+.nav_menu_list span{
+    height: 22px;
+    width: 2px;
+    background-color: white;
+    position: absolute;
+    top: 23px;
+    left: 0;
+}
+.nav_menu_list a:hover{
+    font-size: 18px;
+    color: #00cccc;
+}
+.summary{
+    margin: 150px auto 0 auto;
+    width: 700px;
+    height: 300px;
+    position: relative;
+    z-index: 20;
+}
+.summary .left, .summary .right{
+    float: left;
+}
+.summary .nav_menu{
+    width: 80px;
+    height: 300px;
+    background: black;
+    /*opacity属性设置一个元素了透明度级别。*/
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+.summary .nav_title{
+    position: relative;
+    margin-top: -300px;
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Times New Roman", 宋体, sans-serif ;
+    color: white;
+}
+.summary .nav_title div{
+    height: 32px;
+    line-height: 28px;
+}
+.summary .nav_title div.checked{
+    background-color: deepskyblue;
+    cursor: pointer;
+}
+.vnf, .service, .strategy, .resource{
+    cursor: pointer;
+}

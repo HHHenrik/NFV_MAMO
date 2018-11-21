@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/loginCss.css">
+    <script src="../js/angular.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<h1>NFV-MANO</h1>
+<div class="container" ng-app="myApp" ng-controller="myCtrl">
+    <div class="login">
+        <h2>登 录</h2>
+        <form>
+            <input type="text" name="username" id="username" placeholder="用户名" required ng-model="userName">
+            <input type="password" name="password" id="password" placeholder="密码" required ng-model="passWord">
+            <ul class="chose">
+                <li>
+                    <input type="checkbox" id="remember_check" value="" name="checkbox">
+                    <label for="remember_check"><span class="check_span"></span>记住用户</label>
+                </li>
+            </ul>
+            <div class="submit_button">
+                <a><input type="submit" name="log_button" id="loginButton"
+                                               value="登录" ng-click="login(userName, passWord)"></a>
+            </div>
+        </form>
+    </div>
+    <div class="register">
+        <h2>注 册</h2>
+        <form>
+            <input type="text" name="Name" placeholder="用户名" required ng-model="newUser">
+            <input type="email" name="Email" placeholder="邮箱" required ng-model="userEmail">
+            <input type="password" placeholder="密码" required ng-model="newPassword">
+            <input type="text" name="Phone Number" placeholder="手机号">
+            <div class="submit_button">
+                <input type="submit" name="reg_button" id="registerButton" value="注册" ng-click="register(newUser, newPassword, userEmail)">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="copyright">
+    <p>Copyright &copy;</p>
+</div>
+<script src="../js/loginJs.js"></script>
+</body>
+</html>

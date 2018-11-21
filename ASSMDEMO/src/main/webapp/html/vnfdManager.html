@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/vnfdMCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/leftMenuCss.css">
+    <link rel="stylesheet" href="../css/rightCss.css">
+    <link rel="stylesheet" href="../css/tableCss.css">
+    <link rel="stylesheet" href="../css/modalCss.css">
+    <link rel="stylesheet" href="../css/addVnfCss.css">
+
+    <!--VNFD查看功能-->
+    <!--<style>-->
+        <!--.table_container{-->
+            <!--overflow-y: auto;-->
+        <!--}-->
+    <!--</style>-->
+
+</head>
+<body>
+    <div class="header">
+        <div class="header_logo"></div>
+    </div>
+    <div class="body">
+        <div class="left_nav">
+            <ul>
+                <li class="menu_title">
+                    <a href="index.html">
+                        <i class="home_icon icon"></i><span>首页</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="vnfdManager.html">
+                        <i class="vnf_icon icon"></i><span>VNFD管理</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="javascript:;">
+                        <i class="service_icon icon"></i><span>服务管理</span><i class="nav_content"></i>
+                    </a>
+                    <ul>
+                        <li><a href="vnfManager.html"><span>VNF管理</span></a></li>
+                        <li><a href="addSfc.html"><span>SFC创建</span></a></li>
+                        <li><a href="sfcManager.html"><span>SFC管理</span></a></li>
+                    </ul>
+                </li>
+                <li class="menu_title">
+                    <a href="strategyManager.html">
+                        <i class="strategy_icon icon"></i><span>策略管理</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="javascript:;">
+                        <i class="resource_icon icon"></i><span>资源管理</span><i class="nav_content"></i>
+                    </a>
+                    <ul>
+                        <li><a href="phyMonitor.html"><span>物理资源监控</span></a></li>
+                        <li><a href="sfcMonitor.html"><span>虚拟资源监控</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="container_" ng-app="myApp" ng-controller="myCtrl">
+            <div class="container_nav">
+                <ul>
+                    <li><a href=""><span>VNFD管理</span></a></li>
+                    <!--<li><span class="arrow_right"></span></li>-->
+                    <!--<li><a href=""><span>VNF管理</span></a></li>-->
+                </ul>
+            </div>
+            <div class="table_container">
+                <div class="table_widgets">
+                    <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                    <div class="table_widgets_body">
+                        <div class="select_container">
+                            <label>
+                                每页展示条数：
+                                <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                        ng-options="value.recordNum for value in values"></select>
+                            </label>
+                        </div>
+                        <div class="search_container">
+                            <input id="search_key" class="search_text" type="text" placeholder="请输入关键字" value=""
+                                   ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                            <input class="search_submit" type="submit" value="" ng-click="search()">
+                        </div>
+                    </div>
+                </div>
+                <table class="vnf_table" id="table">
+                    <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>序号</th>
+                        <th>产品名称</th>
+                        <th>VNFD标识</th>
+                        <th>VNFD版本</th>
+                        <th>厂商</th>
+                        <th>上传时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in datas" name="record">
+                        <td class="checkbox"><input type="checkbox" name="checkbox"></td>
+                        <td>{{$index + 1}}</td>
+                        <td>{{data.vnfProductName}}</td>
+                        <td>{{data.vnfd}}</td>
+                        <td>{{data.version}}</td>
+                        <td>{{data.company}}</td>
+                        <td>{{data.createTime}}</td>
+                        <td class="actions">
+                            <a class="check" href="#" ng-click="checkVnfd($index)">
+                                <span class="check_icon"></span>
+                            </a>
+                            <!--&lt;!&ndash;<a class="update" href="#">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<span class="update_icon"></span>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                            <a class="delete" href="#" ng-click="delSingle($index)">
+                                <span class="delete_icon"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="bottom_menu">
+                    <ul>
+                        <li class="all"><a class="del_confirm" href="#" ng-click="delQuery()"><div class="del_con">删除</div></a></li>
+                        <li class="all"><a class="sel_inverse" href="#" ng-click = "selectInverse()"><div class="sel_inv">反选</div></a></li>
+                        <li class="all"><a class="select_all" href="#" ng-click="selectAll()"><div class="sel_all">全选</div></a></li>
+                        <li class="all"><a class="upload" href="#" ng-click="addNewVnfd()"><div class="upload_vnfd">上传</div></a></li>
+                    </ul>
+                </div>
+                <ul uib-pagination
+                    total-items="page.totalRecord"
+                    ng-model="page.pageNo"
+                    max-size="5"
+                    class="pagination"
+                    boundary-links="true"
+                    force-ellipses="false"
+                    first-text="首页"
+                    last-text="末页"
+                    previous-text="上一页"
+                    next-text="下一页"
+                    items-per-page="page.recordNum"
+                    ng-change="changePage()"
+                    boundary-link-numbers="true">
+                </ul>
+            </div>
+            <div ng-controller="addModalCtrl">
+                <script type="text/ng-template" id="add.html">
+                    <div class="add_container">
+                        <div class="modal-header add_header">
+                            <span class="title">上传VNF包</span>
+                            <span class="close" ng-click="$ctrl.cancel()"></span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="add_body_left">
+                                <form id="uploadFile" enctype="multipart/form-data">
+                                    <table>
+                                        <tbody>
+                                        <tr class="vnf_info">
+                                            <td>文件</td>
+                                            <td class="upload_file"><input type="file" name="file" value="选择文件"></td>
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td></td>
+                                            <td class="create_input upload_submit"><input type="submit" value="上传" ng-click="$ctrl.upload()"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer add_footer">
+                            <button class="btn" ng-click="$ctrl.ok()">确认</button>
+                        </div>
+                    </div>
+                </script>
+            </div>
+            <div ng-controller="checkVnfdCtrl">
+                <script type="text/ng-template" id="check.html">
+                    <div class="check_container">
+                        <div class="modal-header check_header">
+                            <span class="title">VNFD信息</span>
+                            <span class="close" ng-click="$ctrl.cancel()"></span>
+                        </div>
+                        <div class="modal-body check_body">
+                            <div class="check_body_left">
+                                <h1>VNFD基本信息</h1>
+                                <table>
+                                    <tbody>
+                                        <tr class="vnf_base_info">
+                                            <td>VNFD：</td>
+                                            <td>{{$ctrl.vnfdData.vnfd}}</td>
+                                        </tr>
+                                        <tr class="vnf_base_info">
+                                            <td>版本号：</td>
+                                            <td>{{$ctrl.vnfdData.version}}</td>
+                                        </tr>
+                                        <tr class="vnf_base_info">
+                                            <td>厂商：</td>
+                                            <td>{{$ctrl.vnfdData.company}}</td>
+                                        </tr>
+                                        <tr class="vnf_base_info">
+                                            <td>产品类型：</td>
+                                            <td>{{$ctrl.vnfdData.vnfProductName}}</td>
+                                        </tr>
+                                        <tr class="vnf_base_info">
+                                            <td>CPU：</td>
+                                            <td>{{$ctrl.vnfdData.numVirtualCpu}}</td>
+                                        </tr>
+                                        <tr class="vnf_base_info">
+                                            <td>内存：</td>
+                                            <td>{{$ctrl.vnfdData.virtualMemSize}}</td>
+                                        </tr>
+                                        <tr class="vnf_base_info">
+                                            <td>存储：</td>
+                                            <td>{{$ctrl.vnfdData.sizeOfStorage}}</td>
+                                        </tr>
+                                        <tr class="vnf_base_info">
+                                            <td>上传时间：</td>
+                                            <td>{{$ctrl.vnfdData.createTime}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="check_body_right">
+                                <h1>VNFD高级信息</h1>
+                                <table>
+                                    <tbody>
+                                        <tr class="vnf_senior_info">
+                                            <td>CPU架构：</td>
+                                            <td>{{$ctrl.vnfdData.cpuArchiecture}}</td>
+                                        </tr>
+                                        <tr class="vnf_senior_info">
+                                            <td>CPU时钟数：</td>
+                                            <td>{{$ctrl.vnfdData.virtualCpuClock}}</td>
+                                        </tr>
+                                        <tr class="vnf_senior_info">
+                                            <td>需要的存储资源类型：</td>
+                                            <td>{{$ctrl.vnfdData.typeOfStorage}}</td>
+                                        </tr>
+                                        <tr class="vnf_senior_info">
+                                            <td>需要的虚拟环境：</td>
+                                            <td>{{$ctrl.vnfdData.virtualEnviroment}}</td>
+                                        </tr>
+                                        <tr class="vnf_senior_info">
+                                            <td>软件镜像地址：</td>
+                                            <td>{{$ctrl.vnfdData.swImageDesc}}</td>
+                                        </tr>
+                                        <tr class="vnf_senior_info">
+                                            <td>软件版本号：</td>
+                                            <td>{{$ctrl.vnfdData.vnfSoftwareVersion}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer check_footer">
+                            <button class="btn" ng-click="$ctrl.ok()">确认</button>
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="footer_box">
+        <div class="footer"></div>
+    </div>
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-animate.js"></script>
+    <script src="../js/angular-sanitize.js"></script>
+    <script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/leftMenuJs.js" type="text/javascript"></script>
+    <script src="../js/vnfdJs.js"></script>
+</body>
+</html>

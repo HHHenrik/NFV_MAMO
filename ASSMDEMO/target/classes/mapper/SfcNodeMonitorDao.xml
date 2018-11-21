@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.SfcNodeMonitorDao">
+    <select id="getSfcNodeList" parameterType="int" resultType="zjr.assm.demo.po.SfcNodeMonitor">
+        SELECT  FROM sfc_node_monitor WHERE sfcId = #{sfcId}
+    </select>
+
+    <select id="getSfcNodeMonitorData" parameterType="java.lang.String" resultType="zjr.assm.demo.po.SfcNodeMonitorCustom">
+        SELECT a.* FROM sfc_node_monitor a, sfc c WHERE NOT EXISTS (SELECT 1 FROM sfc_node_monitor b
+        WHERE a.sfcId = b.sfcId AND b.current_time > a.current_time) AND c.sfcName = #{sfcName} AND a.sfcId = c.sfcId ORDER BY a.vnfId
+    </select>
+
+    <select id="getNodeMonitorData" parameterType="hashmap" resultType="zjr.assm.demo.po.SfcNodeMonitorCustom">
+        SELECT * FROM sfc_node_monitor
+        <where>
+            <if test="sfcId != -1">
+                sfcId = #{sfcId}
+            </if>
+            <if test="vnfId != -1">
+                AND vnfId = #{vnfId}
+            </if>
+            <if test="beginTime != null and beginTime != ''">
+                AND `current_time` &gt;= #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND `current_time` &lt;= #{endTime}
+            </if>
+        </where>
+        ORDER BY `current_time`
+
+        <!--SELECT * FROM sfc_node_monitor WHERE sfcId = #{sfcId} AND vnfId = #{vnfId} ORDER BY `current_time-->
+    </select>
+
+    <insert id="insertSfcNodeData" parameterType="zjr.assm.demo.po.SfcNodeMonitorCustom">
+        INSERT INTO sfc_node_monitor (sfcId, vnfId, vnfd, `current_time`, cpu_util_rate,
+        memory_util_rate, storage_util_rate, package_receive, package_deal, cpu_threshold_up,
+        memory_threshold_up, storage_threshold_up, cpu_threshold_down,
+        memory_threshold_down, storage_threshold_down, alarm_level)
+        VALUES
+        <foreach collection="sfcNodeMonitorList" item="sfcNode" index="index" separator=",">
+            (#{sfcNode.sfcId}, #{sfcNode.vnfId}, #{sfcNode.vnfd}, #{sfcNode.currentTime}, #{sfcNode.cpuUtilRate},
+            #{sfcNode.memoryUtilRate}, #{sfcNode.storageUtilRate}, #{sfcNode.packageReceive}, #{sfcNode.packageDeal},
+            #{sfcNode.cpuThresholdUp}, #{sfcNode.memoryThresholdUp}, #{sfcNode.storageThresholdUp}, #{sfcNode.cpuThresholdDown},
+            #{sfcNode.memoryThresholdDown}, #{sfcNode.storageThresholdDown}, #{sfcNode.alarmLevel})
+        </foreach>
+    </insert>
+</mapper>

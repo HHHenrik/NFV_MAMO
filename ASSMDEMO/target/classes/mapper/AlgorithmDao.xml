@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.AlgorithmDao">
+    <select id="getDeployAlgInfo" resultType="zjr.assm.demo.po.Algorithm">
+        SELECT path, functionName, className FROM algorithm WHERE algorithm.status = "working" AND algorithm.function = "deploy"
+    </select>
+
+    <select id="getAllAlgorithm" resultType="zjr.assm.demo.po.Algorithm">
+        SELECT * FROM algorithm
+    </select>
+
+    <select id="isWorking" parameterType="int" resultType="java.lang.String">
+        SELECT status FROM algorithm WHERE id = #{id}
+    </select>
+
+    <select id="getWorkingAlgNum" parameterType="java.lang.String" resultType="int">
+        SELECT COUNT(*) FROM algorithm WHERE function = #{function} AND status = "working"
+    </select>
+
+    <update id="updateAlgStatus" parameterType="zjr.assm.demo.po.Algorithm">
+        UPDATE algorithm SET status = #{status} WHERE id = #{id}
+    </update>
+
+    <select id="getWorkingAlgId" resultType="int">
+        SELECT id FROM algorithm WHERE status = "working"
+    </select>
+
+    <select id="getDeleteAlgJarPath" parameterType="java.util.List" resultType="String">
+        SELECT path FROM algorithm WHERE id IN
+        <foreach collection="list" item="id" index="index" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <delete id="deleteAlgBatch" parameterType="java.util.List">
+        DELETE FROM algorithm WHERE id IN
+        <foreach collection="list" item="id" index="index" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <insert id="insertAlg" parameterType="zjr.assm.demo.po.Algorithm">
+        INSERT INTO algorithm(algName, status, functionName, path, className, function, createTime)
+        VALUES
+        (#{algName}, #{status}, #{functionName}, #{path}, #{className}, #{function}, #{createTime})
+    </insert>
+</mapper>

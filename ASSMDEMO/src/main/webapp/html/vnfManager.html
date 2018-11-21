@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/modalCss.css">
+    <link rel="stylesheet" href="../css/vnfMCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/leftMenuCss.css">
+    <link rel="stylesheet" href="../css/rightCss.css">
+    <link rel="stylesheet" href="../css/tableCss.css">
+    <link rel="stylesheet" href="../css/addVnfCss.css">
+    <link rel="stylesheet" href="../css/checkVnfCss.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header_logo"></div>
+    </div>
+    <div class="body">
+        <div class="left_nav">
+            <ul>
+                <li class="menu_title">
+                    <a href="index.html">
+                        <i class="home_icon icon"></i><span>首页</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="vnfdManager.html">
+                        <i class="vnf_icon icon"></i><span>VNFD管理</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="javascript:;">
+                        <i class="service_icon icon"></i><span>服务管理</span><i class="nav_content"></i>
+                    </a>
+                    <ul>
+                        <li><a href="vnfManager.html"><span>VNF管理</span></a></li>
+                        <li><a href="addSfc.html"><span>SFC创建</span></a></li>
+                        <li><a href="sfcManager.html"><span>SFC管理</span></a></li>
+                    </ul>
+                </li>
+                <li class="menu_title">
+                    <a href="strategyManager.html">
+                        <i class="strategy_icon icon"></i><span>策略管理</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="javascript:;">
+                        <i class="resource_icon icon"></i><span>资源管理</span><i class="nav_content"></i>
+                    </a>
+                    <ul>
+                        <li><a href="phyMonitor.html"><span>物理资源监控</span></a></li>
+                        <li><a href="sfcMonitor.html"><span>虚拟资源监控</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="container_" ng-app="myApp" ng-controller="myCtrl">
+            <div class="container_nav">
+                <ul>
+                    <li><a href=""><span>服务管理</span></a></li>
+                    <li><span class="arrow_right"></span></li>
+                    <li><a href=""><span>VNF管理</span></a></li>
+                </ul>
+            </div>
+            <div class="table_container">
+                <div class="table_widgets">
+                    <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                    <div class="table_widgets_body">
+                        <div class="select_container">
+                            <label>
+                                每页展示条数：
+                                <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                        ng-options="value.recordNum for value in values"></select>
+                            </label>
+                        </div>
+                        <div class="search_container">
+                            <input id="search_key" class="search_text" type="text" placeholder="请输入关键字" value=""
+                                   ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                            <input class="search_submit" type="submit" value="" ng-click="search()">
+                        </div>
+                    </div>
+                </div>
+                <table class="vnf_table" id="table">
+                    <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>序号</th>
+                        <th>VNF名称</th>
+                        <th>VNFD标识</th>
+                        <th>创建人</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in datas" name="record">
+                        <td class="checkbox"><input type="checkbox" name="checkbox"></td>
+                        <td>{{$index + 1}}</td>
+                        <td>{{data.vnfName}}</td>
+                        <td>{{data.vnfd}}</td>
+                        <td>{{data.userName}}</td>
+                        <td>{{data.createTime}}</td>
+                        <td class="actions">
+                            <a class="check" href="#" ng-click="checkVnf($index)">
+                                <span class="check_icon"></span>
+                            </a>
+                            <!--<a class="edit" href="#" ng-click="editVnf($index)">-->
+                                <!--<span class="edit_icon"></span>-->
+                            <!--</a>-->
+                            <a class="delete" href="#" ng-click="delSingle($index)">
+                                <span class="delete_icon"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="bottom_menu">
+                    <ul>
+                        <li class="all"><a class="delete_all" href="#" ng-click="del_all()"><div class="del_all">清空</div></a></li>
+                        <li class="all"><a class="del_confirm" href="#" ng-click="delQuery()"><div class="del_con">删除</div></a></li>
+                        <li class="all"><a class="sel_inverse" href="#" ng-click = "selectInverse()"><div class="sel_inv">反选</div></a></li>
+                        <li class="all"><a class="select_all" href="#" ng-click="selectAll()"><div class="sel_all">全选</div></a></li>
+                        <li class="all"><a class="add" href="#"><div class="add_new" ng-click="addNew()">添加</div></a></li>
+                    </ul>
+                </div>
+                <ul uib-pagination
+                    total-items="page.totalRecord"
+                    ng-model="page.pageNo"
+                    max-size="5"
+                    class="pagination"
+                    boundary-links="true"
+                    force-ellipses="false"
+                    first-text="首页"
+                    last-text="末页"
+                    previous-text="上一页"
+                    next-text="下一页"
+                    items-per-page="page.recordNum"
+                    ng-change="changePage()"
+                    boundary-link-numbers="true">
+                </ul>
+                    <script type="text/ng-template" id="add.html">
+                        <div class="add_container">
+                            <div class="modal-header add_header">
+                                <span class="title">创建VNF</span>
+                                <span class="close" ng-click="$ctrl.cancel()"></span>
+                            </div>
+                            <div class="modal-body">
+                                <div class="add_body_left">
+                                    <table>
+                                        <tbody>
+                                        <tr class="vnf_info">
+                                            <td class="vnf_info_td">名称:</td>
+                                            <td class="create_input vnf_info_td"><input type="text" placeholder="VNF名称" ng-model="$ctrl.vnfName"></td>
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td>创建人:</td>
+                                            <td class="create_input"><input type="text" placeholder="创建人" ng-model="$ctrl.userName"></td>
+                                        </tr>
+                                        <!--<tr class="vnf_info">-->
+                                            <!--<td>产品名称:</td>-->
+                                            <!--<td><i></i></td>-->
+                                        <!--</tr>-->
+                                        <tr class="vnf_info">
+                                            <td>产品类型:</td>
+                                            <td><select class="type" id="type" ng-change="$ctrl.typeChange($ctrl.selectedType)" ng-model="$ctrl.selectedType"
+                                                ng-options="type for type in $ctrl.types"></select></td>
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td>厂商:</td>
+                                            <td><select class="provider" id="provider" ng-change="$ctrl.companyChange($ctrl.selectedCompany)" ng-model="$ctrl.selectedCompany"
+                                                        ng-options="company for company in $ctrl.companys"></select></td>
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td>版本号:</td>
+                                            <!--<td>{{companys[0]}}</td>-->
+                                            <td>{{$ctrl.selectedVnf.version}}</td>
+                                            <!--<td><select class="version" id="version"></select></td>-->
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td>CPU:</td>
+                                            <td>{{$ctrl.selectedVnf.numVirtualCpu}}</td>
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td>Memory:</td>
+                                            <td>{{$ctrl.selectedVnf.virtualMemSize}}</td>
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td>Storage:</td>
+                                            <td>{{$ctrl.selectedVnf.sizeOfStorage}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer add_footer">
+                                <button class="btn" ng-click="$ctrl.ok($ctrl.vnfName,$ctrl.userName)">确认</button>
+                            </div>
+                        </div>
+                    </script>
+                <script type="text/ng-template" id="checkVnf.html">
+                    <div class="checkVnf">
+                        <div class="modal-header info_header">
+                            <span class="info_title">VNF详细信息</span>
+                            <span class="info_close" ng-click="$checkCtrl.cancel()"></span>
+                        </div>
+                        <div class="modal-body">
+                            <table>
+                                <tbody>
+                                <tr class="vnf_info_detail">
+                                    <td class="name">VNF名称:</td>
+                                    <td class="name">{{$checkCtrl.selectedData.vnfName}}</td>
+                                </tr>
+                                <tr class="vnf_info_detail">
+                                    <td class="name">创建人:</td>
+                                    <td class="name">{{$checkCtrl.selectedData.userName}}</td>
+                                </tr>
+                                <tr class="vnf_info_detail">
+                                    <td class="name">产品类型:</td>
+                                    <td class="name">{{$checkCtrl.selectedData.vnfProductName}}</td>
+                                </tr>
+                                <tr class="vnf_info_detail">
+                                    <td class="name">厂商:</td>
+                                    <td class="name">{{$checkCtrl.selectedData.company}}</td>
+                                </tr>
+                                <tr class="vnf_info_detail">
+                                    <td class="name">版本号:</td>
+                                    <td class="name">{{$checkCtrl.selectedData.version}}</td>
+                                </tr>
+                                <tr class="vnf_info_detail">
+                                    <td class="name">CPU:</td>
+                                    <td class="name">{{$checkCtrl.selectedData.numVirtualCpu}}</td>
+                                <tr class="vnf_info_detail">
+                                    <td class="name">Memory:</td>
+                                    <td class="name">{{$checkCtrl.selectedData.virtualMemSize}}</td>
+                                </tr>
+                                <tr class="vnf_info_detail">
+                                    <td class="name">Storage:</td>
+                                    <td class="name">{{$checkCtrl.selectedData.sizeOfStorage}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer check_footer">
+                            <button class="btn" ng-click="$checkCtrl.ok()">确认</button>
+                        </div>
+                    </div>
+                </script>
+                <!--<script type="text/ng-template" id="editVnf.html">-->
+                    <!--<div class="editVnf">-->
+
+                    <!--</div>-->
+
+                <!--</script>-->
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer_box">
+        <div class="footer"></div>
+    </div>
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-animate.js"></script>
+    <script src="../js/angular-sanitize.js"></script>
+    <script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/leftMenuJs.js" type="text/javascript"></script>
+    <script src="../js/vnfJs.js"></script>
+</body>
+</html>

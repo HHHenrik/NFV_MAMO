@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.VimDao">
+    <select id="findSpecifyVim" parameterType="zjr.assm.demo.po.Vim" resultType="java.lang.String">
+        SELECT serverId FROM vim WHERE virtualEnvironment = #{virtualEnvironment} AND typeOfStorage = #{typeOfStorage}
+    </select>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.ControllerSfcDao">
+    <select id="getMaxId" resultType="int">
+        SELECT a.controllerSfcId from controllersfc a WHERE NOT EXISTS
+        (SELECT 1 FROM controllersfc b WHERE b.controllerSfcId > a.controllerSfcId)
+    </select>
+
+    <insert id="insertSfc" parameterType="int">
+        INSERT INTO controllersfc(sfcId) VALUES (#{sfcId})
+    </insert>
+
+    <select id="hasRecord" resultType="int">
+        SELECT COUNT(*) FROM controllersfc
+    </select>
+
+    <select id="getControllerSfcId" parameterType="int" resultType="int">
+        SELECT controllerSfcId FROM controllersfc WHERE sfcId = #{sfcId}
+    </select>
+
+    <delete id="deleteControllerSfcId" parameterType="int">
+        DELETE  FROM controllersfc WHERE sfcId = #{sfcId}
+    </delete>
+</mapper>

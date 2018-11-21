@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.FunctionalityNodeDao">
+    <select id="getNode" resultType="zjr.assm.demo.po.FunctionalityNode">
+        SELECT * FROM functionality_node ORDER BY functionality_node.nodeId
+    </select>
+
+    <select id="getNodeById" parameterType="java.lang.String" resultType="zjr.assm.demo.po.FunctionalityNode">
+        SELECT * FROM functionality_node WHERE nodeId = #{nodeId}
+    </select>
+
+    <select id="getNodeData" parameterType="java.lang.String" resultType="zjr.assm.demo.po.FunctionalityNodeCustom">
+        SELECT * FROM functionality_node WHERE nodeId = #{nodeId}
+    </select>
+</mapper>

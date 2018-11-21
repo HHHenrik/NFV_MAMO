@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.SfcNodeDao">
+    <resultMap id="vnfdResultMap" type="zjr.assm.demo.po.SfcNodeCustom">
+        <id column="vnfd_" property="vnfd"/>
+        <result column="count_" property="count"/>
+    </resultMap>
+    <select id="finSfcNodeById" parameterType="int" resultMap="vnfdResultMap">
+        SELECT vnfd vnfd_, COUNT(*) count_ FROM sfc_node WHERE sfcId = #{sfcId} GROUP BY vnfd
+    </select>
+
+    <resultMap id="sfcNodeResMap" type="zjr.assm.demo.po.SfcNodeCustom">
+        <id column="vnfdId_" property="vnfdId"/>
+        <result column="sfcId_" property="sfcId"/>
+        <result column="vnfd_" property="vnfd"/>
+        <result column="cpu_" property="cpu"/>
+        <result column="memory_" property="memory"/>
+        <result column="storage_" property="storage"/>
+    </resultMap>
+
+    <select id="getSfcNode" parameterType="int" resultMap="sfcNodeResMap">
+        SELECT sfc_node.sfcId sfcId_, sfc_node.vnfd vnfd_, sfc_node.vnfdId vnfdId_, vnfd.numVirtualCpu cpu_, vnfd.virtualMemSize memory_, vnfd.sizeOfStorage storage_
+        FROM sfc_node, vnfd WHERE sfcId = #{sfcId} AND sfc_node.vnfd = vnfd.vnfd
+    </select>
+
+    <resultMap id="vnfNodeReaMap" type="zjr.assm.demo.po.SfcNodeCustom">
+        <id column="vnfId_" property="vnfdId"/>
+        <result column="sfcId_" property="sfcId"/>
+        <result column="vnfName_" property="vnfName"/>
+        <result column="vnfProductName_" property="vnfProductName"/>
+        <result column="company_" property="company"/>
+        <result column="cpu_" property="cpu"/>
+        <result column="memory_" property="memory"/>
+        <result column="storage_" property="storage"/>
+    </resultMap>
+
+    <select id="getVnfNodeById" parameterType="hashmap" resultMap="vnfNodeReaMap">
+        SELECT a.vnfdId vnfId_, a.sfcId sfcId_, a.vnfName vnfName_, b.vnfProductName vnfProductName_, b.userName userName_, b.company company_,
+        b.numVirtualCpu cpu_, b.sizeOfStorage storage_, b.virtualMemSize memory_ FROM sfc_node a, vnf b
+        <where>
+            a.vnfName = b.vnfName
+            <if test="sfcId != -1">
+                AND a.sfcId = #{sfcId}
+            </if>
+            <if test="vnfId != -1">
+                AND a.vnfdId = #{vnfId}
+            </if>
+        </where>
+        <!--WHERE a.sfcId = #{sfcId} AND a.vnfName = b.vnfName ORDER BY vnfId_-->
+    </select>
+
+    <select id="getVnfSum" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM sfc_node WHERE sfcId = #{sfcId}
+    </select>
+
+    <insert id="insertNodeBatch" parameterType="zjr.assm.demo.po.SfcNodeCustom">
+        INSERT INTO sfc_node
+        VALUES 
+        <foreach collection="sfcNodeList" item="sfcNode" index="index" separator=",">
+            (#{sfcNode.sfcId}, #{sfcNode.vnfd}, #{sfcNode.vnfdId}, #{sfcNode.vnfName})
+        </foreach>
+    </insert>
+
+    <select id="getSfcNodeById" parameterType="int" resultType="zjr.assm.demo.po.SfcNode">
+        SELECT * FROM sfc_node WHERE sfcId = #{sfcId} ORDER BY vnfdId
+    </select>
+    
+    <select id="selVnfByVnfName" parameterType="zjr.assm.demo.po.SfcNodeCustom" resultType="zjr.assm.demo.po.Vnf">
+        SELECT * FROM vnf WHERE vnfName = (SELECT vnfName FROM sfc_node WHERE sfcId = #{sfcId} AND vnfdId = #{vnfdId})
+    </select>
+</mapper>

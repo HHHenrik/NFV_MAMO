@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.PhyNodeMonitorDao">
+    <select id="getPhyNodeMonitorData" parameterType="hashmap" resultType="zjr.assm.demo.po.PhyNodeMonitorCustom">
+        SELECT * FROM phy_node_monitor
+        <where>
+            <if test="nodeId != null and nodeId != ''">
+                nodeId = #{nodeId}
+            </if>
+            <if test="beginTime != null and beginTime != ''">
+                AND `current_time` &gt;= #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND `current_time` &lt;= #{endTime}
+            </if>
+            ORDER BY `current_time`
+        </where>
+    </select>
+    
+    <select id="getNodeMonitorData" resultType="zjr.assm.demo.po.PhyNodeMonitorCustom">
+        SELECT a.* FROM phy_node_monitor a WHERE NOT EXISTS (SELECT 1 FROM phy_node_monitor b
+        WHERE a.nodeId = b.nodeId AND b.current_time > a.current_time);
+    </select>
+
+    <insert id="insertLinkBatch" parameterType="zjr.assm.demo.po.SfcLinkCustom">
+        INSERT INTO sfc_link
+        VALUES
+        <foreach collection="sfcLinkList" item="sfcLink" index="index" separator=",">
+            (#{sfcLink.sfcId}, #{sfcLink.from}, #{sfcLink.to}, #{sfcLink.bandwidth}, #{sfcLink.delay},
+            #{sfcLink.flag}, #{sfcLink.fromVnf}, #{sfcLink.toVnf},#{sfcLink.linkId})
+        </foreach>
+    </insert>
+
+    <insert id="insertNodeMonitorData" parameterType="zjr.assm.demo.po.PhyNodeMonitorCustom">
+        INSERT INTO phy_node_monitor (nodeId, `current_time`, alarm_level, cpu_util_rate, memory_util_rate, storage_util_rate,
+        cpu_thre_up, cpu_thre_down, memory_thre_up, memory_thre_down, storage_thre_up, storage_thre_down)
+        VALUES
+        <foreach collection="phyNodeMonitorList" item="phyNode" index="index" separator=",">
+            (#{phyNode.nodeId}, #{phyNode.currentTime}, #{phyNode.alarmLevel}, #{phyNode.cpuUtilRate}, #{phyNode.memoryUtilRate},
+            #{phyNode.storageUtilRate}, #{phyNode.cpuThreUp}, #{phyNode.cpuThreDown}, #{phyNode.memoryThreUp},
+            #{phyNode.memoryThreDown}, #{phyNode.storageThreUp}, #{phyNode.storageThreDown})
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"
+         metadata-complete="true">
+<!--====================================sfcOperation====================================-->
+    <servlet>
+        <servlet-name>vimServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.vimServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vimServlet</servlet-name>
+        <url-pattern>/demoTest</url-pattern>
+    </servlet-mapping>
+<!--====================================sfcOperation====================================-->
+
+<!--====================================fileUpload====================================-->
+    <servlet>
+        <servlet-name>fileServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.fileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fileServlet</servlet-name>
+        <url-pattern>/fileDemo</url-pattern>
+    </servlet-mapping>
+<!--====================================fileUpload====================================-->
+
+<!--====================================vnfDelete====================================-->
+    <servlet>
+        <servlet-name>vnfDelServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.VnfdDelete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vnfDelServlet</servlet-name>
+        <url-pattern>/delDemo</url-pattern>
+    </servlet-mapping>
+<!--====================================vnfDelete====================================-->
+
+<!--====================================Deploy====================================-->
+    <servlet>
+        <servlet-name>sfcDeployServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.SfcDeploy</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sfcDeployServlet</servlet-name>
+        <url-pattern>/sfcDeploy</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>sfcDeployServletController</servlet-name>
+        <servlet-class>zjr.vim.demo.SfcDeployController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sfcDeployServletController</servlet-name>
+        <url-pattern>/sfcDeployController</url-pattern>
+    </servlet-mapping>
+<!--====================================Deploy====================================-->
+
+<!--====================================PhyNodeMonitor====================================-->
+    <servlet>
+        <servlet-name>phyNodeServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.PhyNodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>phyNodeServlet</servlet-name>
+        <url-pattern>/phyNodeData</url-pattern>
+    </servlet-mapping>
+<!--====================================PhyNodeMonitor====================================-->
+
+<!--====================================PhyNodeMonitor====================================-->
+    <servlet>
+        <servlet-name>phyLinkServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.PhyLinkServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>phyLinkServlet</servlet-name>
+        <url-pattern>/phyLinkData</url-pattern>
+    </servlet-mapping>
+<!--====================================PhyNodeMonitor====================================-->
+
+<!--====================================sfcServlet====================================-->
+    <servlet>
+        <servlet-name>sfcServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.SfcServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sfcServlet</servlet-name>
+        <url-pattern>/sfcData</url-pattern>
+    </servlet-mapping>
+<!--====================================sfcServlet====================================-->
+
+<!--====================================sfcNodeServlet====================================-->
+    <servlet>
+        <servlet-name>sfcNodeServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.SfcNodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sfcNodeServlet</servlet-name>
+        <url-pattern>/sfcNodeData</url-pattern>
+    </servlet-mapping>
+<!--====================================sfcNodeServlet====================================-->
+
+<!--====================================sfcLinkServlet====================================-->
+    <servlet>
+        <servlet-name>sfcLinkServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.SfcLinkServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sfcLinkServlet</servlet-name>
+        <url-pattern>/sfcLinkData</url-pattern>
+    </servlet-mapping>
+<!--====================================sfcLinkServlet====================================-->
+
+<!--====================================sfcLinkServlet====================================-->
+    <servlet>
+        <servlet-name>generateDataServlet</servlet-name>
+        <servlet-class>zjr.vim.demo.GenerateData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>generateDataServlet</servlet-name>
+        <url-pattern>/generateDate</url-pattern>
+    </servlet-mapping>
+<!--====================================sfcLinkServlet====================================-->
+
+</web-app>

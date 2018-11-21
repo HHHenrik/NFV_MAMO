@@ -1,0 +1,82 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+li{list-style: none;}
+/*a{text-decoration: none;}*/
+body{
+    font-family: "Times New Roman", 宋体, sans-serif;
+    background: url("../images/background.jpg") no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.body{width: 100%; margin: 0 auto 8px;}
+.header_nav{
+    float: right;
+    width: 82%;
+    height: 30px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.header_nav a{
+    float: right;
+    width: 17.2%;
+    height: 100%;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+.header_nav a:hover{color: #00cccc;}
+.left_nav{width: 18%; height: 655px;}
+.container_{float: right; width: 82%; height: 621px;}
+.table_container{width: 99.5%; border: 3px solid #00cccc; margin: 0 auto; height: 621px;}
+.table_widgets_head{height: 36px; border-bottom: 1px solid #00cccc; background-color: #00cccc;opacity: 0.5;}
+.content{
+    width: 99.8%;
+    height: 583px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-left: 1px;
+    /*z-index: 99;*/
+    /*position: relative;*/
+}
+.content>canvas{
+    position: relative;
+    z-index: 99;
+}
+.left_config_panel{
+    position: fixed;
+    width: 300px;
+    height: 520px;
+    border: 3px solid black;
+    /*float: right;*/
+    z-index: 99;
+    top: 180px;
+    left: 1210px;
+    display: none;
+}
+.left_config_panel>table tr:first-child>td:first-child{
+    padding-top: 50px;
+}
+.left_config_panel>table tr:last-child>td{
+    padding-top: 80px;
+}
+.left_config_panel>table tr:last-child td button {
+    width: 80px;
+    height: 35px;
+}
+.left_config_panel>table tr:last-child td:first-child{
+    padding-left: 25px;
+}
+.left_config_panel>table tr:last-child td:last-child{
+    padding-left: 80px;
+}
+.left_config_panel>table tr>td:first-child{
+    text-align: right;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    font-size: 20px;
+    line-height: 20px;
+}
+.from_vnf, .to_vnf{
+    font-size: 20px;
+    line-height: 20px;
+}

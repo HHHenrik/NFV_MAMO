@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/sfcMCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/leftMenuCss.css">
+    <link rel="stylesheet" href="../css/rightCss.css">
+    <link rel="stylesheet" href="../css/tableCss.css">
+    <link rel="stylesheet" href="../css/tree-control.css">
+    <link rel="stylesheet" href="../css/tree-control-attribute.css">
+    <link rel="stylesheet" href="../css/sfcMonitorCss.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/sfcLinkMonitorCss.css">
+    <style>
+        .table_container{
+            height: 572px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div class="header">
+    <div class="header_logo"></div>
+</div>
+<div class="body">
+    <div class="left_nav tree-dark" treecontrol="" tree-model="groupsTreeModel" on-selection="treeLeafClick(node)" options="treeOptions">
+        {{node.name}}
+    </div>
+    <div class="container_">
+        <div class="container_nav">
+            <ul>
+                <li><a href="sfcMonitor.html"><span>虚拟资源管理</span></a></li>
+                <li><span class="arrow_right"></span></li>
+                <li><a href=""><span>链路监控管理</span></a></li>
+            </ul>
+        </div>
+        <div class="table_container" ng-hide="initFlag">
+            <div class="table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+            </div>
+            <div class="chart_container">
+
+            </div>
+        </div>
+        <div class="table_container" ng-hide="cpuFlag">
+            <div class="table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+            </div>
+            <div class="time_container">
+                <div class="time_chose begin_time">
+                    <input type="text" placeholder="请选择开始日期及时间" id="cpu_begin_time" class="time_context">
+                </div>
+                <div class="time_chose end_time">
+                    <input type="text" placeholder="请选择结束日期及时间" id="cpu_end_time" class="time_context">
+                </div>
+                <button type="button" class="check_btn btn btn-success" ng-click="getCpuTimeRange()">查询</button>
+                <button type="button" class="clear_btn btn btn-warning" ng-click="clearCpuTimeRange()">清空</button>
+            </div>
+            <div class="chart_container" id="cpu_container">
+
+            </div>
+        </div>
+        <div class="table_container" ng-hide="memoryFlag">
+            <div class="table_widgets sfc_table_widgets">
+                <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+            </div>
+            <div class="time_container">
+                <div class="time_chose begin_time">
+                    <input type="text" placeholder="请选择开始日期及时间" id="memory_begin_time" class="time_context">
+                </div>
+                <div class="time_chose end_time">
+                    <input type="text" placeholder="请选择结束日期及时间" id="memory_end_time" class="time_context">
+                </div>
+                <button type="button" class="check_btn btn btn-success">查询</button>
+                <button type="button" class="clear_btn btn btn-warning">清空</button>
+            </div>
+            <div class="chart_container" id="memory_container">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer_box">
+    <div class="footer"></div>
+</div>
+<script src="../laydate/laydate.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/highcharts.js"></script>
+<script src="../js/angular.js"></script>
+<script src="../js/angular-tree-control.js"></script>
+<script src="../js/context-menu.js"></script>
+<script src="../js/angular-animate.js"></script>
+<script src="../js/angular-sanitize.js"></script>
+<script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="../js/jtopo-0.4.8-min.js"></script>
+<script src="../js/sfcLinkMonitorJs.js"></script>
+</body>
+</html>

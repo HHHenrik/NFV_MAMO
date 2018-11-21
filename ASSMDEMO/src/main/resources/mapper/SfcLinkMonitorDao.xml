@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.SfcLinkMonitorDao">
+    <select id="getSfcLinkList" parameterType="int" resultType="zjr.assm.demo.po.SfcLinkMonitor">
+        SELECT * FROM sfc_link_monitor WHERE sfcId = #{sfcId}
+    </select>
+
+    <select id="getSfcLinkMonitorData" parameterType="java.lang.String" resultType="zjr.assm.demo.po.SfcLinkMonitorCustom">
+        SELECT a.* FROM sfc_link_monitor a, sfc c WHERE NOT EXISTS (SELECT 1 FROM sfc_link_monitor b
+        WHERE a.sfcId = b.sfcId AND b.current_time > a.current_time) AND c.sfcName = #{sfcName} AND a.sfcId = c.sfcId ORDER BY a.linkId
+    </select>
+
+    <select id="getLinkMonitorData" parameterType="hashmap" resultType="zjr.assm.demo.po.SfcLinkMonitorCustom">
+        SELECT * FROM sfc_link_monitor
+        <where>
+            <if test="sfcId != -1">
+                sfcId = #{sfcId}
+            </if>
+            <if test="linkId != -1">
+                AND linkId = #{linkId}
+            </if>
+            <if test="beginTime != null and beginTime != ''">
+                AND `current_time` &gt;= #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND `current_time` &lt;= #{endTime}
+            </if>
+        </where>
+        ORDER BY `current_time`
+
+        <!--SELECT * FROM sfc_node_monitor WHERE sfcId = #{sfcId} AND vnfId = #{vnfId} ORDER BY `current_time-->
+    </select>
+
+    <insert id="insertSfcLinkData" parameterType="zjr.assm.demo.po.SfcLinkMonitorCustom">
+        INSERT INTO sfc_link_monitor (sfcId, bw_util_rate, delay, bw_threshold_up, delay_threshold,
+        alarm_level, `current_time`, linkId, bw_threshold_down)
+        VALUES
+        <foreach collection="sfcLinkMonitorList" item="sfcLink" index="index" separator=",">
+            (#{sfcLink.sfcId}, #{sfcLink.bwUtilRate}, #{sfcLink.delay}, #{sfcLink.bwThresholdUp},
+            #{sfcLink.delayThreshold}, #{sfcLink.alarmLevel}, #{sfcLink.currentTime}, #{sfcLink.linkId}, #{sfcLink.bwThresholdDown})
+        </foreach>
+    </insert>
+</mapper>

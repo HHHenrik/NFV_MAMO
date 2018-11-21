@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.PhyLinkMonitorDao">
+    <select id="getPhyLinkMonitorData" parameterType="hashmap" resultType="zjr.assm.demo.po.PhyLinkMonitorCustom">
+        SELECT * FROM phy_link_monitor
+        <where>
+            <if test="from != null and from != ''">
+                `from` = #{from}
+            </if>
+            <if test="to != null and to != ''">
+                AND `to` = #{to}
+            </if>
+            <if test="beginTime != null and beginTime != ''">
+                AND `current_time` &gt;= #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND `current_time` &lt;= #{endTime}
+            </if>
+        </where>
+        ORDER BY `current_time`
+    </select>
+
+    <select id="getLinkMonitorData" resultType="zjr.assm.demo.po.PhyLinkMonitorCustom">
+        SELECT a.* FROM phy_link_monitor a WHERE NOT EXISTS (SELECT 1 FROM phy_link_monitor b
+        WHERE a.from = b.from AND a.to = b.to AND b.current_time > a.current_time)
+    </select>
+
+    <insert id="insertLinkMonitorData" parameterType="zjr.assm.demo.po.PhyLinkMonitorCustom">
+        INSERT INTO phy_link_monitor (`from`, `current_time`, alarm_level, `to`, bw_util_rate,bw_thre_up, bw_thre_down, delay, delay_threshold)
+        VALUES
+        <foreach collection="phyLinkMonitorList" item="phyLink" index="index" separator=",">
+            (#{phyLink.from}, #{phyLink.currentTime}, #{phyLink.alarmLevel}, #{phyLink.to}, #{phyLink.bwUtilRate},
+            #{phyLink.bwThreUp}, #{phyLink.bwThreDown}, #{phyLink.delay}, #{phyLink.delayThreshold})
+        </foreach>
+    </insert>
+</mapper>

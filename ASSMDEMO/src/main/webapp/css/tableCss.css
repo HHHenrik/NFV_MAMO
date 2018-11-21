@@ -1,0 +1,144 @@
+/*======================================================搜索======================================================*/
+.search_container{
+    float: right;
+    width: 208px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /*background: rgba(255, 255, 255, 0.5);*/
+}
+.search_text{
+    width: 165px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    outline-style: none;
+    line-height: 30px;
+    float: left;
+    color: rgba(255, 255, 255, 0.8);
+    text-indent: 5px;
+    font-family: "Times New Roman", 宋体, sans-serif;
+}
+.search_submit{
+    width: 36px;
+    height: 32px;
+    float: right;
+    border: none;
+    outline-style: none;
+    background: url("../images/search.png") darkcyan no-repeat center;
+}
+.search_submit:hover{cursor: pointer;}
+/*======================================================搜索======================================================*/
+
+/*======================================================表格======================================================*/
+table{
+    /*border-collapse 属性设置表格的边框是否被合并为一个单一的边框，还是象在标准的 HTML 中那样分开显示。*/
+    border-collapse: collapse;
+    /*border-spacing 属性设置相邻单元格的边框间的距离（仅用于"边框分离"模式）。*/
+    border-spacing: 0px;
+    width: 98%;
+    text-align: center;
+    margin: 0 auto;
+    /*margin-top: 20px;*/
+    /*box-shadow:  0px 2px 1px 5px rgba(242, 242, 242, 0.1);*/
+    /*border: 1px solid rgba(0, 0, 0, 0.5);*/
+    /*border-bottom: none;*/
+    color: white;
+    /*z-index: 10;*/
+    /*box-shadow:  0px 2px 1px 5px rgba(0, 0, 0, 0.2);*/
+    background-color: rgba(0, 0, 0, 0.3);
+}
+table:hover{cursor: default;}
+.vnf_table th{
+    /*color: white;*/
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    /*font-weight: 500;*/
+    /*border: 1px solid rgba(242, 242, 242, 0.2);*/
+}
+.vnf_table td{
+    /*border: 1px solid rgba(242, 242, 242, 0.2);*/
+    /*border-top: 1px solid rgba(242, 242, 242, 0.3);*/
+    /*border-left: 1px solid rgba(242, 242, 242, 0.3);*/
+    /*padding: 10px 0 10px 0;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*color: white;*/
+    /*z-index: 20;*/
+}
+.vnf_table tbody tr{border-bottom: 1px solid rgba(255, 255, 255, 0.1);}
+.vnf_table tbody tr:last-child{border-bottom: none;}
+.vnf_table tbody tr td{border-right: 1px solid rgba(255, 255, 255, 0.1);}
+.vnf_table tbody tr td:first-child{border-right: 1px solid rgba(255, 255, 255, 0.1);}
+.vnf_table tbody tr td:last-child{border-left: 1px solid rgba(255, 255, 255, 0.1); border-right: none;}
+/*.vnf_table tbody tr:nth-child(even){*/
+/*background-color: grey !important;*/
+/*color:#fff;*/
+/*}*/
+.vnf_table tbody tr:hover *{
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+.check, .edit, .delete, .update, .start_alg, .forbidden_alg{
+    /*margin-top: 3px;*/
+    /*padding: 5px 5px 2px 7px;*/
+    margin-right: 10px;
+    /*background-color: #00cccc;*/
+    /*border: 1px solid white;*/
+    /*outline-style: none;*/
+}
+/*.check_box, .checkbox{display: none;}*/
+.check_icon::after{content: url("../images/check.png");
+    /*padding: 4px 3px 0 3px; border: 1px solid white*/
+}
+.update_icon::after{content: url("../images/update.png");}
+.edit_icon::after{content: url("../images/edit.png");
+    /*padding: 4px 3px 0 3px; border: 1px solid white*/
+}
+.delete_icon::after{content: url("../images/delete.png");
+    /*padding: 4px 4px 0 3px; border: 1px solid white*/
+}
+.forbidden_alg_icon::after{content: url("../images/forbidden.png")}
+.start_alg_icon::after{content: url("../images/start.png");}
+/*======================================================表格======================================================*/
+
+/*======================================================分页======================================================*/
+.table_widgets_body>.select_container{float:left; width: 20%; margin-top: 10px;}
+.table_widgets_body>.select_container>label{color: white; font-size: 18px; font-weight: 500;}
+.table_widgets_body>.select_container>label>select{
+    width: 70px;
+    border: 1px solid white;
+    font-size: 16px;
+    font-family: "Times New Roman", sans-serif;
+    background: transparent;
+    color: white;
+}
+.pagination{
+    display: inline-block;
+    padding-left: 15px;
+    margin: 30px 0;
+}
+.pagination>li{display: inline;}
+.pagination>li>a, .pagination>li>span{
+    position: relative;
+    color: white;
+    padding: 8px 30px 8px 30px;
+    border: 1px solid white;
+    float: left;
+    margin-left: -0.8px;
+    /*background-color: rgba(0,0,0,0.8);*/
+    transition: all 0.5s;
+}
+/*.pagination>li>a:first-child,.pagination>li>span:first-child{margin-left: 0;}*/
+.pagination>li>a:hover, .pagination>li>span:hover,
+.pagination>li>a:focus, .pagination>li>span:focus{background-color: black;}
+.pagination>.active>a, .pagination>.active>span,
+.pagination>.active>a:hover, .pagination>.active>span:hover,
+.pagination>.active>a:focus, .pagination>.active>span:focus{cursor: default; background-color: black; z-index: 10;}
+.pagination>.disabled>a, .pagination>.disabled>span,
+.pagination>.disabled>a:hover, .pagination>.disabled>span:hover,
+.pagination>.disabled>a:focus, .pagination>.disabled>span:focus{cursor: not-allowed; color: #969696; border-color: #969696; background-color: transparent;}
+/*.pagination>.disabled>a{background-color: #00cccc;}*/
+/*.pagination>.active>a{background-color: #3399ff;}*/
+/*======================================================分页======================================================*/

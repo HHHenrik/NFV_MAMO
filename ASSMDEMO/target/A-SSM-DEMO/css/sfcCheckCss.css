@@ -1,0 +1,190 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+li{list-style: none;}
+/*a{text-decoration: none;}*/
+body{
+    font-family: "Times New Roman", 宋体, sans-serif;
+    background: url("../images/background.jpg") no-repeat;
+    background-size: cover;
+    overflow: scroll;
+}
+.body{width: 100%; margin: 0 auto 8px;}
+.header_nav{
+    float: left;
+    width: 100%;
+    height: 30px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.4);
+    position: relative;
+    z-index: 100;
+}
+.header_nav a{
+    float: right;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+/*.header_nav>a:hover{color: #00cccc;}*/
+.left_nav{width: 20%; height: 606px; position: relative; z-index: 100;}
+.container_{float: left; width: 80%; height: 606px;}
+.table_container{width: 99.5%; border: 3px solid #00cccc; margin: 0 auto; height: 606px;}
+.table_widgets_head{height: 36px; border-bottom: 1px solid #00cccc; background-color: #00cccc;opacity: 0.5;}
+.content{
+    width: 99.8%;
+    height: 568px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-left: 1px;
+    /*z-index: 99;*/
+    /*position: relative;*/
+}
+.content>canvas{
+    position: relative;
+    z-index: 99;
+}
+.from_vnf, .to_vnf{
+    font-size: 20px;
+    line-height: 20px;
+}
+.switch_floor{
+    position: fixed;
+    top: 200px;
+    perspective: 1000px;
+    width: 77.5%;
+    margin-left: 17px;
+    margin-top: 80px;
+    z-index: 0;
+}
+.server_floor{
+    position: fixed;
+    top: 200px;
+    perspective: 1000px;
+    width: 77.5%;
+    margin-left: 17px;
+    margin-top: -100px;
+    z-index: 0;
+}
+.sfc_floor {
+    position: fixed;
+    top: 200px;
+    perspective: 1000px;
+    width: 77.5%;
+    margin-left: 17px;
+    margin-top: -300px;
+    z-index: 0;
+}
+figure {
+    margin: 0;
+    width: 100%;
+    height: 29.5vw;
+    background: url("../images/04.jpg");
+    background-size: 100%;
+    transform-origin: center bottom;
+    transform-style: preserve-3d;
+    transition: 1s transform;
+}
+figure figcaption {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../images/04.jpg");
+    background-size: 100%;
+    height: 50px;
+    /*background-repeat: no-repeat;*/
+    /*background-position: bottom;*/
+    color: #fff;
+    position: relative; top: 15vw;
+    transform-origin: center top;
+    transform: rotateX(-89.9deg);
+    font-size: 1.2vw;
+    font-family: Montserrat, Arial, sans-serif;
+    text-align: center;
+    line-height: 3;
+}
+figure:before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    /*box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.1), inset 0 0 150px 150px rgba(0, 0, 0, 0.1);*/
+    transition: 1s;
+    transform: rotateX(95deg) translateZ(-80px) scale(0.75);
+    transform-origin: inherit;
+}
+figure {
+    transform: rotateX(75deg) translateZ(5vw);
+}
+figure:before {
+    /*box-shadow: 0 0 25px 25px rgba(0, 0, 0, 0.5), inset 0 0 250px 250px rgba(0, 0, 0, 0.5);*/
+    transform: rotateX(-5deg) translateZ(-80px) scale(1);
+}
+.vnf_table{
+    display: none;
+}
+.server_table{
+    display: none;
+}
+.switch_table{
+    display: none;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 98%;
+    /*text-align: center;*/
+    margin: 0 auto;
+    color: white;
+    font-size: 18px;
+    line-height: 18px;
+    /*background-color: rgba(0, 0, 0, 0.3);*/
+}
+.sfc_table tr:first-child>td:first-child,
+.vnf_table tr:first-child>td:first-child,
+.server_table tr:first-child>td:first-child,
+.switch_table tr:first-child>td:first-child{
+    padding-top: 50px;
+}
+.sfc_table tr:last-child>td {
+    padding-top: 250px;
+}
+.vnf_table tr:last-child>td {
+    padding-top: 150px;
+}
+.server_table tr:last-child>td {
+    padding-top: 120px;
+}
+.switch_table tr:last-child>td {
+    padding-top: 400px;
+}
+.sfc_table tr:last-child td button,
+.vnf_table tr:last-child td button,
+.server_table tr:last-child td button,
+.switch_table tr:last-child td button {
+    /*width: 80px;*/
+    height: 35px;
+    font-family: "Times New Roman", 宋体, sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+}
+.sfc_table tr:last-child td:first-child,
+.vnf_table tr:last-child td:first-child,
+.server_table tr:last-child td:first-child,
+.switch_table tr:last-child td:first-child{
+    padding-left: 25px;
+}
+.sfc_table tr:last-child td:last-child,
+.vnf_table tr:last-child td:last-child,
+.server_table tr:last-child td:last-child,
+.switch_table tr:last-child td:last-child{
+    padding-left: 80px;
+}
+.sfc_table tr>td:first-child,
+.vnf_table tr>td:first-child,
+.server_table tr>td:first-child,
+.switch_table tr>td:first-child{
+    text-align: right;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    font-size: 20px;
+    line-height: 20px;
+}

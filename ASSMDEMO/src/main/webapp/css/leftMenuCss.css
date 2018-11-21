@@ -1,0 +1,50 @@
+/*====================================================左侧内容====================================================*/
+.left_nav{
+    float: left;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+.left_nav a{
+    display: block;
+    overflow: hidden;
+    padding-left: 20px;
+    line-height: 46px;
+    max-height: 46px;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+.left_nav a span{margin-left: 30px;}
+.menu_title.menu_show{border-bottom: none;}
+.menu_title ul{display: none;}
+.menu_title.menu_show ul{display: block;}
+.menu_title>a:before{
+    content: "";
+    position: absolute;
+    left: 0px;
+    width: 2px;
+    height: 46px;
+    background: #00cccc;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.left_nav .icon{font-size: 20px; position: absolute;}
+.home_icon::after{content: url("../images/home.png");}
+.vnf_icon::after{content: url("../images/vnfd.png");}
+.service_icon::after{content: url("../images/service.png");}
+.strategy_icon::after{content: url("../images/strategy.png");}
+.resource_icon::after{content: url("../images/resource.png");}
+.nav_content{
+    float: right;
+    margin-right: 20px;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+.nav_content::after{content: url("../images/right_arrow.png");}
+/*.left_nav .menu_title>a span:hover{color: lime}*/
+
+.menu_show .nav_content{transform: rotate(90deg);}
+.menu_show .menu_title>a:hover{color: #00cccc;}
+.menu_show>a:before,.menu_title>a:hover:before{opacity: 1;}
+.menu_title li:hover a{color: #00cccc;}
+/*====================================================左侧内容====================================================*/

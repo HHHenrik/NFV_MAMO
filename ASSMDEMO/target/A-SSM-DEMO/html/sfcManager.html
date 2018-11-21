@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/sfcMCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/leftMenuCss.css">
+    <link rel="stylesheet" href="../css/rightCss.css">
+    <link rel="stylesheet" href="../css/tableCss.css">
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-animate.js"></script>
+    <script src="../js/angular-sanitize.js"></script>
+    <script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/leftMenuJs.js" type="text/javascript"></script>
+    <script src="../js/sfcJs.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header_logo"></div>
+    </div>
+    <div class="body">
+        <div class="left_nav">
+            <ul>
+                <li class="menu_title">
+                    <a href="index.html">
+                        <i class="home_icon icon"></i><span>首页</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="vnfdManager.html">
+                        <i class="vnf_icon icon"></i><span>VNFD管理</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="javascript:;">
+                        <i class="service_icon icon"></i><span>服务管理</span><i class="nav_content"></i>
+                    </a>
+                    <ul>
+                        <li><a href="vnfManager.html"><span>VNF管理</span></a></li>
+                        <li><a href="addSfc.html"><span>SFC创建</span></a></li>
+                        <li><a href="sfcManager.html"><span>SFC管理</span></a></li>
+                    </ul>
+                </li>
+                <li class="menu_title">
+                    <a href="strategyManager.html">
+                        <i class="strategy_icon icon"></i><span>策略管理</span><i class="nav_content"></i>
+                    </a>
+                </li>
+                <li class="menu_title">
+                    <a href="javascript:;">
+                        <i class="resource_icon icon"></i><span>资源管理</span><i class="nav_content"></i>
+                    </a>
+                    <ul>
+                        <li><a href="phyMonitor.html"><span>物理资源监控</span></a></li>
+                        <li><a href="sfcMonitor.html"><span>虚拟资源监控</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="container_" ng-app="myApp">
+            <div class="container_nav">
+                <ul>
+                    <li><a href=""><span>服务管理</span></a></li>
+                    <li><span class="arrow_right"></span></li>
+                    <li><a href=""><span>SFC管理</span></a></li>
+                </ul>
+            </div>
+            <div class="table_container" ng-controller="myCtrl">
+                <div class="table_widgets">
+                    <div class="table_widgets_head"><span class="icon"></span><span class="split_line"></span></div>
+                    <div class="table_widgets_body">
+                        <div class="select_container">
+                            <label>
+                                每页展示条数：
+                                <select class="page_record" ng-change="changeData(selectedRecNum)" ng-model="selectedRecNum"
+                                        ng-options="value.recordNum for value in values"></select>
+                            </label>
+                        </div>
+                        <div class="search_container">
+                            <input id="search_key" class="search_text" type="text" placeholder="请输入关键字" value=""
+                                   ng-change="searChange()" ng-model="searchText" ng-keyup="enterKeyUp($event)">
+                            <input class="search_submit" type="submit" value="" ng-click="search()">
+                        </div>
+                    </div>
+                </div>
+                <table class="vnf_table" id="table">
+                    <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>序号</th>
+                        <th>SFC名称</th>
+                        <th>状态</th>
+                        <th>创建人</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="data in datas" name="record">
+                        <td class="checkbox"><input type="checkbox" name="checkbox"></td>
+                        <td>{{data.sfcId}}</td>
+                        <!--<td>{{$index + 1}}</td>-->
+                        <td>{{data.sfcName}}</td>
+                        <td>{{data.status}}</td>
+                        <td>{{data.userName}}</td>
+                        <td>{{data.createTime}}</td>
+                        <td class="actions">
+                            <a class="check" href="#">
+                                <span class="check_icon" ng-click="checkSfc($index)"></span>
+                            </a>
+                            <a class="delete" href="#" ng-click="delSingle($index)">
+                                <span class="delete_icon"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="bottom_menu">
+                    <ul>
+                        <li class="all"><a class="del_confirm" href="#" ng-click="delQuery()"><div class="del_con action">删除</div></a></li>
+                        <li class="all"><a class="sel_inverse" href="#" ng-click = "selectInverse()"><div class="sel_inv action">反选</div></a></li>
+                        <li class="all"><a class="select_all" href="#" ng-click="selectAll()"><div class="sel_all action">全选</div></a></li>
+                        <li class="all"><a class="termination" href="#" ng-click="terminationSfc()"><div class="termination_sfc action">终止</div></a></li>
+                        <li class="all"><a class="wake_up" href="#" ng-click="wakeUp()"><div class="wake_up_sfc action">唤醒</div></a></li>
+                        <li class="all"><a class="hang_up" href="#" ng-click="hangUp()"><div class="hang_up_sfc action">挂起</div></a></li>
+                        <li class="all"><a class="deploy" href="#" ng-click="deploy()"><div class="deploy_sfc action">部署</div></a></li>
+                        <li class="all"><a class="add" href="addSfc.html"><div class="add_new action">添加</div></a></li>
+                    </ul>
+                </div>
+                <ul uib-pagination
+                    total-items="page.totalRecord"
+                    ng-model="page.pageNo"
+                    max-size="5"
+                    class="pagination"
+                    boundary-links="true"
+                    force-ellipses="false"
+                    first-text="首页"
+                    last-text="末页"
+                    previous-text="上一页"
+                    next-text="下一页"
+                    items-per-page="page.recordNum"
+                    ng-change="changePage()"
+                    boundary-link-numbers="true">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer_box">
+        <div class="footer"></div>
+    </div>
+</body>
+</html>

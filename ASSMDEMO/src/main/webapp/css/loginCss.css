@@ -1,0 +1,164 @@
+body{
+    /*定义font-family时,最好在最后加一个sans-serif,这样如果所列出的字体都不能用，则默认的sans-serif字体能保证调用*/
+    font-family: "Times New Roman", sans-serif;
+    text-align: center;/*水平居中*/
+    background: url("../images/background.jpg") no-repeat fixed center;/*背景图片*/
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    /*background-repeat: no-repeat;设置如何平铺对象的 background-image,no-repeat:background-image不会重复
+    repeat:背景图像将向垂直和水平方向重复。这是默认。repeat-x：只有水平位置会重复背景图像。repeat-x：只有垂直位置会重复背景图像
+    inherit：继承*/
+    /*background-attachment: fixed; background-attachment设置背景图像是否固定或者随着页面的其余部分滚动
+    scroll: 背景图片随页面的其余部分滚动。这是默认。fixed: 背景图像是固定的。inherit：继承*/
+    /*background-position: center; background-position属性设置背景图像的起始位置。*/
+    /*background-size属性指定背景图片大小。 cover:此时会保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小。*/
+    overflow: hidden;
+}
+h1{
+    font-size: 45px;   /*定义字体大小*/
+    font-weight: 500; /*定义字体粗细*/
+    letter-spacing: 4px; /*字符间距*/
+    margin: 60px 0;  /*外边距属性*/
+    color: #FFFFFF;
+}
+.container{/*内容:width * height；内边距；边框；外边距*/
+    width: 50%; /*占据页面50%*/
+    margin: 0 auto; /*水平居中*/
+    padding: 40px;/*内边距*/
+    background-color: rgba(10, 10, 10, 0.77);
+    border: 2px ridge rgba(238, 238, 238, 0.13);/*边框；ridge:定义 3D 垄状边框。其效果取决于 border-color 的值。*/
+    border-radius: 5px 5px 0 0;/*为元素添加圆角的边框*/
+    /*-moz-box-shadow: 投影方式 X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色*/
+    -moz-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    /*-webkit-box-shadow: 投影方式 X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色*/
+    -webkit-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    /*box-shadow:  投影方式 X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色*/
+    box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);/*rgba:设置颜色和透明度*/
+    border-bottom: none;/*取消底部边框*/
+    /*initial 关键字用于设置 CSS 属性为它的默认值。initial 关键字可用于任何 HTML 元素上的任何 CSS 属性。*/
+    /*border-bottom-left-radius: initial;设置左下边框角为默认值*/
+    /*border-bottom-right-radius: initial;设置右下边框角为默认值*/
+}
+.container:after{
+    content: '\200B';
+    clear: both;
+    display: block;
+    height: 0;
+}
+.login{
+    width: 45%;
+    float: left;/*左浮动*/
+    text-align: left;/*指定元素文本的水平对齐方式。*/
+    padding-right: 40px;/*右侧内边距*/
+}
+h2{
+    font-size: 35px;
+    text-align: left;
+    color: #FFF;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+ul.chose{/*只选择ul的chose*/
+    float: left;
+    list-style: none;/*简写属性在一个声明中设置所有的列表属性。none:清除ul列表属性*/
+    /*inline-block的特点是结合inline和block两种属性的特性，可以设置width和height，
+    并且元素保持行内排列的特性，基于这一点，所有行内排列并且可以设置大小的场景都是我们可以考虑使用inline-block的应用场景。*/
+    display: inline-block;/*规定元素应该生成的框的类型*/
+    width: 100%;
+    margin-bottom: 20px;
+}
+/*div p格式：选择<div>元素内的所有<p>元素，[target=-blank]格式：选择所有使用target="-blank"的元素*/
+ul.chose li input[type="checkbox"]{/*组合方式定位一个元素，只选择了一个元素*/
+    display: none;
+}
+/*div+p格式：选择所有紧接着<div>元素之后的<p>元素*/
+ul.chose li input[type="checkbox"]+label{/*选择了label*/
+    position: relative;/*指定一个元素（静态的，相对的，绝对或固定）的定位方法的类型。*/
+    padding-left: 30px;
+    border: #F0F8FF;
+    display: inline-block;
+    font-size: 13px;
+    color: #EEE;
+}
+/*p:first-child 指定只有当<p>元素是其父级的第一个子级的样式。第一个子元素span*/
+ul.chose li input[type="checkbox"]+label span:first-child{/*选择了前缀元素下的第一个span*/
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    border: 1px solid #EEE;
+    position: absolute;
+    /*top: -3px;*/
+    left: 0;
+}
+/*p:before 在每个<p>元素之前插入内容*/
+ul.chose li input[type="checkbox"]:checked+label span:first-child:before{
+    /*content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。*/
+    content: "";
+    background: url("../images/tick.png") no-repeat;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    font-size: 10px;
+    width: 10px;
+    height: 10px;
+}
+/*div,p格式: 选择所有<div>元素和<p>元素*/
+input[type="text"],input[type="password"],input[type="email"]{
+    width: 93.4%;
+    margin-bottom: 20px;
+    padding: 10px;
+    float: left;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(238, 238, 238, 0.41);
+    /*outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。*/
+    outline: none;
+    color: #FFF;
+}
+.submit_button{
+    margin-bottom: 20px;
+}
+.submit_button input[type="submit"]{
+    width: 60%;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 100;
+    background-color: transparent;
+    /*color：指定文本颜色*/
+    color: #CCC;
+    border: 1px solid rgba(238, 238, 238, 0.41);
+    /*cursor属性定义了鼠标指针放在一个元素边界范围内时所用的光标形状.pointer:光标呈现为指示链接的指针（一只手）*/
+    cursor: pointer;
+    outline: none;
+    transition: all 0.5s;
+    /*text-decoration 属性规定添加到文本的修饰。上划线、下划线等*/
+    text-decoration: none;
+}
+/*a:hover格式：选择鼠标在链接上面时*/
+.submit_button input[type="submit"]:hover{
+    background-color: #000;
+    border: 1px solid #FFF;
+    color: #FFF;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+.register{
+    width: 44%;
+    float: left;
+    border-left: 1px solid #DDD;
+    padding-left: 40px;
+    text-align: left;
+}
+.copyright{
+    clear: both;
+    text-align: center;
+    margin: 100px 20px 20px;
+}
+.copyright p{
+    color: #CCC;
+    /*line-height：设置行高*/
+    line-height: 25px;
+}

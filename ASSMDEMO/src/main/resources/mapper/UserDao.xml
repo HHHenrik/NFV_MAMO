@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.UserDao">
+    <select id="getAllUsers" resultType="zjr.assm.demo.po.User">
+        SELECT * FROM user
+    </select>
+
+    <insert id="addUser" parameterType="zjr.assm.demo.po.User">
+        INSERT INTO user(username, password) VALUES (#{username},#{password})
+    </insert>
+
+    <delete id="deleteUser" parameterType="java.lang.String">
+        DELETE FROM user WHERE username=#{username}
+    </delete>
+
+    <select id="getMatchUserCount" parameterType="zjr.assm.demo.po.User" resultType="int">
+        SELECT count(*) FROM user
+        <where>
+            <if test="username != null and username != ''">
+                user.username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                AND user.password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <select id="findUserByName" parameterType="java.lang.String" resultType="zjr.assm.demo.po.User">
+        SELECT FROM user WHERE username = #{username}
+    </select>
+</mapper>

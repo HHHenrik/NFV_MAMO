@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.SubLinkDao">
+    <select id="getTopo" resultType="zjr.assm.demo.po.SubLink">
+        SELECT * FROM sub_link
+    </select>
+
+    <select id="getLink" parameterType="hashmap" resultType="zjr.assm.demo.po.SubLinkCustom">
+        SELECT * FROM sub_link
+        <where>
+            <if test="from != null and from != ''">
+                `from` = #{from}
+            </if>
+            <if test="to != null and to != ''">
+                AND  `to` = #{to}
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+li{list-style: none;}
+a{text-decoration: none;}
+body{
+    font-family: "Times New Roman", 宋体, sans-serif;
+    background: url("../images/background.jpg") no-repeat;
+    background-size: cover;
+    overflow: scroll;
+}
+.body{width: 100%; margin: 0 auto 8px;}
+/*====================================================右侧底部菜单====================================================*/
+.bottom_menu{border: 1px solid white; height: 49px;}
+.bottom_menu:after{content: '\200B'; clear: both; display: block; height: 0;}
+.bottom_menu>ul{font-size: 0; padding: 0; margin: 0;}
+.bottom_menu>ul>li{font-size: 18px; display: inline-block; float: right; margin-right: 15px;}
+.bottom_menu>ul>li>a>div{
+    width: 42px;
+    height: 42px;
+    color: white;
+    /*margin-top: 7px;*/
+    border-radius:10px;
+    /*border: 1px solid red;*/
+    text-align: center;
+    font-weight: 500;
+    line-height: 42px;
+    /*margin: 0 auto;*/
+    transition: all 0.5s;
+}
+/*.bottom_menu>ul>li>a>div:hover{border-radius:50px;transform:rotateY(360deg);}*/
+/*.cancel, .del_confirm, .select_all, .sel_inverse{display: none;}*/
+.all{width: 36px; height: 36px; margin-left: 20px; margin-top: 3px;}
+.del_all{background-color: #66cccc;}
+.del_con{background-color: #cc6633;}
+.sel_inv{background-color: #cc6666;}
+.sel_all{background-color: #ff9966;}
+.add_new{background-color: #669933;}
+.deploy_sfc{background-color: lime;}
+.hang_up_sfc{background-color: #8e8e8e;}
+.start_sfc{background-color: green;}
+.termination_sfc{background-color: red;}
+.upload_vnfd{background-color: lightseagreen;}
+.download_vnfd{background-color: darkcyan;}
+/*.action:hover{transform:rotate(360deg);}*/
+/*====================================================右侧底部菜单====================================================*/
+/*.table_widgets_head span{*/
+    /*width: 1px;*/
+    /*height: 36px;*/
+    /*background-color: white;*/
+    /*position: absolute;*/
+    /*top: 109px;*/
+    /*left: 250px;*/
+    /*z-index: 10;*/
+/*}*/
+.left_nav{width: 12%; height: 610px; }
+.container_{width: 88%; height: 610px;}
+.table_container{height: 568px;}
+.footer_box{clear: both; background: rgba(0, 255, 255, 0.3);}
+.footer{width: 100%; height: 30px; margin: 0 auto;}

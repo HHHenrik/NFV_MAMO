@@ -1,0 +1,17 @@
+.vnf_info{
+    color: black;
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+    font-family: "Times New Roman", 宋体, sans-serif;
+}
+.create_input>input{
+    color: black;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+    font-family: "Times New Roman", 宋体, sans-serif;
+}

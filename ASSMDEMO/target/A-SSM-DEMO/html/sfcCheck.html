@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/sfcCheckCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/dynamicMenu.css">
+</head>
+<body  ng-app="uiAccordion">
+<div class="header">
+    <div class="header_logo"></div>
+</div>
+<div class="header_nav">
+    <a href="sfcMonitor.html">资源管理</a>
+    <a href="strategyManager.html">策略管理</a>
+    <a href="vnfManager.html">服务管理</a>
+    <a href="vnfdManager.html">VNFD管理</a>
+    <a href="index.html">首页</a>
+</div>
+<div class="body" ng-controller="aCtrl">
+    <div class="container_">
+        <div class="table_container">
+            <div class="table_widgets">
+                <div class="table_widgets_head"></div>
+                <div class="sfc_floor">
+                    <figure>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="switch_floor">
+                    <figure>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="server_floor">
+                    <figure>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="content" id="content">
+                    <canvas class="canvas" id="canvas" width="1295" height="520">
+
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left_nav">
+        <table class="sfc_table" id="sfc_table">
+            <tr>
+                <td>SFC编号</td>
+                <td>{{selectedSfc.sfcId}}</td>
+            </tr>
+            <tr>
+                <td>SFC名称</td>
+                <td>{{selectedSfc.sfcName}}</td>
+            </tr>
+            <tr>
+                <td>用户名</td>
+                <td>{{selectedSfc.userName}}</td>
+            </tr>
+            <tr>
+                <td>状态</td>
+                <td>{{selectedSfc.status}}</td>
+            </tr>
+            <tr>
+                <td>创建时间</td>
+                <td>{{selectedSfc.createTime}}</td>
+            </tr>
+            <tr>
+                <td><button type="submit" ng-click="getSfcInfo()" class="btn btn-success">SFC信息</button></td>
+                <td><button type="submit" ng-click="goToPreHtml()" class="btn btn-warning">返回</button></td>
+            </tr>
+        </table>
+        <table class="vnf_table" id="vnf_table">
+            <tr>
+                <td>VNF名称</td>
+                <td>{{selectedVnf.vnfName}}</td>
+            </tr>
+            <tr>
+                <td>VNF产品名</td>
+                <td>{{selectedVnf.vnfProductName}}</td>
+            </tr>
+            <tr>
+                <td>用户名</td>
+                <td>{{selectedVnf.userName}}</td>
+            </tr>
+            <tr>
+                <td>制造商</td>
+                <td>{{selectedVnf.company}}</td>
+            </tr>
+            <tr>
+                <td>CPU</td>
+                <td>{{selectedVnf.numVirtualCpu}}</td>
+            </tr>
+            <tr>
+                <td>内存</td>
+                <td>{{selectedVnf.virtualMemSize}}</td>
+            </tr>
+            <tr>
+                <td>存储</td>
+                <td>{{selectedVnf.sizeOfStorage}}</td>
+            </tr>
+            <tr>
+                <td><button type="submit" ng-click="getSfcInfo()" class="btn btn-success">SFC信息</button></td>
+                <td><button type="submit" ng-click="goToPreHtml()" class="btn btn-warning">返回</button></td>
+            </tr>
+        </table>
+        <table class="server_table" id="server_table">
+            <tr>
+                <td>服务器名称</td>
+                <td>{{selectedServer.nodeId}}</td>
+            </tr>
+            <tr>
+                <td>总CPU</td>
+                <td>{{selectedServer.totalCpu}}</td>
+            </tr>
+            <tr>
+                <td>总内存</td>
+                <td>{{selectedServer.totalMemory}}</td>
+            </tr>
+            <tr>
+                <td>总存储</td>
+                <td>{{selectedServer.totalStorage}}</td>
+            </tr>
+            <tr>
+                <td>制造商</td>
+                <td>{{selectedServer.manufacturer}}</td>
+            </tr>
+            <tr>
+                <td>可用CPU</td>
+                <td>{{selectedServer.avaCpu}}</td>
+            </tr>
+            <tr>
+                <td>可用内存</td>
+                <td>{{selectedServer.avaMemory}}</td>
+            </tr>
+            <tr>
+                <td>可用存储</td>
+                <td>{{selectedServer.avaStorage}}</td>
+            </tr>
+            <tr>
+                <td><button type="submit" ng-click="getSfcInfo()" class="btn btn-success">SFC信息</button></td>
+                <td><button type="submit" ng-click="goToPreHtml()" class="btn btn-warning">返回</button></td>
+            </tr>
+        </table>
+        <table class="switch_table" id="switch_table">
+            <tr>
+                <td>交换机名称</td>
+                <td>{{selectedSwitch.id}}</td>
+            </tr>
+            <tr>
+                <td>能力</td>
+                <td>{{selectedSwitch.capacity}}</td>
+            </tr>
+            <tr>
+                <td><button type="submit" ng-click="getSfcInfo()" class="btn btn-success">SFC信息</button></td>
+                <td><button type="submit" ng-click="goToPreHtml()" class="btn btn-warning">返回</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+    <script src="../js/prefixfree.min.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-animate.js"></script>
+    <script src="../js/angular-sanitize.js"></script>
+    <script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="../js/jtopo-0.4.8-min.js"></script>
+    <script src="../js/sfcCheck.js"></script>
+</body>
+</html>

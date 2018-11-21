@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.VnfDao">
+    <delete id="deleteVnfByName" parameterType="java.lang.String">
+        DELETE FROM vnf WHERE vnfName = #{vnfName}
+    </delete>
+
+    <select id="findVnfByUser" parameterType="java.lang.String" resultType="zjr.assm.demo.po.Vnf">
+        SELECT * FROM vnf
+        <where>
+            <if test="_parameter != null and _parameter != ''">
+                userName = #{userName,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <select id="getVnfList" resultType="zjr.assm.demo.po.Vnf">
+        SELECT * FROM vnf
+    </select>
+    <insert id="addVnf" parameterType="zjr.assm.demo.po.Vnf" >
+        INSERT INTO vnf (vnfd, vnfName, userName, vnfProductName, company, version, numVirtualCpu, sizeOfStorage, virtualMemSize, createTime)
+        VALUES (#{vnfd},#{vnfName},#{userName},#{vnfProductName},#{company},#{version},#{numVirtualCpu},#{sizeOfStorage},#{virtualMemSize},#{createTime})
+    </insert>
+    <select id="selectSfcStatus" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT status FROM sfc_node,vnf,sfc WHERE sfc_node.vnfd = #{vnfd} AND sfc_node.sfcId =sfc.sfcId AND sfc_node.vnfd = vnf.vnfd
+    </select>
+    <delete id="deleteVnfQuery" parameterType="java.util.List">
+        DELETE FROM vnf WHERE vnfName IN
+        <foreach collection="list" item="vnfName" index="index" open="(" separator="," close=")">
+               #{vnfName}
+        </foreach>
+
+    </delete>
+</mapper>

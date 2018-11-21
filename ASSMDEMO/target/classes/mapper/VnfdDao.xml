@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.VnfdDao">
+    <select id="getVnfdList" resultType="zjr.assm.demo.po.Vnfd">
+        SELECT *  FROM vnfd ORDER BY company
+    </select>
+
+    <delete id="deleteVnfd" parameterType="zjr.assm.demo.po.Vnfd">
+        DELETE FROM vnfd WHERE company = #{company} AND vnfd = #{vnfd}
+    </delete>
+
+    <select id="findVnfByVnfd" parameterType="zjr.assm.demo.po.Vnfd" resultType="zjr.assm.demo.po.Vnfd">
+        SELECT * FROM vnfd WHERE company = #{company} AND vnfd = #{vnfd}
+    </select>
+
+    <sql id="checkVnfd">
+        <if test="vnfdList != null">
+            <foreach collection="vnfdList" item="vnfd" open="AND vnfd IN (" close=")" separator=",">
+                #{vnfd}
+            </foreach>
+        </if>
+    </sql>
+
+    <delete id="deleteVnfdBatch" parameterType="zjr.assm.demo.po.VnfdCustom">
+        DELETE FROM vnfd
+        <where>
+            <include refid="checkVnfd"/>
+        </where>
+    </delete>
+    
+    <select id="hasInvalidVnf" parameterType="zjr.assm.demo.po.VnfdCustom" resultType="int">
+        SELECT COUNT(*) FROM vnfd
+        <where>
+            <include refid="checkVnfd"/>
+        </where>
+    </select>
+
+    <insert id="addVnfd" parameterType="zjr.assm.demo.po.Vnfd">
+        INSERT INTO vnfd (vnfd,version,company, vnfProductName, virtualMemSize, cpuArchiecture, numVirtualCpu, virtualCpuClock, typeOfStorage, sizeOfStorage,
+vnfSoftwareVersion,virtualEnviroment,swImageDesc) VALUES (#{vnfd},#{version},#{company}, #{vnfProductName}, #{virtualMemSize}, #{cpuArchiecture}, #{numVirtualCpu}, #{virtualCpuClock}, #{typeOfStorage}, #{sizeOfStorage},
+#{vnfSoftwareVersion},#{virtualEnviroment},#{swImageDesc})
+    </insert>
+</mapper>

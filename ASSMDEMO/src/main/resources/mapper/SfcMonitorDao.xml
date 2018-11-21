@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.SfcMonitorDao">
+    <select id="getSfcIdList" resultType="int">
+        SELECT DISTINCT sfcId FROM sfc_monitor
+    </select>
+    
+    <select id="getRecentSfcStatus" resultType="zjr.assm.demo.po.SfcMonitor">
+        SELECT a.* FROM sfc_monitor a WHERE NOT EXISTS (SELECT 1 FROM sfc_monitor b WHERE b.sfcId = a.sfcId AND b.current_time > a.current_time)
+    </select>
+
+    <select id="getSfcMonitorData" parameterType="int" resultType="zjr.assm.demo.po.SfcMonitorCustom">
+        SELECT a.* FROM sfc_monitor a WHERE NOT EXISTS
+        (SELECT 1 FROM sfc_monitor b WHERE b.sfcId = a.sfcId AND b.current_time > a.current_time) AND a.sfcId = #{sfcId}
+    </select>
+
+    <resultMap id="sfcMonitorResMap" type="zjr.assm.demo.po.SfcMonitorCustom">
+        <id column="sfcId_" property="sfcId"/>
+        <result column="current_time_" property="currentTime"/>
+        <result column="package_receive_" property="packageReceive"/>
+        <result column="package_deal_" property="packageDeal"/>
+        <result column="package_loss_" property="packageLoss"/>
+        <result column="throughput_" property="throughput"/>
+        <result column="alarm_level" property="alarmLevel"/>
+        <result column="sfc_name_" property="sfcName"/>
+        <result column="user_name_" property="userName"/>
+    </resultMap>
+
+    <select id="getSfcInfoByName" parameterType="java.lang.String" resultMap="sfcMonitorResMap">
+        SELECT a.sfcId sfcId_, a.current_time current_time_, a.package_receive package_receive_, a.package_loss package_loss_,
+        a.package_deal package_deal_, a.throughput throughput_, a.alarm_level alarm_level_, b.sfcName sfc_name_, b.userName user_name_
+        FROM sfc_monitor a, sfc b
+        WHERE NOT EXISTS (SELECT 1 FROM sfc_monitor c WHERE c.sfcId = a.sfcId AND c.current_time > a.current_time)
+        AND b.sfcName = #{sfcName} AND a.sfcId = b.sfcId
+    </select>
+
+    <insert id="insertSfcData" parameterType="zjr.assm.demo.po.SfcMonitorCustom">
+        INSERT INTO sfc_monitor (sfcId, `current_time`, package_receive, package_loss, package_deal, throughput, alarm_level)
+        VALUES
+        <foreach collection="sfcMonitorList" item="sfc" index="index" separator=",">
+            (#{sfc.sfcId}, #{sfc.currentTime}, #{sfc.packageReceive}, #{sfc.packageLoss}, #{sfc.packageDeal}, #{sfc.throughput}, #{sfc.alarmLevel})
+        </foreach>
+    </insert>
+</mapper>

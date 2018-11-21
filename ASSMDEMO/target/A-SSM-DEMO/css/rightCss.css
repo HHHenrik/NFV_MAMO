@@ -1,0 +1,36 @@
+/*====================================================右侧内容====================================================*/
+.container_{
+    float: right;
+    /*width: 88%;*/
+    /*height: 624px;*/
+    /*background: white;*/
+    /*opacity: 0.5;*/
+    /*filter: alpha(opacity=50);*/
+}
+.container_nav{background-color: rgba(255, 255, 255, 0.5); height: 6%; display: inline-block; width: 100%;
+    /*opacity: 0.5;*/
+}
+.container_nav ul{font-size: 0; margin: 0; padding: 0;}
+.container_nav ul li{
+    font-size: 20px;
+    display: inline-block;
+    margin-top: 4px;
+    margin-right: 30px;
+}
+.container_nav ul li:first-child{margin-left: 20px;}
+/*.container_nav ul li:first-child::before{content: url("../images/home1.png"); margin-right: 5px;}*/
+/*.container_nav ul li:last-child::before{content: url("../images/home1.png");  margin-right: 5px;}*/
+.container_nav span{color: white; font-size: 15px; text-align: center; line-height: 20px;}
+/*.container_nav ul li span:hover{color: green;}*/
+.arrow_right::after{content: url("../images/right_arrow1.png");}
+
+.table_container{width: 96%; border: 3px solid #00cccc; margin: 0 auto;}
+.table_widgets_head{height: 36px; border-bottom: 1px solid #00cccc; background-color: #00cccc;opacity: 0.5;}
+.table_widgets_body {height: 36px; border-bottom: 1px solid #3399ff; margin-bottom: 3px;}
+.table_widgets_body:after{
+    content: '\200B';
+    clear: both;
+    display: block;
+    height: 0;
+}
+/*====================================================右侧内容====================================================*/

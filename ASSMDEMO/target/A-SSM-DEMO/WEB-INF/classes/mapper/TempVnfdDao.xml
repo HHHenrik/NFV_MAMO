@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zjr.assm.demo.dao.TempVnfdDao">
+    <insert id="addTempVnfd" parameterType="zjr.assm.demo.po.Vnfd">
+        INSERT INTO temp_vnfd(vnfd, numVirtualCpu, virtualMemSize, sizeOfStorage, swImageDesc)
+        VALUES (#{vnfd},#{numVirtualCpu},#{virtualMemSize},#{sizeOfStorage},#{swImageDesc})
+    </insert>
+
+    <delete id="deleteVnfByVnfd" parameterType="java.lang.String">
+        DELETE FROM temp_vnfd WHERE vnfd = #{vnfd}
+    </delete>
+
+    <select id="findSwPath" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT swImageDesc FROM temp_vnfd WHERE vnfd = #{vnfd}
+    </select>
+</mapper>

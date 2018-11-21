@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <link rel="stylesheet" href="../css/drawTopoCss.css">
+    <link rel="stylesheet" href="../css/topMenuCss.css">
+    <link rel="stylesheet" href="../css/dynamicMenu.css">
+    <link rel="stylesheet" href="../css/modalCss.css">
+    <link rel="stylesheet" href="../css/addVnfCss.css">
+    <link rel="stylesheet" href="../css/addSfc.css">
+    <style>
+        .vnf_container{
+            height: 500px;
+            overflow-y: auto;
+            font-family: "Times New Roman", 宋体, sans-serif;
+            border-bottom: 2px solid #00F7DE;
+            margin-top: 30px;
+        }
+        .vnf_container_table{
+            width: 250px;
+            height: 60px;
+            line-height: 12px;
+            font-size: 12px;
+            font-family: "Times New Roman", 宋体, sans-serif;
+        }
+        .vnf_table_container{
+            border-radius: 40px;
+            width: 250px;
+            height: 60px;
+            border: 3px solid #5bc0de;
+            overflow: hidden;
+            margin-top: 15px;
+            background-color: white;
+            margin-left: 5px;
+        }
+        .image_container{
+            width: 70px;
+            text-align: center;
+        }
+        .image_name{
+            width: 70px;
+            text-align: center;
+        }
+        .vnf_first_td{
+            width: 70px;
+            border-right: #00F7DE 2px solid;
+        }
+        .first_row{
+            padding-top: 3px;
+        }
+        .first_col{
+            padding-left: 3px;
+        }
+    </style>
+</head>
+<body  ng-app="uiAccordion" id="myApp">
+<div class="header">
+    <div class="header_logo"></div>
+</div>
+<div class="header_nav">
+    <a href="sfcMonitor.html">资源管理</a>
+    <a href="strategyManager.html">策略管理</a>
+    <a href="sfcManager.html">服务管理</a>
+    <a href="vnfdManager.html">VNFD管理</a>
+    <a href="index.html">首页</a>
+</div>
+<div class="body" ng-controller="aCtrl">
+    <div class="left_nav">
+        <div class="vnf_container">
+            <div class="vnf_table_container" ng-repeat="group in groups">
+                <table class="vnf_container_table">
+                    <tr>
+                        <td rowspan="3" class="vnf_first_td">
+                            <div class="image_container" ondrop="drop(event)">
+                                <p>&nbsp;</p>
+                                <img src="../images/circle.png" draggable="true" ondragstart="drag(event)" name="{{$index}}">
+                                <p class="image_name">{{group.vnfProductName}}</p>
+                            </div>
+                        </td>
+                        <td class="first_row first_col">名称：{{group.vnfName}}</td>
+                        <td class="first_row">版本：{{group.version}}</td>
+                    </tr>
+                    <tr>
+                        <td class="first_col">制造商：{{group.company}}</td>
+                        <td>CPU：{{group.numVirtualCpu}}</td>
+                    </tr>
+                    <tr>
+                        <td class="first_col">Memory：{{group.virtualMemSize}}</td>
+                        <td>Storage：{{group.sizeOfStorage}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--<uib-accordion close-others="false">-->
+            <!--&lt;!&ndash;注意是第一层重复还是第第二层重复，效果不同&ndash;&gt;-->
+            <!--<div uib-accordion-group class="panel-default" heading="VNF">-->
+                <!--<div uib-accordion-group class="panel-default" heading="{{group.vnfName}}" ng-repeat="group in groups">-->
+                    <!--<div class="add_to_canvas" ng-click="addToCanvas($index)">添加</div>-->
+                    <!--type:{{group.vnfProductName}}<br>-->
+                    <!--version:{{group.version}}<br>-->
+                    <!--manufacturer:{{group.company}}<br>-->
+                    <!--cpu:{{group.numVirtualCpu}}<br>-->
+                    <!--memory:{{group.virtualMemSize}}<br>-->
+                    <!--storage:{{group.sizeOfStorage}}-->
+                    <!--&lt;!&ndash;<span class="add_to_canvas"></span>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</uib-accordion>-->
+    </div>
+    <div class="container_">
+        <div class="table_container">
+            <div class="table_widgets">
+                <div class="table_widgets_head"></div>
+                <div class="content" id="content">
+                    <div class="menu_icon">
+                        <ul>
+                            <li><a class="save_icon" ng-click="sfc_save()"><i></i></a></li>
+                            <!--<li><a class="check_icon"><i></i></a></li>-->
+                            <li><a class="clear_icon" ng-click="canvas_clear()"><i></i></a></li>
+                            <li><a class="logout_icon" ng-click="canvas_logout()"><i></i></a></li>
+                        </ul>
+                    </div>
+                    <ul id="node_context_menu">
+                        <!--<li><a>详情</a></li>-->
+                        <li><a>删除</a></li>
+                    </ul>
+                    <ul id="link_context_menu">
+                        <li><a>详情</a></li>
+                        <li><a>删除</a></li>
+                    </ul>
+                    <canvas class="canvas" id="canvas" width="1295" height="550" ondrop="drop(event)">
+
+                    </canvas>
+                </div>
+                <div id="left_config_panel" class="left_config_panel">
+                    <table>
+                        <!--<tr>-->
+                        <!--<td>链路名称</td>-->
+                        <!--<td><input type="text" ng-model="linkName" id="link_name"></td>-->
+                        <!--</tr>-->
+                        <tr>
+                            <td>起始VNF</td>
+                            <td class="from_vnf">{{selectedLink.fromVnf}}</td>
+                        </tr>
+                        <tr>
+                            <td>终止VNF</td>
+                            <td class="to_vnf">{{selectedLink.toVnf}}</td>
+                        </tr>
+                        <tr>
+                            <td>带宽</td>
+                            <td><input type="text" ng-model="bandwidth"></td>
+                        </tr>
+                        <tr>
+                            <td>延迟</td>
+                            <td><input type="text" ng-model="delay"></td>
+                        </tr>
+                        <tr>
+                            <td>分支号</td>
+                            <td><input type="text" ng-model="branchNum"></td>
+                        </tr>
+                        <tr>
+                            <td><button type="submit" ng-click="linkSave()">保存</button></td>
+                            <td><button type="submit" ng-click="linkRest()">重置</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <script type="text/ng-template" id="saveSfc.html">
+                    <div class="add_container">
+                        <div class="modal-header add_header">
+                            <span class="title">保存SFC</span>
+                            <span class="close" ng-click="$ctrl.cancel()"></span>
+                        </div>
+                        <div class="modal-body">
+                            <table>
+                                <tr class="vnf_info">
+                                    <td class="vnf_info_td">名称:</td>
+                                    <td class="create_input vnf_info_td"><input type="text" ng-model="$ctrl.sfcName"></td>
+                                </tr>
+                                <tr class="vnf_info">
+                                    <td>创建人:</td>
+                                    <td class="create_input"><input type="text" ng-model="$ctrl.userName"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer add_footer">
+                            <button class="btn" ng-click="$ctrl.ok($ctrl.sfcName,$ctrl.userName)">确认</button>
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/angular.js"></script>
+<script src="../js/angular-animate.js"></script>
+<script src="../js/angular-sanitize.js"></script>
+<script src="../js/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="../js/jtopo-0.4.8-min.js"></script>
+<script src="../js/addSfc.js"></script>
+<!--<script type="text/javascript">-->
+
+<!--</script>-->
+</body>
+</html>
