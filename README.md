@@ -1,4 +1,5 @@
 # NFV_MAMO
+## 二期工程
 启动步骤：  
 1.启动 OpenStack：先从 virtual box 启动，打开 文件-》文档-》右键在终端运行-》./startup.sh  
 2.运行ASSMDEMO:网页主体逻辑程序  
