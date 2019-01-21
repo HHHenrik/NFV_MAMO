@@ -55,6 +55,7 @@
             </li>
         </ul>
     </div>
+
     <div class="container_" ng-app="myApp" ng-controller="myCtrl">
         <div class="container_nav">
             <ul>
@@ -121,7 +122,7 @@
                     <li class="all"><a class="del_confirm" href="#" ng-click="delQuery()"><div class="del_con">删除</div></a></li>
                     <li class="all"><a class="sel_inverse" href="#" ng-click = "selectInverse()"><div class="sel_inv">反选</div></a></li>
                     <li class="all"><a class="select_all" href="#" ng-click="selectAll()"><div class="sel_all">全选</div></a></li>
-                    <li class="all"><a class="upload" href="#" ng-click="addNewVnfd()"><div class="upload_vnfd">上传</div></a></li>
+                    <li class="all"><a class="upload" href="#" ng-click="addNewVnfd()"><div class="upload_vnfd">上传</div></a></li> <!--myctrl-->
                 </ul>
             </div>
             <ul uib-pagination
@@ -140,6 +141,11 @@
                 boundary-link-numbers="true">
             </ul>
         </div>
+
+
+
+
+                <!--弹窗页面-->
         <div ng-controller="addModalCtrl">
             <script type="text/ng-template" id="add.html">
                 <div class="add_container">
@@ -165,7 +171,7 @@
                                         <td class="upload_jar_input"><input type="text" ng-model="$ctrl.functionName"></td>
                                     </tr>
                                     <tr class="vnf_info">
-                                        <td>类名</td>
+                                        <td>类名（注意！！！请加上Package名）</td>
                                         <td class="upload_jar_input"><input type="text" ng-model="$ctrl.className"></td>
                                     </tr>
                                     <tr class="upload_jar_info">

@@ -2,7 +2,7 @@ angular.module('uiAccordion', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 angular.module('uiAccordion').controller('aCtrl', function ($scope) {
     var url = document.URL;
     var getVal = url.split('?')[1];
-    var val = getVal.split('=')[1];
+    var val = getVal.split('=')[1]; //sfcId
 
     var canvas = document.getElementById('canvas');
     var stage = new JTopo.Stage(canvas);
@@ -22,6 +22,9 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
     var phyLinks = [];
     var beginNode = null;
     var endNode = null;
+
+
+
 
     scene.mouseup(function(e){
         if(e.button == 2){
@@ -54,6 +57,8 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
     //
     // });
 
+
+    /*SFCcheck 画板JS */
     $scope.fetchDataList = function () {
         $.ajax({
             url:"dataList.json",
@@ -65,7 +70,7 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
                 $scope.selectedSfc = data.sfc;
                 $scope.sfcNode = data.sfcNode;
                 $scope.sfcLink = data.sfcLink;
-                $scope.vnfDeploy = data.vnfDeploy;
+                $scope.vnfDeploy = data.vnfDeploy; //对于扩缩容时，一个 vnf 可能有多个 vnfDeploy
                 $scope.sfcLinkDeploy = data.sfcLinkDeploy;
                 $scope.addSfc();
                 $scope.addServer();
@@ -93,6 +98,7 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
     }
 
     $scope.addSfc = function () {
+        //准备 节点相关信息
         for (var i = 0; i < $scope.sfcNode.length; i++){
             var node = new JTopo.Node($scope.sfcNode[i].vnfdId.toString());
             node.setImage('../images/zhuji1.png');
@@ -102,12 +108,14 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
             sfcNodes.push(node);
             sfcNodesMap[node.text] = node;
         }
-        var flag = $scope.sfcLink[0].flag;
+        var flag = $scope.sfcLink[0].flag; //分支
         var dist = 1;
         var xGap = 200;
         // var xGap = 1200;
         var yGap = 20;
+        //画链路和节点
         for (i = 0; i < $scope.sfcLink.length; i++){
+            //节点上画布
             var from = $scope.sfcLink[i].from;
             var to = $scope.sfcLink[i].to;
             beginNode = sfcNodes[from];
@@ -136,6 +144,8 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
             //     if(sfcNodes[j].text == to)
             //         endNode = sfcNodes[j];
             // }
+
+            //链路上画布
             if (beginNode != null && endNode != null){
                 var link = new JTopo.Link(beginNode, endNode);
                 link.arrowsRadius = 10;
@@ -148,6 +158,20 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
 
     $scope.addServer = function () {
         for (var i = 0; i < $scope.vnfDeploy.length; i++){
+            //因为扩缩容后VNF有可能对应多个server, 有时会有多个VNF映射到重复的serverId，重复的 serverId将不再画布上出现
+            var has_repeate = 0;
+            for(var l=0; l<serverNodes.length; l++ ){
+                var node = serverNodes[l];
+                if(node.text == $scope.vnfDeploy[i].nodeId){
+                    //此时发现重复的ServerId，不再画出
+                    has_repeate = 1;
+                    break;
+                }
+            }
+            if(has_repeate ==1)
+                continue;
+
+            //server节点上画布
             var node = new JTopo.Node($scope.vnfDeploy[i].nodeId);
             var x = 180 + i * 150;
             // var y = 20 + i * 80;
@@ -160,9 +184,19 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
             serverNodes.push(node);
             serverNodeMap[node.text] = node;
         }
-        for (i = 0; i < serverNodes.length; i++){
+
+
+        for (i = 0; i < $scope.vnfDeploy.length; i++){
+            //server 和 VNF间的链路
+            // (由于扩缩容，所以会导致一个 vnf对应多个 server 的情况,所以 endNode要做相应查找）
             beginNode = sfcNodes[$scope.vnfDeploy[i].vnfId];
-            endNode = serverNodes[i];
+            for(var l = 0; l<serverNodes.length; l++ ){
+                var node = serverNodes[l];
+                if(node.text == $scope.vnfDeploy[i].nodeId){
+                    endNode = serverNodes[l];
+                    break;
+                }
+            }
             var link = new JTopo.Link(beginNode, endNode);
             link.bundleGap = 10;
             link.dashedPattern = 5;
@@ -173,7 +207,7 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
 
     $scope.addSwitch = function () {
         var flag = 0;
-        for (var i = 0; i < $scope.sfcLinkDeploy.length; i++){
+        for (var i = 0; i < $scope.sfcLinkDeploy.length; i++){ //按分支上画版
             var linkArray = $scope.sfcLinkDeploy[i].results.split(',');
             var xGap = 200 + i * 10;
             var yGap = 400 + i * 50;
@@ -285,7 +319,112 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
         });
     };
 
+
     $scope.goToPreHtml = function () {
         window.location.href = "../html/sfcManager.html";
     }
+
+    $scope.sfcScaleUp = function() {
+        $scope.$broadcast('childOpen','open');
+    }
+    $scope.sfcScaleDown = function() {
+        $scope.$broadcast('childOpen','open');
+    }
+
+});
+
+
+
+
+/*----------------------------------------------------------*/
+
+angular.module('uiAccordion').controller('addModalCtrl', function ($scope, $uibModal) {
+
+    $scope.animationsEnabled = true;
+    $scope.data = "true";
+    $scope.$on('childOpen', function () {
+        $scope.open();
+    });
+
+    $scope.open = function () {
+        var addModalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'add.html',
+            controller: 'addModalInsCtrl',
+            controllerAs: '$ctrl'
+            // resolve:{
+            //     dataArray:function () {
+            //         return $scope.dataArray;
+            //     }
+            // }
+        });
+        addModalInstance.result.then(function () {
+            $scope.fetchAlgorithmList();
+        }, function () {
+
+        });
+    };
+});
+
+angular.module('uiAccordion').controller('addModalInsCtrl', function ($uibModalInstance) {
+
+    var $ctrl = this;
+    var url = document.URL;
+    var getVal = url.split('?')[1];
+    var sfcId = getVal.split('=')[1]; //sfcId
+    $ctrl.delayConstraint = null;
+    $ctrl.ok = function () {
+        $uibModalInstance.close();
+        window.location.reload()
+    };
+    $ctrl.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+    $ctrl.upload = function () {
+        if ($ctrl.delayConstraint == null)
+            alert("请输入时延限制");
+        else {
+            var formdata = new FormData();
+            formdata.append("sfcId",sfcId);
+            formdata.append("delayConstraint", $ctrl.delayConstraint);
+
+            $.ajax({
+                url:"sfcScale.json",
+                type:"POST",
+                dataType:"json",
+                data:formdata,
+                timeout:10000,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function (data) {
+                    if(data.AlgorithmStatus == -1){
+                        alert("无启用扩缩容算法");
+                    } else if(data.AlgorithmStatus == -2){
+                        alert("扩缩容算法只适用于单链结构");
+                    }
+                    else if(data.SFCstatus == -1){
+                        alert("SFC中存在不合法VNF,请删除!");
+                    } else if (data.terminalFalse == 1){
+                        alert("SFC暂时终止失败，无法扩缩容");
+                    } else if(data.AlgorithmStatus == '1'){
+                        alert("扩容成功!");
+                        $ctrl.functionName = null;
+                        $ctrl.className = null;
+                        $ctrl.delayConstraint = null;
+                    }else if(data.code == '2'){
+                        alert("缩容成功!");
+                    }else if(data.AlgorithmStatus == '-3'){
+                        alert("操作失败")
+                    }else {
+                        alert("未知错误");
+                    }
+                },
+                error:function () {
+                    alert("网络连接超时!");
+                }
+            });
+        }
+    };
 });

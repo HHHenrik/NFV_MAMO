@@ -90,10 +90,12 @@ public class StrategyController {
         String functionName = multipart.getParameter("functionName");
         String function = multipart.getParameter("function");
         if (!file.isEmpty()){
-            String path = "D://Test//";
+            String path = "nfv_mano/Alg";
+            //String path = "lib"+File.separatorChar+"algorithm";
             String fileName = file.getOriginalFilename();
             if (fileName.endsWith("jar")){
                 File filePath = new File(path, fileName);
+
                 if(filePath.exists()){
                     map.put("code", 3);
                     return map;
@@ -102,9 +104,13 @@ public class StrategyController {
                     filePath.getParentFile().mkdirs();
                 file.transferTo(new File(path + File.separator + fileName));
                 Algorithm algorithm = new Algorithm();
-                algorithm.setStatus("stateless"); algorithm.setAlgName(algName); algorithm.setCreteTime(new Date());
-                algorithm.setClassName(className); algorithm.setFunction(function);
-                algorithm.setFunctionName(functionName); algorithm.setPath(path+fileName);
+                algorithm.setStatus("stateless");
+                algorithm.setFunction(function);
+                algorithm.setPath(filePath.toString());
+                algorithm.setFunctionName(functionName);
+                algorithm.setClassName(className);
+                algorithm.setAlgName(algName);
+                algorithm.setCreteTime(new java.util.Date());
                 algorithmService.insertAlg(algorithm);
                 map.put("code", 1);
             }else {

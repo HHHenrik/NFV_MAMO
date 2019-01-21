@@ -27,13 +27,13 @@ public class LoginController {
         String password = request.getParameter("password");
         User user = new User();
         user.setUsername(username); user.setPassword(password);
-        //åˆ¤æ–­æ˜¯å¦æœ‰åŒ¹é…çš„ç”¨æˆ·
+        //ÅĞ¶ÏÊÇ·ñÓĞÆ¥ÅäµÄÓÃ»§
         boolean isValidUser = userService.hasMatchUser(user);
         Map<String, Object> map = new HashMap<String, Object>();
-        if(!isValidUser){//ç”¨æˆ·ä¸åŒ¹é…
+        if(!isValidUser){//ÓÃ»§²»Æ¥Åä
             map.put("code","0");
-        }else {//ç”¨æˆ·åŒ¹é…
-            //çº¿ç¨‹ä¼‘çœ æ”¹æˆTimer,æµ‹è¯•æ˜¯å¦ä¼šå¤ç”¨æ•°æ®åº“è¿æ¥æ± 
+        }else {//ÓÃ»§Æ¥Åä
+            //Ïß³ÌĞİÃß¸Ä³ÉTimer,²âÊÔÊÇ·ñ»á¸´ÓÃÊı¾İ¿âÁ¬½Ó³Ø
             Timer timer = new Timer();
             WritePhyNodeMonitor writePhyNodeMonitor = new WritePhyNodeMonitor();
             WritePhyLinkMonitor writePhyLinkMonitor = new WritePhyLinkMonitor();
@@ -70,12 +70,12 @@ public class LoginController {
         Map<String, Object> map = new HashMap<String, Object>();
         User user = new User();
         user.setUsername(username);
-        boolean isValidUser = userService.hasMatchUser(user);//åˆ¤æ–­æ˜¯å¦å­˜åœ¨åŒåç”¨æˆ·
-        if (!isValidUser){//ç”¨æˆ·ååˆæ³•
+        boolean isValidUser = userService.hasMatchUser(user);//ÅĞ¶ÏÊÇ·ñ´æÔÚÍ¬ÃûÓÃ»§
+        if (!isValidUser){//ÓÃ»§ÃûºÏ·¨
             map.put("code","1");
             user.setPassword(password);
             userService.addUser(user);
-        }else {//å­˜åœ¨åŒåç”¨æˆ·
+        }else {//´æÔÚÍ¬ÃûÓÃ»§
             map.put("code","2");
         }
         return map;

@@ -35,4 +35,21 @@
     </bean>
 
     <context:component-scan base-package="zjr.assm.demo.controller"/>
+
+    <!--用户拦截-->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<bean class="zjr.assm.demo.controller.SessionInterceptor" >-->
+                <!--<property name="excludeUrls">-->
+                    <!--&lt;!&ndash; list中的url不拦截 &ndash;&gt;-->
+                    <!--<list>-->
+                        <!--<value>/login</value>-->
+                        <!--<value></value>-->
+                    <!--</list>-->
+                <!--</property>-->
+            <!--</bean>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
 </beans>

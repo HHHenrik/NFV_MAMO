@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import zjr.assm.demo.dao.AlgorithmDao;
+import zjr.assm.demo.debugJar.DynamicExpansion.AlgDeploy;
 import zjr.assm.demo.po.Algorithm;
 import zjr.assm.demo.service.AlgorithmService;
 
@@ -27,12 +28,12 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 
     public HashMap<String, Object> executeAlg(Algorithm algorithm, JSONObject phyNet, JSONObject sfcReq) throws Exception{
         HashMap<String, Object> result = new HashMap<String, Object>();
-        File file=new File(algorithm.getPath());//jar鍖呯殑璺緞
+        File file=new File(algorithm.getPath());//jar包的路径
         URL url=file.toURI().toURL();
         Class parentClass = Class.forName("org.json.JSONObject");
-        ClassLoader classLoader = new URLClassLoader(new URL[]{url},parentClass.getClassLoader());//鍒涘缓绫诲姞杞藉櫒
-        Class<?> cls = classLoader.loadClass(algorithm.getClassName());//鍔犺浇鎸囧畾绫伙紝娉ㄦ剰涓�瀹氳甯︿笂绫荤殑鍖呭悕
-        Method method = cls.getMethod(algorithm.getFunctionName(),JSONObject.class, JSONObject.class);//鏂规硶鍚嶅拰瀵瑰簲鐨勫悇涓弬鏁扮殑绫诲瀷
+        ClassLoader classLoader = new URLClassLoader(new URL[]{url},parentClass.getClassLoader());//创建类加载器
+        Class<?> cls = classLoader.loadClass(algorithm.getClassName());//加载指定类，注意一定要带上类的包名
+        Method method = cls.getMethod(algorithm.getFunctionName(),JSONObject.class, JSONObject.class);//方法名和对应的各个参数的类型
         Object obj = cls.newInstance();
         result = (HashMap<String, Object>) method.invoke(obj, phyNet, sfcReq);
         return  result;
@@ -68,5 +69,10 @@ public class AlgorithmServiceImpl implements AlgorithmService {
 
     public void insertAlg(Algorithm algorithm) {
         algorithmDao.insertAlg(algorithm);
+    }
+
+    @Override
+    public Algorithm getScaleAlgInfo() {
+        return algorithmDao.getScaleAlgInfo();
     }
 }

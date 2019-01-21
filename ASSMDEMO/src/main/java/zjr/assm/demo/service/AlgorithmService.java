@@ -17,4 +17,5 @@ public interface AlgorithmService {
     public void deleteAlgBatch(List<Integer> idList);
     public List<String> getDeleteAlgJarPath(List<Integer> idList);
     public void insertAlg(Algorithm algorithm);
+    public Algorithm getScaleAlgInfo();
 }

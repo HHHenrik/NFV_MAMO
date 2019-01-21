@@ -7,6 +7,10 @@
         SELECT path, functionName, className FROM algorithm WHERE algorithm.status = "working" AND algorithm.function = "deploy"
     </select>
 
+    <select id="getScaleAlgInfo" resultType="zjr.assm.demo.po.Algorithm">
+        SELECT path, functionName, className FROM algorithm WHERE algorithm.status = "working" AND algorithm.function = "Scale"
+    </select>
+
     <select id="getAllAlgorithm" resultType="zjr.assm.demo.po.Algorithm">
         SELECT * FROM algorithm
     </select>
@@ -16,7 +20,7 @@
     </select>
 
     <select id="getWorkingAlgNum" parameterType="java.lang.String" resultType="int">
-        SELECT COUNT(*) FROM algorithm WHERE function = #{function} AND status = "working"
+        SELECT COUNT(*) FROM algorithm WHERE function = #{function} AND status = 'working'
     </select>
 
     <update id="updateAlgStatus" parameterType="zjr.assm.demo.po.Algorithm">

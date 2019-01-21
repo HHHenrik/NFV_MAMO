@@ -6,4 +6,8 @@
     <select id="getNodeById" parameterType="java.lang.String" resultType="zjr.assm.demo.po.ForwardingNode">
         SELECT * FROM forwarding_node WHERE id = #{id}
     </select>
+
+    <select id="getForwardingNodeNum" resultType="int">
+        SELECT COUNT(id) FROM forwarding_node
+    </select>
 </mapper>

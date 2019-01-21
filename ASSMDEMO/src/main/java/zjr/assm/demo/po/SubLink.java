@@ -1,9 +1,9 @@
 package zjr.assm.demo.po;
 
 public class SubLink {
-    private String from;
+    private String from; //from 交换机
     private String to;
-    private String fromDpId;
+    private String fromDpId;  // from 交换机端口
     private String toDpId;
     private int bandwidth;
     private int delay;

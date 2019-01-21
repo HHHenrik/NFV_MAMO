@@ -3,7 +3,7 @@ angular.module('uiAccordion').controller('aCtrl', function ($scope) {
     var url = document.URL;
     var getVal = url.split('?')[1];
     var val = getVal.split('=')[1];
-   // var val = 10;
+    // var val = 10;
 
     var canvas = document.getElementById('canvas');
     var stage = new JTopo.Stage(canvas);
