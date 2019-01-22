@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2bb3296-5ce7-4c50-9b42-72ae47582a1b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SfcController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SfcController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/AlgorithmServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/AlgorithmServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/lib/mysql-connector-java-5.1.45.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/html/sfcCheck.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/html/sfcCheck.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/AlgorithmServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hello_word/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hello_word/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vim/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vim/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -392,7 +384,7 @@
     <property name="SearchEverywhereHistoryKey" value="modal&#9;FILE&#9;file:///Users/henrik/GitHub/NFV_MAMO/ASSMDEMO/src/main/webapp/css/modalCss.css&#10;modal-content&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548135398477" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548136094591" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../vim" />
@@ -790,7 +782,7 @@
       <workItem from="1547708318850" duration="40814000" />
       <workItem from="1548036378663" duration="5491000" />
       <workItem from="1548041982133" duration="16750000" />
-      <workItem from="1548120119311" duration="10300000" />
+      <workItem from="1548120119311" duration="10744000" />
     </task>
     <servers />
   </component>
@@ -827,7 +819,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="922568000" />
+    <option name="totallyTimeSpent" value="923012000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -840,7 +832,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23908414" />
       <window_info id="Structure" order="1" weight="0.25" />
