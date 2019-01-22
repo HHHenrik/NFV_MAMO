@@ -761,15 +761,15 @@ public class SfcController {
                 code.put("AlgorithmStatus", -3); //扩缩容失败
                 return code;
             }
-            //List<List<String>> linkRes = (List<List<String>>)res.get("linkResult");
+            List<List<String>> linkRes = (List<List<String>>)res.get("linkResult");
             //Scale算法不涉及路由，所以直接用原来数据库中的路由
-            List<List<String>> linkRes =  new ArrayList<List<String>>();
-            List<SfcLinkDeploy> sfcLinkDeployList = sfcLinkDeployService.selectLinkById(sfcId);
-            for(int i = 0; i < sfcLinkDeployList.size(); i++){
-                SfcLinkDeploy sfcLinkDeploy = sfcLinkDeployList.get(i);
-                String[] tempLinkDeployResult = sfcLinkDeploy.getResults().split(",");
-                linkRes.add(Arrays.asList(tempLinkDeployResult));
-            }
+//            List<List<String>> linkRes =  new ArrayList<List<String>>();
+//            List<SfcLinkDeploy> sfcLinkDeployList = sfcLinkDeployService.selectLinkById(sfcId);
+//            for(int i = 0; i < sfcLinkDeployList.size(); i++){
+//                SfcLinkDeploy sfcLinkDeploy = sfcLinkDeployList.get(i);
+//                String[] tempLinkDeployResult = sfcLinkDeploy.getResults().split(",");
+//                linkRes.add(Arrays.asList(tempLinkDeployResult));
+//            }
             JSONObject deployRes = (JSONObject) res.get("result");
             JSONArray vnfDeploys_JsonArray = deployRes.getJSONArray("vnfDeploys");
             JSONArray routes_JsonArray = deployRes.getJSONArray("routes");

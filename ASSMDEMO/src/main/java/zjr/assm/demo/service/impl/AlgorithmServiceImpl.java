@@ -36,6 +36,7 @@ public class AlgorithmServiceImpl implements AlgorithmService {
         Method method = cls.getMethod(algorithm.getFunctionName(),JSONObject.class, JSONObject.class);//方法名和对应的各个参数的类型
         Object obj = cls.newInstance();
         result = (HashMap<String, Object>) method.invoke(obj, phyNet, sfcReq);
+//        result = (HashMap<String, Object>) new AlgDeploy().deploy(phyNet,sfcReq);
         return  result;
     }
 
