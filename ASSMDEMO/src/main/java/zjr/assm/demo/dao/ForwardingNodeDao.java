@@ -6,4 +6,6 @@ import zjr.assm.demo.po.ForwardingNode;
 @Repository
 public interface ForwardingNodeDao {
     ForwardingNode getNodeById(String nodeId);
+
+    int getForwardingNodeNum();
 }

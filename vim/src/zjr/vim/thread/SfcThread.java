@@ -11,6 +11,7 @@ import java.util.Random;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class SfcThread implements Runnable {
+    //这里自动模拟的是SFC1的，所以数据库里的SFC1不要随便删除，否则无法模拟出来
     private int sfcId = 1;
     private int alarmLevel = 0;
     private int packageReceive = 70;

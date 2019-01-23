@@ -1,0 +1,47 @@
+{
+    "SFCId":6,
+    "routes":[
+        [
+            13,
+            2,
+            11
+        ],
+        [
+            8,
+            8,
+            11
+        ]
+    ],
+    "vnfDeploys":[
+        {
+            "numVirtualCpu":12,
+            "ExtendVNF_MappedSNodeId":"server8",
+            "ExtendVNF_numVirtualCpu":12,
+            "virtualMemSize":30,
+            "vnfId":0,
+            "nodeId":"server13",
+            "sizeOfStorage":40
+        },
+        {
+            "numVirtualCpu":14.332723199999998,
+            "ExtendVNF_MappedSNodeId":"server8",
+            "ExtendVNF_numVirtualCpu":14.332723199999998,
+            "virtualMemSize":20,
+            "vnfId":1,
+            "nodeId":"server2",
+            "sizeOfStorage":20
+        },
+        {
+            "numVirtualCpu":14.332723199999998,
+            "ExtendVNF_MappedSNodeId":"server11",
+            "ExtendVNF_numVirtualCpu":14.332723199999998,
+            "virtualMemSize":20,
+            "vnfId":2,
+            "nodeId":"server11",
+            "sizeOfStorage":20
+        }
+    ]
+}
+————————————————————-
+[[server13, switch13, switch10, switch8, switch3, server1, switch2, server2, switch2, server1, switch3, switch8, switch11, server11],
+ [server8, server8, switch8, switch11, server11]]

@@ -16,4 +16,6 @@ public interface AlgorithmDao {
     void deleteAlgBatch(List<Integer> idList);
     List<String> getDeleteAlgJarPath(List<Integer> idList);
     void insertAlg(Algorithm algorithm);
+
+    Algorithm getScaleAlgInfo();
 }

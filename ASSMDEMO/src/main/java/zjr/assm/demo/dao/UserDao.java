@@ -5,7 +5,7 @@ import zjr.assm.demo.po.User;
 
 import java.util.List;
 
-//鐢ˊRepository瀹氫箟涓�涓狣AO BEAN
+//用@Repository定义一个DAO BEAN
 @Repository
 public interface UserDao {
     List<User> getAllUsers();

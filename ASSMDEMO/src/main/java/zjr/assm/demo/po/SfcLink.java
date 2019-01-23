@@ -2,11 +2,11 @@ package zjr.assm.demo.po;
 
 public class SfcLink {
     private int sfcId;
-    private int from;
-    private int to;
+    private int from;  //VNF节点
+    private int to;     //VNF节点
     private int bandwidth;
     private int delay;
-    private int flag;
+    private int flag;  //分支
     private String fromVnf;
     private String toVnf;
     private int linkId;

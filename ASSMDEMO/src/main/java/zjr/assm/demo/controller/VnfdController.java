@@ -63,13 +63,13 @@ public class VnfdController {
         delete(vnfd, vnf);
 //        VnfdRelevance vnfdRelevance = vnfdRelevanceService.findSpecifyVnf(vnfd);
 //        Vnfd temVnf = vnfdService.findVnfByVnfd(vnf);
-//        if(vnfdRelevance != null && vnfdRelevance.getNum() != 0){//æ›´æ”¹VNFD_RELEVANCEè¡¨çŠ¶æ€,å¤åˆ¶VNFDæ•°æ®,é€šçŸ¥VIM
+//        if(vnfdRelevance != null && vnfdRelevance.getNum() != 0){//¸ü¸ÄVNFD_RELEVANCE±í×´Ì¬,¸´ÖÆVNFDÊı¾İ,Í¨ÖªVIM
 //            vnfdRelevance.setNum(-1);
 //            vnfdRelevance.setStatus("deleting");
-//            //å¤åˆ¶æ•°æ®è‡³tempVnfdè¡¨
+//            //¸´ÖÆÊı¾İÖÁtempVnfd±í
 //            tempVnfdService.addTempVnfd(temVnf);
 //            vnfdRelevanceService.updateVnfNum(vnfdRelevance);
-//        }else{//ä»VNFDåŒ…è·å–VNFDåœ°å€,åˆ é™¤é•œåƒ,åˆ é™¤VNFDä¿¡æ¯
+//        }else{//´ÓVNFD°ü»ñÈ¡VNFDµØÖ·,É¾³ı¾µÏñ,É¾³ıVNFDĞÅÏ¢
 //            String path = "";
 //            if(temVnf != null)
 //                path = temVnf.getSwImageDesc();
@@ -81,7 +81,7 @@ public class VnfdController {
         List<String> vnfdList = new ArrayList<String>();
         vnfdList.add(vnfd);
         vimDelete(vnfdList);
-        //ç”¨æˆ·ä½¿ç”¨çš„VNFDåœ¨ä½¿ç”¨ä¹‹å‰å…ˆè¿›è¡Œä¸€æ¬¡çŠ¶æ€æ£€éªŒï¼Œè‹¥æœ‰å·²ç»åˆ é™¤çš„VNFDï¼Œåˆ™é€šçŸ¥ç”¨æˆ·è¯¥æ¡SFCæˆ–è¯¥VNFä¸å¯ç”¨
+        //ÓÃ»§Ê¹ÓÃµÄVNFDÔÚÊ¹ÓÃÖ®Ç°ÏÈ½øĞĞÒ»´Î×´Ì¬¼ìÑé£¬ÈôÓĞÒÑ¾­É¾³ıµÄVNFD£¬ÔòÍ¨ÖªÓÃ»§¸ÃÌõSFC»ò¸ÃVNF²»¿ÉÓÃ
         return res;
     }
 
@@ -108,14 +108,14 @@ public class VnfdController {
     public int delete(String vnfd, Vnfd vnf){
         VnfdRelevance vnfdRelevance = vnfdRelevanceService.findSpecifyVnf(vnfd);
         Vnfd temVnf = vnfdService.findVnfByVnfd(vnf);
-        if(vnfdRelevance != null && vnfdRelevance.getNum() != 0){//æ›´æ”¹VNFD_RELEVANCEè¡¨çŠ¶æ€,å¤åˆ¶VNFDæ•°æ®,é€šçŸ¥VIM
+        if(vnfdRelevance != null && vnfdRelevance.getNum() != 0){//¸ü¸ÄVNFD_RELEVANCE±í×´Ì¬,¸´ÖÆVNFDÊı¾İ,Í¨ÖªVIM
             vnfdRelevance.setNum(-1);
             vnfdRelevance.setStatus("deleting");
-            //å¤åˆ¶æ•°æ®è‡³tempVnfdè¡¨
+            //¸´ÖÆÊı¾İÖÁtempVnfd±í
             tempVnfdService.addTempVnfd(temVnf);
             vnfdRelevanceService.updateVnfNum(vnfdRelevance);
             return 1;
-        }else{//ä»VNFDåŒ…è·å–VNFDåœ°å€,åˆ é™¤é•œåƒ,åˆ é™¤VNFDä¿¡æ¯
+        }else{//´ÓVNFD°ü»ñÈ¡VNFDµØÖ·,É¾³ı¾µÏñ,É¾³ıVNFDĞÅÏ¢
             String path = "";
             if(temVnf != null)
                 path = temVnf.getSwImageDesc();

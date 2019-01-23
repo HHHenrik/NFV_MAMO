@@ -5907,7 +5907,8 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #fff;
+  /*background-color: #fff;*/
+  background-color:transparent;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #999;
@@ -5916,6 +5917,7 @@ button.close {
   outline: 0;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  filter:alpha(Opacity=60);-moz-opacity:0.6;opacity: 0.6;
 }
 .modal-backdrop {
   position: fixed;
@@ -6128,6 +6130,7 @@ button.close {
   word-wrap: normal;
   white-space: normal;
   background-color: #fff;
+
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #ccc;

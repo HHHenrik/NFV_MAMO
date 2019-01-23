@@ -16,4 +16,5 @@ public class ForwardingNodeServiceImpl implements ForwardingNodeService{
     public ForwardingNode getNodeById(String nodeId) {
         return forwardingNodeDao.getNodeById(nodeId);
     }
+    public int getForwardingNodeNum() { return forwardingNodeDao.getForwardingNodeNum(); }
 }

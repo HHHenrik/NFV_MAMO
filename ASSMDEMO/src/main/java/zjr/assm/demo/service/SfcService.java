@@ -12,4 +12,5 @@ public interface SfcService {
     public void updateSfcStatus(Sfc sfc);
     public SfcCustom getSfcById(int sfcId);
     public String getSfcStatus(int sfcId);
+
 }

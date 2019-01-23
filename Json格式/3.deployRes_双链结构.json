@@ -1,0 +1,37 @@
+{
+    "routes":[
+        [
+            3,
+            8,
+            11
+        ]
+    ],
+    "vnfDeploys":[
+        {
+            "numVirtualCpu":4,
+            "virtualMemSize":20,
+            "vnfId":0,
+            "nodeId":"server3",
+            "sizeOfStorage":20
+        },
+        {
+            "numVirtualCpu":2,
+            "virtualMemSize":30,
+            "vnfId":1,
+            "nodeId":"server8",
+            "sizeOfStorage":40
+        },
+        {
+            "numVirtualCpu":2,
+            "virtualMemSize":30,
+            "vnfId":2,
+            "nodeId":"server11",
+            "sizeOfStorage":40
+        }
+    ]
+}
+
+
+-------------------
+linkRes
+[[server3, switch3, switch8, server8, switch8, switch11, server11]]
