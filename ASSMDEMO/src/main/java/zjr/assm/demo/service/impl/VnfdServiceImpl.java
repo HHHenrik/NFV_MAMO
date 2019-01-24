@@ -37,4 +37,13 @@ public class VnfdServiceImpl implements VnfdService {
     public int hasInvalidVnf(VnfdCustom vnfdCustom) {
         return vnfdDao.hasInvalidVnf(vnfdCustom);
     }
+
+
+    public String isWorking(String id) {
+        return vnfdDao.isWorking(id);
+    }
+
+    public void updateVnfdStatus(Vnfd vnfd) {
+        vnfdDao.updateVnfdStatus(vnfd);
+    }
 }

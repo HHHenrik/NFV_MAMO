@@ -42,4 +42,13 @@
 vnfSoftwareVersion,virtualEnviroment,swImageDesc) VALUES (#{vnfd},#{version},#{company}, #{vnfProductName}, #{virtualMemSize}, #{cpuArchiecture}, #{numVirtualCpu}, #{virtualCpuClock}, #{typeOfStorage}, #{sizeOfStorage},
 #{vnfSoftwareVersion},#{virtualEnviroment},#{swImageDesc})
     </insert>
+
+
+    <update id="updateVnfdStatus" parameterType="zjr.assm.demo.po.Vnfd">
+        UPDATE vnfd SET status = #{status} WHERE vnfd = #{vnfd}
+    </update>
+
+    <select id="isWorking" parameterType="String" resultType="java.lang.String">
+        SELECT status FROM vnfd WHERE vnfd = #{vnfd}
+    </select>
 </mapper>

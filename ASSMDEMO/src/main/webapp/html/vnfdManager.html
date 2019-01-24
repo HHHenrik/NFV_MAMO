@@ -99,6 +99,7 @@
                         <th>VNFD版本</th>
                         <th>厂商</th>
                         <th>上传时间</th>
+                        <th>工作状态</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -111,6 +112,7 @@
                         <td>{{data.version}}</td>
                         <td>{{data.company}}</td>
                         <td>{{data.createTime}}</td>
+                        <td>{{data.status}}</td>
                         <td class="actions">
                             <a class="check" href="#" ng-click="checkVnfd($index)">
                                 <span class="check_icon"></span>
@@ -120,6 +122,14 @@
                             <!--&lt;!&ndash;</a>&ndash;&gt;-->
                             <a class="delete" href="#" ng-click="delSingle($index)">
                                 <span class="delete_icon"></span>
+                            </a>
+
+                            <a class="start_vnfd" href="#" ng-click="startVnfd($index)">
+                                <span class="start_alg_icon"></span>
+                            </a>
+
+                            <a class="forbidden_vnfd" href="#" ng-click="stopVnfd($index)">
+                                <span class="forbidden_alg_icon"></span>
                             </a>
                         </td>
                     </tr>

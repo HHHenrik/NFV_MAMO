@@ -12,4 +12,7 @@ public interface VnfdService {
     public void addVnfd(Vnfd vnfd);
     public Vnfd findVnfByVnfd(Vnfd vnfd);
     public int hasInvalidVnf(VnfdCustom vnfdCustom);
+
+    public String isWorking(String vnfdString);
+    public void updateVnfdStatus(Vnfd vnfd);
 }

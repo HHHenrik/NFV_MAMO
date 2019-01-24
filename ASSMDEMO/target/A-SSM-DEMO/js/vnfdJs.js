@@ -181,6 +181,62 @@ angular.module('myApp').controller('myCtrl', function ($scope) {
         $scope.selectedVnfd = $scope.datas[$index];
         $scope.$broadcast('checkVnfd', 'open');
     }
+
+
+    $scope.startVnfd = function ($index) {
+        var startAlgInfo = {
+            "vnfd":$scope.datas[$index].vnfd,
+            "company":$scope.datas[$index].company,
+            "version":$scope.datas[$index].version
+        };
+        $.ajax({
+            url: "startVnfd",
+            type: "POST",
+            data: startAlgInfo,
+            dataType:"json",
+            timeout: 10000,
+            success: function (data) {
+                if(data == 1){
+                    alert("启动成功!");
+                    $scope.datas[$index].status = "working";
+                    $scope.$apply();
+                }else if(data == 2){
+                    alert("该虚拟网络功能已处于启动状态!");
+
+                }else {
+                    alert("启动失败!");
+                }
+            },
+            error: function () {
+                alert("网络连接超时,请重试!");
+            }
+        });
+    };
+
+    $scope.stopVnfd = function ($index) {
+        var algVnfd = {"vnfd":$scope.datas[$index].vnfd};
+        $.ajax({
+            url:"stopVnfd",
+            type:"POST",
+            data:algVnfd,
+            dataType:"json",
+            timeout:10000,
+            success:function (data) {
+                if(data == 1){
+                    alert("停止成功!");
+                    $scope.datas[$index].status = "stateless";
+                    $scope.$apply();
+                }else if (data == 2){
+                    alert("该虚拟网络功能已处于未启用状态!");
+                }else {
+                    alert("停止失败!");
+                }
+            },
+            error:function () {
+                alert("网络连接超时,请重试!");
+            }
+        });
+    };
 });
 
 angular.module('myApp').controller('checkVnfdCtrl', function ($scope, $uibModal) {

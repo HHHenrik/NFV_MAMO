@@ -7,12 +7,81 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2bb3296-5ce7-4c50-9b42-72ae47582a1b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/lib/mysql-connector-java-5.1.47.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ASSMDEMO_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ASSMDEMO_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ASSMDEMO_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ASSMDEMO_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASSMDEMO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ASSMDEMO.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/dao/VnfdDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/dao/VnfdDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/po/Vnfd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/po/Vnfd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/VnfdService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/VnfdService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/AlgorithmServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/AlgorithmServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/VnfdServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/VnfdServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/VnfdDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/VnfdDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/tableCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/tableCss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/vnfdManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/vnfdManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hello_word/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hello_word/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vim/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vim/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/mapper/VnfdDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/mapper/VnfdDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/PhyMonitorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/PhyMonitorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/SessionInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/SessionInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/SfcController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/SfcController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/StrategyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/StrategyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/VnfController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/VnfController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/VnfdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/controller/VnfdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/dao/VnfdDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/dao/VnfdDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/po/Vnfd.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/po/Vnfd.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/VnfdService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/VnfdService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/VnfdServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/VnfdServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WritePhyLinkMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WritePhyLinkMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WritePhyNodeMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WritePhyNodeMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WriteSfcLinkMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WriteSfcLinkMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WriteSfcMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WriteSfcMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WriteSfcNodeMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/classes/zjr/assm/demo/service/impl/WriteSfcNodeMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/lib/mysql-connector-java-8.0.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/WEB-INF/lib/protobuf-java-2.6.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/html/vnfdManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/html/vnfdManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/js/vnfdJs.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/js/vnfdJs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/VnfdDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/VnfdDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/PhyMonitorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/PhyMonitorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/SessionInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/SessionInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/SfcController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/SfcController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/StrategyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/StrategyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/VnfController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/VnfController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/VnfdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/controller/VnfdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/dao/VnfdDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/dao/VnfdDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/DataCenterNetwork.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/Dijkstra.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/DynamicOptimization.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/DynamicOptimization_cyb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/FileOperation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/JsonFormatTool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/Main_old.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/RECM.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/SFCUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/SFCrequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/StartDynamicExpansion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/Switch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/debugJar/DynamicExpansion/VNF.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/po/Vnfd.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/po/Vnfd.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/VnfdService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/VnfdService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/VnfdServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/VnfdServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WritePhyLinkMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WritePhyLinkMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WritePhyNodeMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WritePhyNodeMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WriteSfcLinkMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WriteSfcLinkMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WriteSfcMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WriteSfcMonitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WriteSfcNodeMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/zjr/assm/demo/service/impl/WriteSfcNodeMonitor.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,118 +92,90 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ASSMDEMO$login_html.coverage" NAME="login.html Coverage Results" MODIFIED="1521170516931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ASSMDEMO$fileUploadTest_html.coverage" NAME="fileUploadTest.html Coverage Results" MODIFIED="1522052115037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ASSMDEMO$login.ic" NAME="login Coverage Results" MODIFIED="1548062205090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ASSMDEMO$login_html.coverage" NAME="login.html Coverage Results" MODIFIED="1521170516931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="241" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1042127193">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="13" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.5" value="2" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="14" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="27" />
-          <entry key="CSS" value="7" />
-          <entry key="HTML" value="19" />
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="121" />
-          <entry key="JavaScript" value="25" />
-          <entry key="Properties" value="4" />
-          <entry key="TypeScript" value="1" />
-          <entry key="XML" value="30" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="6" />
-          <entry key="HTML" value="255" />
-          <entry key="JAVA" value="4388" />
-          <entry key="JavaScript" value="1364" />
-          <entry key="PLAIN_TEXT" value="17" />
-          <entry key="XML" value="99" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="true" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SfcController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-696">
-              <caret line="778" selection-start-line="778" selection-end-line="778" />
+            <state relative-caret-position="251">
+              <caret line="364" selection-start-line="364" selection-end-line="364" />
               <folding>
-                <element signature="method#deleteSfc#0;class#SfcController#0" />
-                <element signature="method#hangUpSfc#0;class#SfcController#0" />
-                <element signature="method#wakeUpSfc#0;class#SfcController#0" />
-                <element signature="method#saveSfc#0;class#SfcController#0" />
-                <element signature="method#getNodeData#0;class#SfcController#0" />
-                <element signature="method#getSfcMonitorData#0;class#SfcController#0" />
-                <element signature="method#getSfcNodeMonitorData#0;class#SfcController#0" />
-                <element signature="method#getSfcLinkMonitorData#0;class#SfcController#0" />
-                <element signature="method#getSfcMonData#0;class#SfcController#0" />
-                <element signature="method#getVnfMonitorData#0;class#SfcController#0" />
-                <element signature="method#getLinkMonitorData#0;class#SfcController#0" />
-                <element signature="method#createPhyNetJsonObject#0;class#SfcController#0" />
-                <element signature="method#createSFCReqJson#0;class#SfcController#0" />
+                <element signature="e#3071#3079#0" expanded="true" />
+                <element signature="e#3545#3553#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/dao/VnfdDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/VnfdDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/vnfdMCss.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/AlgorithmServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/tableCss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-              <folding>
-                <element signature="e#992#1008#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="352">
+              <caret line="82" column="90" lean-forward="true" selection-start-line="82" selection-start-column="90" selection-end-line="82" selection-end-column="90" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/po/VnfDeploy.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/sfcNodeMonitorCss.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/rightCss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="-173" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/strategyManager.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2768">
+              <caret line="173" column="62" lean-forward="true" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/vnfdManager.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="333" column="5" lean-forward="true" selection-start-line="231" selection-start-column="2" selection-end-line="333" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#calForwardingPath#0;class#AlgDeploy#0" />
-                <element signature="method#calForwardingPath2#0;class#AlgDeploy#0" />
-                <element signature="e#10117#10135#0" expanded="true" />
-                <element signature="e#11096#11110#0" expanded="true" />
-                <element signature="e#11256#11264#0" expanded="true" />
-                <element signature="e#12212#12220#0" expanded="true" />
-                <element signature="method#read_SubNetwork_fromJsonObject#0;class#AlgDeploy#0" />
-              </folding>
+            <state relative-caret-position="1760">
+              <caret line="110" column="46" lean-forward="true" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -156,8 +197,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ctrl</find>
-      <find>vnfdList.json</find>
       <find>NO DA</find>
       <find>No</find>
       <find>No Data</find>
@@ -186,6 +225,8 @@
       <find>sfcNode</find>
       <find>dataList.json</find>
       <find>serverNum</find>
+      <find>del</find>
+      <find>action</find>
     </findStrings>
     <replaceStrings>
       <replace>DelayConstraint</replace>
@@ -193,28 +234,18 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/css/sfcLinkMonitorCss.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/ApplicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/WritePhyNodeMonitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/WritePhyLinkMonitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/WriteSfcLinkMonitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/WriteSfcMonitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/WriteSfcNodeMonitor.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/test.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/sfcManager.html" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/PhyLinkMonitorDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/addSfc.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/addSfc.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js" />
-        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SessionInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" />
@@ -249,14 +280,19 @@
         <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SfcController.java" />
         <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.java" />
         <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/AlgorithmServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/dao/VnfdDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/po/Vnfd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/VnfdServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/VnfdService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/VnfdDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/vnfdManager.html" />
+        <option value="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/tableCss.css" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -273,9 +309,11 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -283,6 +321,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -332,7 +372,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="DynamicExpansion" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ASSMDEMO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ASSMDEMO" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="po" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ASSMDEMO" type="b2602c69:ProjectViewProjectNode" />
@@ -358,7 +407,30 @@
               <item name="ASSMDEMO" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ASSMDEMO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ASSMDEMO" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ASSMDEMO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ASSMDEMO" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ASSMDEMO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ASSMDEMO" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ASSMDEMO" type="b2602c69:ProjectViewProjectNode" />
@@ -380,8 +452,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,16 +459,16 @@
     <property name="SearchEverywhereHistoryKey" value="modal&#9;FILE&#9;file:///Users/henrik/GitHub/NFV_MAMO/ASSMDEMO/src/main/webapp/css/modalCss.css&#10;modal-content&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548213192781" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548319165081" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vim" />
+    <property name="last_opened_file_path" value="D:/NFV-MANO/ASSMDEMO" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.18583256" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -435,7 +505,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -453,7 +523,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
+    <configuration default="true" type="TestNG">
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <properties />
       <listeners />
@@ -474,11 +544,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="_ASSMDEMO" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="62428" />
       </RunnerSettings>
@@ -535,9 +605,9 @@
         </option>
       </method>
     </configuration>
-    <configuration name="login" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER" value="false" />
+    <configuration name="login" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.82" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/html/login.html" />
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="ASSMDEMO:war">
@@ -549,11 +619,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_ASSMDEMO" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="62428" />
       </RunnerSettings>
@@ -609,11 +679,11 @@
         </option>
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -789,6 +859,7 @@
       <workItem from="1548041982133" duration="16750000" />
       <workItem from="1548120119311" duration="11226000" />
       <workItem from="1548208528101" duration="4498000" />
+      <workItem from="1548313119510" duration="5468000" />
     </task>
     <servers />
   </component>
@@ -825,7 +896,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="927992000" />
+    <option name="totallyTimeSpent" value="933460000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -837,10 +908,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21086262" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -848,9 +919,10 @@
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Designer" order="7" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.37448978" />
-      <window_info active="true" anchor="bottom" x="2068" y="245" width="1291" height="650" id="Run" order="2" sideWeight="0.8051118" visible="true" weight="0.32871288" />
+      <window_info anchor="bottom" x="2068" y="245" width="1291" height="650" id="Run" order="2" sideWeight="0.8051118" visible="true" weight="0.12622951" />
       <window_info anchor="bottom" x="95" y="393" width="912" height="320" id="Debug" order="3" weight="0.39009902" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -863,6 +935,7 @@
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32906976" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32871288" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -903,9 +976,20 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -972,12 +1056,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SfcController.java</url>
-          <line>778</line>
-          <properties />
-          <option name="timeStamp" value="286" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SfcController.java</url>
           <line>756</line>
           <properties />
           <option name="timeStamp" value="289" />
@@ -999,6 +1077,12 @@
           <line>301</line>
           <properties />
           <option name="timeStamp" value="298" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SfcController.java</url>
+          <line>778</line>
+          <properties />
+          <option name="timeStamp" value="300" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1061,134 +1145,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/SfcService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/VnfService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/VimService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/VnfDeployDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/VnfDeployService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/FunctionalityNodeDao.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/VnfdRelevanceDao.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/po/SfcLinkDeployCustom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SfcNodeMonitorDao.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/sfcJs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1083">
-          <caret line="76" column="34" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/VnfdRelevanceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Boolean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/SfcLinkDeployService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SfcLinkDeployDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="51" lean-forward="true" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ControllerSfcDao.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AlgorithmDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ForwardingNodeDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/ForwardingNodeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.3.RELEASE/spring-aop-5.0.3.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/strategyManager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="173" column="62" lean-forward="true" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -1199,36 +1159,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="843" selection-start-line="843" selection-end-line="843" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/StartDynamicExpansion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4986">
-          <caret line="285" lean-forward="true" selection-start-line="285" selection-end-line="285" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/DynamicOptimization_cyb.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/SFCUtil.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/DynamicOptimization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/RECM.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Thread.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/StartDynamicExpansion.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/DynamicOptimization_cyb.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/SFCUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/DynamicOptimization.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/RECM.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1243,31 +1179,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/Dijkstra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="54" lean-forward="true" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/FileOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/Dijkstra.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/FileOperation.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/po/VnfDeployCustom.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="61" lean-forward="true" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="65" column="90" selection-start-line="65" selection-start-column="90" selection-end-line="65" selection-end-column="90" />
         </state>
       </provider>
     </entry>
@@ -1292,13 +1209,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/SFCrequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/SFCrequest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/sfcCheck.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3276">
@@ -1320,13 +1231,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7146">
-          <caret line="439" selection-start-line="439" selection-end-line="439" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.3.RELEASE/spring-aop-5.0.3.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1334,20 +1239,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/Main_old.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-686">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/DataCenterNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1111">
-          <caret line="168" column="49" selection-start-line="168" selection-start-column="49" selection-end-line="168" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/Main_old.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/DataCenterNetwork.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/AlgorithmService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1362,16 +1255,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/AlgorithmServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/po/VnfDeploy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
+        <state relative-caret-position="32">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/SfcController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-696">
+        <state relative-caret-position="208">
           <caret line="778" selection-start-line="778" selection-end-line="778" />
           <folding>
             <element signature="method#deleteSfc#0;class#SfcController#0" />
@@ -1391,30 +1306,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/debugJar/DynamicExpansion/AlgDeploy.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/VnfdService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="333" column="5" lean-forward="true" selection-start-line="231" selection-start-column="2" selection-end-line="333" selection-end-column="5" />
+        <state relative-caret-position="208">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/VnfdServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/po/Vnfd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="160" column="5" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/dao/VnfdDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="364" selection-start-line="364" selection-end-line="364" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#calForwardingPath#0;class#AlgDeploy#0" />
-            <element signature="method#calForwardingPath2#0;class#AlgDeploy#0" />
-            <element signature="e#10117#10135#0" expanded="true" />
-            <element signature="e#11096#11110#0" expanded="true" />
-            <element signature="e#11256#11264#0" expanded="true" />
-            <element signature="e#12212#12220#0" expanded="true" />
-            <element signature="method#read_SubNetwork_fromJsonObject#0;class#AlgDeploy#0" />
+            <element signature="e#3071#3079#0" expanded="true" />
+            <element signature="e#3545#3553#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/service/impl/AlgorithmServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/strategyManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        <state relative-caret-position="256">
+          <caret line="106" column="34" lean-forward="true" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/highcharts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4176">
           <folding>
-            <element signature="e#992#1008#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/indexJs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-912" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="220" column="25" lean-forward="true" selection-start-line="220" selection-start-column="25" selection-end-line="220" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/laydate/theme/default/laydate.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/VnfdDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/rightCss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-173" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/vnfdMCss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/sfcNodeMonitorCss.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/strategyManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2768">
+          <caret line="173" column="62" lean-forward="true" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/resetCss.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/vnfdManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="110" column="46" lean-forward="true" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/tableCss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="82" column="90" lean-forward="true" selection-start-line="82" selection-start-column="90" selection-end-line="82" selection-end-column="90" />
         </state>
       </provider>
     </entry>
@@ -1463,7 +1470,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.18583256" />
               </list>
             </option>
           </splitter-proportions>
@@ -1471,11 +1478,11 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>1.8 (2)</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.18583256" />
               </list>
             </option>
           </splitter-proportions>
@@ -1511,7 +1518,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.4894204" />
+                <option value="0.18583256" />
               </list>
             </option>
           </splitter-proportions>

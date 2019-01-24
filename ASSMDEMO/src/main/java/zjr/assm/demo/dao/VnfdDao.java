@@ -14,4 +14,7 @@ public interface VnfdDao {
     void addVnfd(Vnfd vnfd);
     int hasInvalidVnf(VnfdCustom vnfdCustom);
     Vnfd findVnfByVnfd(Vnfd vnfd);
+
+    String isWorking(String id);
+    void updateVnfdStatus(Vnfd vnfd);
 }

@@ -346,4 +346,27 @@ public class VnfdController {
 //            e.printStackTrace();
 //        }
 //    }
+
+    @RequestMapping(value = "/startVnfd", method = RequestMethod.POST)
+    public @ResponseBody int startVnfd(HttpServletRequest request){
+        String vnfd = request.getParameter("vnfd");
+        //String function = request.getParameter("function");
+        if(vnfdService.isWorking(vnfd).equals("working"))
+            return 2;
+        Vnfd vnfd1 = new Vnfd();
+        vnfd1.setVnfd(vnfd); vnfd1.setStatus("working");
+        vnfdService.updateVnfdStatus(vnfd1);
+        return 1;
+    }
+
+    @RequestMapping(value = "/stopVnfd", method = RequestMethod.POST)
+    public @ResponseBody int stopVnfd(HttpServletRequest request){
+        String vnfdString = request.getParameter("vnfd");
+        if(vnfdService.isWorking(vnfdString).equals("stateless"))
+            return 2;
+        Vnfd vnfd = new Vnfd();
+        vnfd.setVnfd(vnfdString); vnfd.setStatus("stateless");
+        vnfdService.updateVnfdStatus(vnfd);
+        return 1;
+    }
 }

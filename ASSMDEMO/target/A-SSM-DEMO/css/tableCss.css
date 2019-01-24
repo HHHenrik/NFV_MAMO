@@ -80,7 +80,7 @@ table:hover{cursor: default;}
     background: rgba(0, 0, 0, 0.4);
     color: white;
 }
-.check, .edit, .delete, .update, .start_alg, .forbidden_alg{
+.check, .edit, .delete, .update, .start_alg, .forbidden_alg, .start_vnfd, .forbidden_vnfd{
     /*margin-top: 3px;*/
     /*padding: 5px 5px 2px 7px;*/
     margin-right: 10px;
