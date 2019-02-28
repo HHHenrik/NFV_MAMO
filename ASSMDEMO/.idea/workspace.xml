@@ -7,19 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2bb3296-5ce7-4c50-9b42-72ae47582a1b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/VnfdDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/VnfdDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/addVnfCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/addVnfCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/tableCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/tableCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/vnfdMCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/vnfdMCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/vnfdManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/vnfdManager.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/html/vnfdManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/html/vnfdManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/A-SSM-DEMO/js/vnfdJs.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/A-SSM-DEMO/js/vnfdJs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../相关文件/VNFD_package/vnfd_vCPE.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../相关文件/VNFD_package/vnfd_vCPE.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../相关文件/VNFD_package/vnfd_vDPI.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../相关文件/VNFD_package/vnfd_vDPI.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../相关文件/VNFD_package/vnfd_vFW.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../相关文件/VNFD_package/vnfd_vFW.zip" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="339" column="67" selection-start-line="339" selection-start-column="67" selection-end-line="339" selection-end-column="67" />
+            <state relative-caret-position="283">
+              <caret line="394" column="78" lean-forward="true" selection-start-line="394" selection-start-column="78" selection-end-line="394" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -57,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1135">
-              <caret line="228" column="48" lean-forward="true" selection-start-line="228" selection-start-column="48" selection-end-line="228" selection-end-column="48" />
+            <state relative-caret-position="-3073">
+              <caret line="163" column="38" lean-forward="true" selection-start-line="163" selection-start-column="38" selection-end-line="163" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -362,7 +351,7 @@
     <property name="SearchEverywhereHistoryKey" value="modal&#9;FILE&#9;file:///Users/henrik/GitHub/NFV_MAMO/ASSMDEMO/src/main/webapp/css/modalCss.css&#10;modal-content&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551336048122" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551336765058" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="D:/NFV-MANO/ASSMDEMO" />
@@ -763,7 +752,7 @@
       <workItem from="1548120119311" duration="11226000" />
       <workItem from="1548208528101" duration="4498000" />
       <workItem from="1548313119510" duration="5741000" />
-      <workItem from="1551060906791" duration="36651000" />
+      <workItem from="1551060906791" duration="37534000" />
     </task>
     <servers />
   </component>
@@ -800,7 +789,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="970384000" />
+    <option name="totallyTimeSpent" value="971267000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1044,13 +1033,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js</url>
-          <line>388</line>
+          <line>392</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="305" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js</url>
-          <line>389</line>
+          <line>393</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="351" />
         </line-breakpoint>
@@ -1393,17 +1382,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="339" column="67" selection-start-line="339" selection-start-column="67" selection-end-line="339" selection-end-column="67" />
+        <state relative-caret-position="-3073">
+          <caret line="163" column="38" lean-forward="true" selection-start-line="163" selection-start-column="38" selection-end-line="163" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/zjr/assm/demo/controller/VnfdController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/vnfdJs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1135">
-          <caret line="228" column="48" lean-forward="true" selection-start-line="228" selection-start-column="48" selection-end-line="228" selection-end-column="48" />
+        <state relative-caret-position="283">
+          <caret line="394" column="78" lean-forward="true" selection-start-line="394" selection-start-column="78" selection-end-line="394" selection-end-column="78" />
         </state>
       </provider>
     </entry>

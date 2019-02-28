@@ -377,19 +377,25 @@ angular.module('myApp').controller('addModalInsCtrl', function ($uibModalInstanc
                     //document.getElementById("test2").style.visibility="hidden";
                     document.getElementById("test4").style.visibility="visible";
                     //document.getElementById("test6").style.visibility="hidden";
+                    document.getElementById("test1").style.visibility="visible";
+                    //document.getElementById("test3").style.visibility="visible";
                 }else if (data.code == '6'){
                     alert("文件内不包含配置文件,请重新上传!");
                     //document.getElementById("test2").style.visibility="hidden";
                     //document.getElementById("test4").style.visibility="hidden";
                     document.getElementById("test6").style.visibility="visible";
+                    document.getElementById("test1").style.visibility="visible";
+                    document.getElementById("test3").style.visibility="visible";
                 }else {
                     alert("上传失败,请选择文件!");
                 }
             },
             error:function () {
-                alert("网络连接超时!");
-                document.getElementById("test2").style.visibility="visible";
-                document.getElementById("test4").style.visibility="visible";
+                alert("请检查VNFD.json内容!");
+                //document.getElementById("test2").style.visibility="visible";
+                //document.getElementById("test4").style.visibility="visible";
+                document.getElementById("test1").style.visibility="visible";
+                document.getElementById("test3").style.visibility="visible";
                 document.getElementById("test6").style.visibility="visible";
             }
         });
