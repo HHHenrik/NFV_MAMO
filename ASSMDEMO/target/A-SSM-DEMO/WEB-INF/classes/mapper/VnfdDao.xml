@@ -39,8 +39,8 @@
 
     <insert id="addVnfd" parameterType="zjr.assm.demo.po.Vnfd">
         INSERT INTO vnfd (vnfd,version,company, vnfProductName, virtualMemSize, cpuArchiecture, numVirtualCpu, virtualCpuClock, typeOfStorage, sizeOfStorage,
-vnfSoftwareVersion,virtualEnviroment,swImageDesc) VALUES (#{vnfd},#{version},#{company}, #{vnfProductName}, #{virtualMemSize}, #{cpuArchiecture}, #{numVirtualCpu}, #{virtualCpuClock}, #{typeOfStorage}, #{sizeOfStorage},
-#{vnfSoftwareVersion},#{virtualEnviroment},#{swImageDesc})
+vnfSoftwareVersion,virtualEnviroment,swImageDesc,status) VALUES (#{vnfd},#{version},#{company}, #{vnfProductName}, #{virtualMemSize}, #{cpuArchiecture}, #{numVirtualCpu}, #{virtualCpuClock}, #{typeOfStorage}, #{sizeOfStorage},
+#{vnfSoftwareVersion},#{virtualEnviroment},#{swImageDesc},#{status})
     </insert>
 
 

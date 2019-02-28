@@ -168,7 +168,7 @@ public class VnfdController {
                 if (!filePath.getParentFile().exists())
                     filePath.getParentFile().mkdirs();
                 file.transferTo(new File(path + File.separator + fileName));
-                code.put("code", '1');
+                code.put("code",'1');
                 code.put("path", path + fileName);
                 ZipFile zipFile = new ZipFile(path + File.separator + fileName);
                 InputStream inputStream = new BufferedInputStream(new FileInputStream(path + File.separator + fileName));
@@ -219,17 +219,20 @@ public class VnfdController {
                                     vnfd.setSizeOfStorage(vnfdJson.getInt("sizeOfStorage"));
                                     vnfd.setVnfSoftwareVersion(vnfdJson.getString("vnfSoftwareVersion"));
                                     vnfd.setVirtualEnviroment(vnfdJson.getString("virtualEnviroment"));
+                                    vnfd.setStatus(vnfdJson.getString("status"));
                                     vnfd.setSwImageDesc(path + fileName);
+
                                     vnfdService.addVnfd(vnfd);
                                     code.put("vnfd",vnfdJson.getString("vnfd"));
                                     code.put("typeOfStorage", vnfdJson.getString("typeOfStorage"));
                                     code.put("virtualEnviroment", vnfdJson.getString("virtualEnviroment"));
+                                    return code;
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
-                    }
+                     }
                     zin.close();
                     inputStream.close();
                     zipFile.close();

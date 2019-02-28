@@ -175,6 +175,7 @@ angular.module('myApp').controller('myCtrl', function ($scope) {
 
     $scope.addNewVnfd = function () {
         $scope.$broadcast('childOpen','open');
+
     };
 
     $scope.checkVnfd = function ($index) {
@@ -230,7 +231,7 @@ angular.module('myApp').controller('myCtrl', function ($scope) {
                     alert("该虚拟网络功能已处于未启用状态!");
                 }else {
                     alert("停止失败!");
-                }
+                } ng-controller
             },
             error:function () {
                 alert("网络连接超时,请重试!");
@@ -317,11 +318,13 @@ angular.module('myApp').controller('addModalCtrl', function ($scope, $uibModal) 
             }
         })
     }
+
 });
 
 angular.module('myApp').controller('addModalInsCtrl', function ($uibModalInstance) {
     var $ctrl = this;
     $ctrl.vnfData = null;
+
     $ctrl.ok = function () {
         $uibModalInstance.close($ctrl.vnfData);
     };
@@ -329,18 +332,27 @@ angular.module('myApp').controller('addModalInsCtrl', function ($uibModalInstanc
         $uibModalInstance.dismiss('cancel');
     };
     $ctrl.upload = function () {
+        document.getElementById("test2").style.visibility="hidden";
+        document.getElementById("test4").style.visibility="hidden";
+        document.getElementById("test6").style.visibility="hidden";
+        document.getElementById("test1").style.visibility="hidden";
+        document.getElementById("test3").style.visibility="hidden";
+        document.getElementById("test5").style.visibility="hidden";
         var formdata = new FormData($("#uploadFile")[0]);
         $.ajax({
             url:"uploadVnfd",
             type:"POST",
             data:formdata,
-            timeout:10000,
+            timeout:1000000000,
             async: false,
             cache: false,
             contentType: false,
             processData: false,
             success:function (data) {
-                if(data.code == '1'){
+                if(data.code =='1'){
+                    document.getElementById("test1").style.visibility="visible";
+                    document.getElementById("test3").style.visibility="visible";
+                    document.getElementById("test5").style.visibility="visible";
                     alert("上传成功!");
                     var path = data.path;
                     var vnfd = data.vnfd;
@@ -354,20 +366,33 @@ angular.module('myApp').controller('addModalInsCtrl', function ($uibModalInstanc
                     };
                     $ctrl.vnfData = vnfdInfo;
                 }else if (data.code == '2'){
+                    document.getElementById("test2").style.visibility="visible";
+                    //document.getElementById("test4").style.visibility="hidden";
+                    //document.getElementById("test6").style.visibility="hidden";
                     alert("文件格式不合法!");
                 }else if (data.code == '4'){
                     alert("文件已存在!")
                 }else if (data.code == '5'){
                     alert("文件内不含镜像,请重新上传!");
+                    //document.getElementById("test2").style.visibility="hidden";
+                    document.getElementById("test4").style.visibility="visible";
+                    //document.getElementById("test6").style.visibility="hidden";
                 }else if (data.code == '6'){
                     alert("文件内不包含配置文件,请重新上传!");
+                    //document.getElementById("test2").style.visibility="hidden";
+                    //document.getElementById("test4").style.visibility="hidden";
+                    document.getElementById("test6").style.visibility="visible";
                 }else {
-                    //alert("上传失败,请重试!");
+                    alert("上传失败,请选择文件!");
                 }
             },
             error:function () {
                 alert("网络连接超时!");
+                document.getElementById("test2").style.visibility="visible";
+                document.getElementById("test4").style.visibility="visible";
+                document.getElementById("test6").style.visibility="visible";
             }
         });
     };
+
 });

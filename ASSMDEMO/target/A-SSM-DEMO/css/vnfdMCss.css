@@ -9,6 +9,8 @@ body{
     overflow: scroll;
 }
 .body{width: 100%; margin: 0 auto 8px;}
+
+
 /*====================================================右侧底部菜单====================================================*/
 .bottom_menu{border: 1px solid white; height: 49px;}
 .bottom_menu:after{content: '\200B'; clear: both; display: block; height: 0;}

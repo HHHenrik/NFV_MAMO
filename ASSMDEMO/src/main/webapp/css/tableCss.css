@@ -92,6 +92,9 @@ table:hover{cursor: default;}
 .check_icon::after{content: url("../images/check.png");
     /*padding: 4px 3px 0 3px; border: 1px solid white*/
 }
+.finish_icon::after{content: url("../images/finish.png");
+    /*padding: 4px 3px 0 3px; border: 1px solid white*/
+}
 .update_icon::after{content: url("../images/update.png");}
 .edit_icon::after{content: url("../images/edit.png");
     /*padding: 4px 3px 0 3px; border: 1px solid white*/

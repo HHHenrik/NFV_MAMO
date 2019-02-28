@@ -172,12 +172,36 @@
                                     <table>
                                         <tbody>
                                         <tr class="vnf_info">
-                                            <td>文件</td>
+                                            <td class="file">文件</td>
                                             <td class="upload_file"><input type="file" name="file" value="选择文件"></td>
+                                            <td class="btn"><input type="submit" value="上传" ng-click="$ctrl.upload()"></td>
+                                        </tr>
+                                        <tr>
+
                                         </tr>
                                         <tr class="vnf_info">
                                             <td></td>
-                                            <td class="create_input upload_submit"><input type="submit" value="上传" ng-click="$ctrl.upload()"></td>
+                                            <td class="file">格 式 验 证</td>
+                                            <td class="file" style="position:relative;">
+                                                <img  id="test1" style="position:absolute; top:0px; left:30px; z-index:1" width="20" height="20" src="../images/finish.png" alt="">
+                                                <img  id="test2" style="position:absolute; top:0px; left:30px; z-index:2" width="20" height="20" src="../images/canvas_delete.png" alt="">
+                                            </td>
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td></td>
+                                            <td class="file">内 容 验 证</td>
+                                            <td class="file" style="position:relative;">
+                                                <img  id="test3" style="position:absolute; top:0px; left:30px; z-index:1" width="20" height="20" src="../images/finish.png" alt="">
+                                                <img  id="test4" style="position:absolute; top:0px; left:30px; z-index:2" width="20" height="20" src="../images/canvas_delete.png" alt="">
+                                            </td>
+                                        </tr>
+                                        <tr class="vnf_info">
+                                            <td></td>
+                                            <td class="file">VNFD 验 证</td>
+                                            <td class="file" style="position:relative;">
+                                                <img  id="test5" style="position:absolute; top:0px; left:30px; z-index:1" width="20" height="20" src="../images/finish.png" alt="">
+                                                <img  id="test6" style="position:absolute; top:0px; left:30px; z-index:2" width="20" height="20" src="../images/canvas_delete.png" alt="">
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -185,7 +209,7 @@
                             </div>
                         </div>
                         <div class="modal-footer add_footer">
-                            <button class="btn" ng-click="$ctrl.ok()">确认</button>
+                            <button class="btn" ng-click="$ctrl.ok()">返回</button>
                         </div>
                     </div>
                 </script>
@@ -275,6 +299,7 @@
                     </div>
                 </script>
             </div>
+
         </div>
     </div>
     <div class="footer_box">
